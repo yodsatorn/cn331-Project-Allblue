@@ -1,7 +1,9 @@
 # Home
- [Info](#info) [Interation0](#Iteration0) [Interation1](#Iteration1) [Interation2](#Iteration2) [Contributor](#Contributor)
+- [info](#info) 
+- [Interation0](#Iteration0) [Interation1](#Iteration1) [Interation2](#Iteration2) 
+- [Contributor](#Contributor)
 
-## cn331-Project {#info}
+## info
 This repository is created for CN331's Project.
 
 ## Contributor
