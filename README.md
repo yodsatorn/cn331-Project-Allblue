@@ -19,9 +19,9 @@ Allblue is a web application for searching, finding and discussing your dream re
 ## Task
 
 1. ส่ง Requirement Report (ต้นฉบับ และ PDF)
-2. [Link to GitHub Repo](https://github.com/6110613228/cn331-Project-Allblue) [x]
+2. [Link to GitHub Repo](https://github.com/6110613228/cn331-Project-Allblue)
 3. [Link to Heroku]()
-4. [Link to Pivotal Tracker]()
+4. [Link to Pivotal Tracker](https://www.pivotaltracker.com/n/projects/2469972)
 
 # Iteration1
 
