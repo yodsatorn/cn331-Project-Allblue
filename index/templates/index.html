@@ -10,103 +10,50 @@
 </head>
 
 <body>
+
     <header>
         <div class="top-nav">
             <a href="">Allblue</a>
             <a href="{% url "about" %}">About Us</a>
-            <a href="">Github</a>
-            <a href="">Heroku</a>
-            <a href="">Pivotal Tracker</a>
-            <a class="logout" href="">Logout</a>
+            <a href="">Menu</a>
+            <a href="https://github.com/6110613228/cn331-Project-Allblue" target="blank">Github</a>
+            <a href="https://www.pivotaltracker.com/n/projects/2469972" target="blank">Pivotal Tracker</a>
+            <a class="login" href="">Login</a>
         </div>
     </header>
+
     <div class="container">
         <main class="main-area">
-            <article>
-                <header>
-                    <h2>First Article</h2>
-                    <p>Posted on Aug, 2 2015</p>
-                </header>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis et
-                    urna vel hendrerit. Curabitur ultrices eu arcu et gravida. Suspendisse at
-                    pharetra lorem, quis condimentum arcu. In hac habitasse platea dictumst.
-                    Duis sed consequat eros. Aliquam lectus mauris, imperdiet sit amet massa
-                    et, suscipit blandit dui. Proin lorem ante, laoreet quis mi at, pharetra
-                    ullamcorper felis. Phasellus massa ipsum, gravida id velit rutrum,
-                    tristique laoreet ipsum.
-                </p>
-                <p>Category: Lorem ipsum</p>
-            </article>
-            <article>
-                <header>
-                    <h2>Second Article</h2>
-                    <p>Posted on Aug, 1 2015</p>
-                </header>
-                <p>
-                    In ligula sapien, faucibus eget maximus quis, blandit ullamcorper augue.
-                    Etiam in rutrum quam. Praesent consectetur purus a nibh mattis egestas. In
-                    ullamcorper leo purus, eu bibendum purus eleifend a. Nullam dapibus ut
-                    nisl imperdiet rhoncus. Integer laoreet, arcu sed vestibulum auctor, nunc
-                    dui varius augue, nec sodales arcu metus nec tortor. Suspendisse eget nibh
-                    non sem finibus scelerisque ut eu nibh. Suspendisse pretium in urna ornare
-                    porta. Quisque mauris ante, volutpat vel nulla at, volutpat interdum
-                    justo.
-                </p>
-                <footer>
-                    <p>Category: In lingu</p>
-                </footer>
-            </article>
-            <article>
-                <header>
-                    <h2>Chicken Mussaman Curry</h2>
-                    <p>How to make Chicken Mussaman Curry<br>Posted on Oct, 17 2015</p>
-                </header>
-
-                <img src="{% static "index/images/Chicken-Mussaman-Curry.jpg" %}" alt="Chicken-Mussaman-Curry" height="200px">
-
-                <p>
-                    "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-                </p>
-
-                <h3>omnis dolor repellendus</h3>
-                <ol>
-                    <li>vero</li>
-                    <li>quas</li>
-                    <li>eligendi</li>
-                    <li>cumque</li>
-                    <li>Sed</li>
-                    <li>quis</li>
-                </ol>
-
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis et urna vel hendrerit. Curabitur ultrices eu arcu et gravida. Suspendisse at pharetra lorem, quis condimentum arcu. In hac habitasse platea dictumst. Duis sed consequat eros. Aliquam lectus mauris, imperdiet sit amet massa et, suscipit blandit dui. Proin lorem ante,
-                </p>
-
-                <div class="link">
-                    <a href="#">imperdiet sit</a>
-                </div>
-            </article>
+            <img src="{% static "index/images/view2.jpg" %}" alt="view2" height="480px" width="480px"
+                style="margin-left: 320px; margin-top: 220px; position: absolute;">
+            <img src="{% static "index/images/view.jpg" %}" alt="view" 
+                style="margin-left: 50px; margin-top: 50px; position: absolute;">
+            <img src="{% static "index/images/view3.jpg" %}" alt="view3" height="360px" width="360px"
+                style="margin-left: 50px; margin-top: 410px; position: absolute;">
         </main>
 
         <aside class="sidebar-area">
+            <br>
+            <img src="{% static "index/images/preview1.jpg" %}" alt="preview1" height="200px" style="margin-left: 50px;">
+            <br><br>
+            <img src="{% static "index/images/preview2.jpg" %}" alt="preview2" height="200px" width="300px" style="margin-left: 50px;">
+            <br><br>
+            <img src="{% static "index/images/preview3.jpg" %}" alt="preview3" height="200px" width="300px" style="margin-left: 50px;">
             <article>
                 <header>
-                    <h2>Sidebar</h2>
+                    <h2 style="text-align: center;">"Finding<br>
+                        your<br>
+                        dream<br> 
+                        recipe<br> 
+                        with<br> 
+                        Allblue"<br>
+                    </h2>
                 </header>
-                <p>
-                    Sed id sodales felis, non consequat felis. Phasellus nibh ex, vehicula vel
-                    egestas eu, mattis et nunc. Sed nec justo diam. Proin tincidunt
-                    condimentum tellus, sed vulputate elit sagittis vel. Quisque bibendum dui
-                    id velit venenatis lacinia.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis et urna vel hendrerit. Curabitur ultrices eu arcu et gravida. Suspendisse at pharetra lorem, quis condimentum arcu. In hac habitasse platea dictumst. Duis sed consequat eros. Aliquam lectus mauris, imperdiet sit amet massa et, suscipit blandit dui. Proin lorem ante, 
-                </p>
             </article>
         </aside>
+
         <footer class="site-footer">
-            <p class="footer">&copy;2015 My Website</p>
+            <p class="footer"><b>Allblue Allgood</b></p>
         </footer>
     </div>
 </body>
