@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <!-- Title -->
     <title>About</title>
 
     <meta charset="utf-8">
@@ -10,100 +11,121 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>                        
-                </button>
-                <a class="navbar-brand" href="http://127.0.0.1:8080">Allblue</a>
-              </div>
-              <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                  <li><a href="http://127.0.0.1:8080/about/">About</a></li>
-                  <li><a href="#">Menu</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+    <!-- load static -->
+    {% load static %}
+
+    <!-- background -->
+    <div style="background-image: url({% static "bg1.jpg" %}); background-size:120em;
+    background-repeat:no-repeat;">
+
+        <!-- shortcut bar -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://127.0.0.1:8080">Allblue</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="http://127.0.0.1:8080/about/">About</a></li>
+                        <li><a href="#">Menu</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="http://127.0.0.1:8080/admin"><span class="glyphicon glyphicon-log-in"></span>
+                                Login</a></li>
+                    </ul>
+                </div>
             </div>
+        </nav>
+
+        <!-- what is allblue block -->
+        <headfont>
+            <b>ALLBLUE</b>
+        </headfont>
+
+        <br>
+        <subheadfont><b>website to find a recipe</b></subheadfont>
+
+        <bodyfont>
+            <p style="margin-left: 400px; margin-top: 100px;"><b>What is Allblue?</b></p>
+        </bodyfont>
+
+        <div style="margin-left: 320px; margin-top: -150px; margin-bottom: -130.4px;">
+            <img src="{% static "underline.png" %}" width="420" height="370">
         </div>
-    </nav>
-    
 
-    <headfont>
-        <b>ALLBLUE</b>
-    </headfont>
+        <subbodyfont>
+            <p style="margin-top: 70px; margin-left: 200px;">
+                "Allblue is a web application for searching,<br><br>
+                &nbsp;&nbsp;&nbsp;finding and discussing your dream recipe."</p>
+        </subbodyfont>
 
-    <br>
-    <subheadfont><b>website to find a recipe</b></subheadfont>
-    </p>
-
+        <br><br><br><br><br><br>
+    </div>
 </head>
 
-
 <body>
-    {% load static %}
-    <div style="margin-left: 110px; margin-top: 45px; font-family:cursive; position: absolute;">
-        <button onclick="showname(),showicon()" style="width: 100px; height: 50px;">รายชื่อสมาชิก</button>
-    </div>
-        <div id = "underline" style="margin-left: 100px; margin-top: -20px; display:none; margin-bottom: -130.4px;">
-            <img src="{% static "underline.png" %}" width="420" height="370" >
+    <!-- Teams block -->
+    <div style="background-image: url({% static "bg2.jpg" %}); background-size:110em;
+    background-repeat:no-repeat; background-position-x: -10px; background-position-y: 0px;">
+        <bodyfont>
+            <p style="margin-left: 895px; margin-top: -45px;"><b><br>Teams</b></p>
+        </bodyfont>
+
+        <div style="margin-left: 740px; margin-top: -150px; margin-bottom: -130.4px;">
+            <img src="{% static "underline.png" %}" width="420" height="370">
         </div>
 
-        <div id="name" style="margin-left: 90px; ; display: none; font-family:cursive,sans-serif; font-size: 1.4em; margin-left: 135px; margin-top: 44px;"> 
-             6110613046&nbsp;&nbsp;นายภัควัฒน์&nbsp;&nbsp;&nbsp;อิสระวิศาลพล<br><br>
-             6110613061&nbsp;&nbsp;นายเจษฎากร&nbsp;&nbsp;แนวบรรทัด<br><br>
-             6110613228&nbsp;&nbsp;นายปุณณธัช&nbsp;&nbsp;บุณยรัตนสุนทร<br><br>
-             6110613129&nbsp;&nbsp;นายรัฐพล&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;พุทธรักษา<br><br>
-             6110613095&nbsp;&nbsp;นายยศธร&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ปานทองคำ<br><br>
-            <br><br>
+        <p style="margin-left: 90px; ;font-family:cursive,sans-serif; font-size: 1.8em; margin-left: 730px; margin-top: 30px;">
+            6110613046&nbsp;&nbsp;นายภัควัฒน์&nbsp;&nbsp;&nbsp;อิสระวิศาลพล<br><br>
+            6110613061&nbsp;&nbsp;นายเจษฎากร&nbsp;&nbsp;แนวบรรทัด<br><br>
+            6110613228&nbsp;&nbsp;นายปุณณธัช&nbsp;&nbsp;บุณยรัตนสุนทร<br><br>
+            6110613129&nbsp;&nbsp;นายรัฐพล&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;พุทธรักษา<br><br>
+            6110613095&nbsp;&nbsp;นายยศธร&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ปานทองคำ<br><br>
+        </p>
+
+    <!-- Contact block -->
+        <bodyfont>
+            <p style="margin-left: 895px; margin-top: 60px;"><b>Contact</b></p>
+        </bodyfont>
+
+        <div style="margin-left: 740px; margin-top: -150px;">
+            <img src="{% static "underline.png" %}" width="420" height="370">
         </div>
 
-    <div id="icon">
-
-        <div style="margin-left: 100px; margin-top: -20px;">
-            <img src="{% static "underline.png" %}" width="420" height="370" >
+        <div style="margin-top: -130px; margin-left: 750px; margin-bottom: 30px; mix-blend-mode: multiply;">
+            <img src="{% static "Github.png" %}" width="80" height="80" style="float: left;">
         </div>
 
-        <div style="margin-top: -130px; margin-left: 100px; margin-bottom: 30px;">
-            <img src="{% static "Github.png" %}" width="120" height="120" style="float: left;" >
+        <p style="margin-left: 840px; font-size: 1.4em; font-family:cursive; ">
+            <a href="https://github.com/6110613228/cn331-Project-Allblue" style="color: red;" target="blank">GitHub</a>
+        </p>
+
+        <div style="margin-top: 30px; margin-left: 740px; margin-bottom: 65px; mix-blend-mode: multiply;">
+            <img src="{% static "youtube.jpg" %}" width="100" height="100" style="float: left;">
         </div>
 
-        <div style="margin-left: 250px; font-size: 2em; font-family:cursive; ">
-            <a href="https://github.com/6110613228/cn331-Project-Allblue" target="blank">GitHub</a>
+        <p style="margin-left: 840px; font-size: 1.4em; font-family:cursive;">
+            <a href="https://www.youtube.com/" style="color: red;" target="blank">Youtube</a>
+        </p>
+
+        <div style="margin-top: 50px; margin-left: 758px; margin-bottom: 70px; mix-blend-mode: multiply;">
+            <img src="{% static "tracker.png" %}" width="60" height="60" style="float: left;">
         </div>
 
-        <div style="margin-top: 50px; margin-left: 87px; margin-bottom: 90px;">
-            <img src="{% static "youtube.jpg" %}" width="140" height="140" style="float: left;">
-        </div>
-        
-        <div style="margin-left: 250px; font-size: 2em; font-family:cursive">
-            <a href="https://www.youtube.com/" target="blank">Youtube</a>
-        </div>
+        <p style="margin-left: 840px; font-size: 1.4em; font-family:cursive">
+            <a href="https://www.pivotaltracker.com/n/projects/2469972" style="color: red;" target="blank">Pivotal Tracker</a>
+        </p>
 
-        <div style="margin-top: 60px; margin-left: 110px; margin-bottom: 80px;">
-            <img src="{% static "tracker.png" %}" width="100" height="100" style="float: left;">
-        </div>
-
-        <div style="margin-left: 250px; font-size: 2em; font-family:cursive">
-            <a href="https://www.pivotaltracker.com/n/projects/2469972" target="blank">PivotalTracker</a>
-        </div>
-
-        <br><br><br>
+        <br><br><br><br><br>
     </div>
 </body>
 
 <style>
-    body {
-        background-image: url({% static "pizza.jpg" %});
-        background-size: 123em;
-        background-repeat: no-repeat;
-    }
-
     headfont {
         font-family: "Josefin Sans", sans-serif;
         font-size: 10em;
@@ -120,62 +142,20 @@
         font-family: 'Franklin Gothic Medium', sans-serif;
         font-size: 1.5em;
         color: coral;
-        display: block;
-        margin-inline-start: 100px;
+        margin-left: 100px;
+        margin-top: -20px;
     }
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
-    }
-</style>
 
-<script>
-    function showname() {
-        var x = document.getElementById("name");
-        var y = document.getElementById("underline");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-            y.style.display = "block";
-        } else {
-            x.style.display = "none";
-            y.style.display = "none";
-        }
+    bodyfont {
+        font-family: cursive, sans-serif;
+        font-size: 2.2em;
     }
-    function showicon() {
-        var x = document.getElementById("icon");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
+
+    subbodyfont {
+        font-family: cursive, sans-serif;
+        font-size: 2.4em;
     }
-</script>
+
+</style>
 
 </html>
