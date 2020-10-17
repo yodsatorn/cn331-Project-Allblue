@@ -14,25 +14,25 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>                        
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="http://127.0.0.1:8080">Allblue</a>
-              </div>
-              <div class="collapse navbar-collapse" id="myNavbar">
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                  <li><a href="http://127.0.0.1:8080/about/">About</a></li>
-                  <li><a href="#">Menu</a></li>
-                  <li><a href="#">Contact</a></li>
+                    <li><a href="http://127.0.0.1:8080/about/">About</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    
+
 
     <headfont>
         <b>ALLBLUE</b>
@@ -50,38 +50,39 @@
     <div style="margin-left: 110px; margin-top: 45px; font-family:cursive; position: absolute;">
         <button onclick="showname(),showicon()" style="width: 100px; height: 50px;">รายชื่อสมาชิก</button>
     </div>
-        <div id = "underline" style="margin-left: 100px; margin-top: -20px; display:none; margin-bottom: -130.4px;">
-            <img src="{% static "underline.png" %}" width="420" height="370" >
-        </div>
+    <div id="underline" style="margin-left: 100px; margin-top: -20px; display:none; margin-bottom: -130.4px;">
+        <img src="{% static "underline.png" %}" width="420" height="370">
+    </div>
 
-        <div id="name" style="margin-left: 90px; ; display: none; font-family:cursive,sans-serif; font-size: 1.4em; margin-left: 135px; margin-top: 44px;"> 
-             6110613046&nbsp;&nbsp;นายภัควัฒน์&nbsp;&nbsp;&nbsp;อิสระวิศาลพล<br><br>
-             6110613061&nbsp;&nbsp;นายเจษฎากร&nbsp;&nbsp;แนวบรรทัด<br><br>
-             6110613228&nbsp;&nbsp;นายปุณณธัช&nbsp;&nbsp;บุณยรัตนสุนทร<br><br>
-             6110613129&nbsp;&nbsp;นายรัฐพล&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;พุทธรักษา<br><br>
-             6110613095&nbsp;&nbsp;นายยศธร&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ปานทองคำ<br><br>
-            <br><br>
-        </div>
+    <div id="name"
+        style="margin-left: 90px; ; display: none; font-family:cursive,sans-serif; font-size: 1.4em; margin-left: 135px; margin-top: 44px;">
+        6110613046&nbsp;&nbsp;นายภัควัฒน์&nbsp;&nbsp;&nbsp;อิสระวิศาลพล<br><br>
+        6110613061&nbsp;&nbsp;นายเจษฎากร&nbsp;&nbsp;แนวบรรทัด<br><br>
+        6110613228&nbsp;&nbsp;นายปุณณธัช&nbsp;&nbsp;บุณยรัตนสุนทร<br><br>
+        6110613129&nbsp;&nbsp;นายรัฐพล&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;พุทธรักษา<br><br>
+        6110613095&nbsp;&nbsp;นายยศธร&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ปานทองคำ<br><br>
+        <br><br>
+    </div>
 
     <div id="icon">
 
         <div style="margin-left: 100px; margin-top: -20px;">
-            <img src="{% static "underline.png" %}" width="420" height="370" >
+            <img src="{% static "underline.png" %}" width="420" height="370">
         </div>
 
         <div style="margin-top: -130px; margin-left: 100px; margin-bottom: 30px;">
-            <img src="{% static "Github.png" %}" width="120" height="120" style="float: left;" >
+            <img src="{% static "Github.png" %}" width="120" height="120" style="float: left;">
         </div>
 
-        <div style="margin-left: 250px; font-size: 2em; font-family:cursive; ">
+        <div style="margin-left: 250px; font-size: 2em; font-family:cursive;">
             <a href="https://github.com/6110613228/cn331-Project-Allblue" target="blank">GitHub</a>
         </div>
 
         <div style="margin-top: 50px; margin-left: 87px; margin-bottom: 90px;">
             <img src="{% static "youtube.jpg" %}" width="140" height="140" style="float: left;">
         </div>
-        
-        <div style="margin-left: 250px; font-size: 2em; font-family:cursive">
+
+        <div style="margin-left: 250px; font-size: 2em; font-family:cursive;">
             <a href="https://www.youtube.com/" target="blank">Youtube</a>
         </div>
 
@@ -89,7 +90,7 @@
             <img src="{% static "tracker.png" %}" width="100" height="100" style="float: left;">
         </div>
 
-        <div style="margin-left: 250px; font-size: 2em; font-family:cursive">
+        <div style="margin-left: 250px; font-size: 2em; font-family:cursive;">
             <a href="https://www.pivotaltracker.com/n/projects/2469972" target="blank">PivotalTracker</a>
         </div>
 
@@ -123,36 +124,42 @@
         display: block;
         margin-inline-start: 100px;
     }
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
+
+    /* Remove the navbar's default margin-bottom and rounded borders */
     .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
+        margin-bottom: 0;
+        border-radius: 0;
     }
-    
+
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
+    .row.content {
+        height: 450px
+    }
+
     /* Set gray background color and 100% height */
     .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
+        padding-top: 20px;
+        background-color: #f1f1f1;
+        height: 100%;
     }
-    
+
     /* Set black background color, white text and some padding */
     footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
+        background-color: #555;
+        color: white;
+        padding: 15px;
     }
-    
+
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
+        .sidenav {
+            height: auto;
+            padding: 15px;
+        }
+
+        .row.content {
+            height: auto;
+        }
     }
 </style>
 
