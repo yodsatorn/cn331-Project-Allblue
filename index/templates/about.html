@@ -5,39 +5,29 @@
     <!-- Title -->
     <title>About</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
     <!-- load static -->
     {% load static %}
 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static "index/css/index-style.css" %}">
+
+</head>
+
+<body>
     <!-- background -->
-    <div style="background-image: url({% static "about/images/bg1.jpg" %}); background-size:120em;
-    background-repeat:no-repeat;">
+    <div style="width: 1520px; height: 1015px; background-size: 110em; background-repeat:no-repeat; background-size: cover; 
+    background-image: url({% static "about/images/bg1.jpg" %});">
 
         <!-- shortcut bar -->
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="http://127.0.0.1:8080">Allblue</a>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar" style="font-size: 1.3em;">
-                    <ul class="nav navbar-nav">
-                        <li><a href="http://127.0.0.1:8080/about/">About</a></li>
-                        <li><a href="#">Menu</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="http://127.0.0.1:8080/admin"><span class="glyphicon glyphicon-log-in"></span>
-                                Login</a></li>
-                    </ul>
-                </div>
+        <header>
+            <div class="top-nav" style="width: 1519px;">
+                <a href="{% url "index" %}">Allblue</a>
+                <a href="{% url "about" %}">About Us</a>
+                <a href="#">Menu</a>
+                <a class="login" href="">Login</a>
             </div>
-        </nav>
+        </header>
 
         <!-- what is allblue block -->
         <headfont>
@@ -48,84 +38,81 @@
         <subheadfont><b>website to find a recipe</b></subheadfont>
 
         <bodyfont>
-            <p style="margin-left: 400px; margin-top: 100px;"><b>What is Allblue?</b></p>
+            <p style="margin-left: 400px; margin-top: 50px; width: 500px;"><b>What is Allblue?</b></p>
         </bodyfont>
 
-        <div style="margin-left: 320px; margin-top: -150px; margin-bottom: -130.4px;">
+        <div style="margin-left: 330px; margin-top: -170px; margin-bottom: -130.4px;">
             <img src="{% static "about/images/underline.png" %}" alt="underline" width="420" height="370">
         </div>
 
         <subbodyfont>
-            <p style="margin-top: 70px; margin-left: 200px;">
+            <p style="margin-top: 70px; margin-left: 170px; width: 1000px;">
                 "Allblue is a web application for searching,<br><br>
-                &nbsp;&nbsp;&nbsp;finding and discussing your dream recipe."</p>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;finding and discussing your dream recipe."</p>
         </subbodyfont>
 
         <br><br><br><br><br><br>
     </div>
-</head>
 
-<body>
     <!-- Teams block -->
-    <div style="background-image: url({% static "about/images/bg2.jpg" %}); background-size:110em;
-    background-repeat:no-repeat; background-position-x: -10px; background-position-y: 0px;">
+    <div style= "width: 1520px; height: 1200px; background-repeat:no-repeat; background-size: cover;
+    background-image: url({% static "about/images/bg2.jpg" %});">
+
         <bodyfont>
-            <p style="margin-left: 895px; margin-top: -40px;"><b><br>Teams</b></p>
+            <p style="margin-left: 788px; margin-top: -25px; width: 200px;"><b><br>Teams</b></p>
         </bodyfont>
 
-        <div style="margin-left: 740px; margin-top: -150px; margin-bottom: -130.4px;">
+        <div style="margin-left: 640px; margin-top: -150px; margin-bottom: -130.4px;">
             <img src="{% static "about/images/underline.png" %}" width="420" alt="underline" height="370">
         </div>
 
-        <article>
-            <p style="margin-left: 90px; ;font-family:cursive,sans-serif; font-size: 1.8em; margin-left: 730px; margin-top: 30px;">
-                6110613046&nbsp;&nbsp;นายภัควัฒน์&nbsp;&nbsp;&nbsp;อิสระวิศาลพล<br><br>
-                6110613061&nbsp;&nbsp;นายเจษฎากร&nbsp;&nbsp;แนวบรรทัด<br><br>
-                6110613228&nbsp;&nbsp;นายปุณณธัช&nbsp;&nbsp;บุณยรัตนสุนทร<br><br>
-                6110613129&nbsp;&nbsp;นายรัฐพล&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;พุทธรักษา<br><br>
-                6110613095&nbsp;&nbsp;นายยศธร&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ปานทองคำ<br><br>
-            </p>
-        </article>
+        <p style="font-family:cursive,sans-serif; font-size: 1.4em; margin-left: 650px; margin-top: 30px; width: 500px;">
+            6110613046&nbsp;&nbsp;นายภัควัฒน์&nbsp;&nbsp;&nbsp;อิสระวิศาลพล<br><br>
+            6110613061&nbsp;&nbsp;นายเจษฎากร&nbsp;&nbsp;แนวบรรทัด<br><br>
+            6110613228&nbsp;&nbsp;นายปุณณธัช&nbsp;&nbsp;บุณยรัตนสุนทร<br><br>
+            6110613129&nbsp;&nbsp;นายรัฐพล&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;พุทธรักษา<br><br>
+            6110613095&nbsp;&nbsp;นายยศธร&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ปานทองคำ<br><br>
+        </p>
 
         <!-- Contact block -->
         <bodyfont>
-            <p style="margin-left: 895px; margin-top: 60px;"><b>Contact</b></p>
+            <p style="margin-left: 776px; margin-top: 80px;"><b>Contact</b></p>
         </bodyfont>
 
-        <div style="margin-left: 740px; margin-top: -150px;">
+        <div style="margin-left: 635px; margin-top: -150px;">
             <img src="{% static "about/images/underline.png" %}" alt="underline" width="420" height="370">
         </div>
 
-        <div style="margin-top: -130px; margin-left: 750px; margin-bottom: 30px; mix-blend-mode: multiply;">
+        <div style="margin-top: -130px; margin-left: 650px; margin-bottom: 30px; mix-blend-mode: multiply;">
             <img src="{% static "about/images/Github.png" %}" alt="Github-logo" width="80" height="80"
                 style="float: left;">
         </div>
 
-        <p style="margin-left: 840px; font-size: 1.4em; font-family:cursive; ">
+        <p style="margin-left: 740px; font-size: 1.4em; font-family:cursive; width: 40px;">
             <a href="https://github.com/6110613228/cn331-Project-Allblue" style="color: red;" target="blank">GitHub</a>
         </p>
 
-        <div style="margin-top: 30px; margin-left: 740px; margin-bottom: 65px; mix-blend-mode: multiply;">
+        <div style="margin-top: 30px; margin-left: 639px; margin-bottom: 65px; mix-blend-mode: multiply;">
             <img src="{% static "about/images/youtube.jpg" %}" alt="youtube-logo" width="100" height="100"
                 style="float: left;">
         </div>
 
-        <p style="margin-left: 840px; font-size: 1.4em; font-family:cursive;">
+        <p style="margin-left: 740px; font-size: 1.4em; font-family:cursive; width: 40px;">
             <a href="https://www.youtube.com/" style="color: red;" target="blank">Youtube</a>
         </p>
 
-        <div style="margin-top: 50px; margin-left: 758px; margin-bottom: 70px; mix-blend-mode: multiply;">
+        <div style="margin-top: 50px; margin-left: 659px; margin-bottom: 70px; mix-blend-mode: multiply;">
             <img src="{% static "about/images/tracker.png" %}" alt="pivotaltracker-logo" width="60" height="60"
                 style="float: left;">
         </div>
 
-        <p style="margin-left: 840px; font-size: 1.4em; font-family:cursive">
+        <p style="margin-left: 740px; font-size: 1.4em; font-family:cursive width: 40px;">
             <a href="https://www.pivotaltracker.com/n/projects/2469972" style="color: red;" target="blank">Pivotal
                 Tracker</a>
         </p>
 
         <br><br><br>
-        <a href="" style="margin-left: 1350px; font-size: 1.5em;">back to top</a>
+        <a href="" style="margin-left: 1200px; font-size: 1.5em; width: 20px;">back to top</a>
         <br><br>
     </div>
 </body>
@@ -160,6 +147,7 @@
         font-family: cursive, sans-serif;
         font-size: 2.4em;
     }
+
 </style>
 
 </html>
