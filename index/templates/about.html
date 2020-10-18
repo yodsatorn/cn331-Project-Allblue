@@ -15,7 +15,7 @@
     {% load static %}
 
     <!-- background -->
-    <div style="background-image: url({% static "pizza.jpg" %}); background-size:120em;
+    <div style="background-image: url({% static "about/images/bg1.jpg" %}); background-size:120em;
     background-repeat:no-repeat;">
 
         <!-- shortcut bar -->
@@ -29,7 +29,7 @@
                     </button>
                     <a class="navbar-brand" href="http://127.0.0.1:8080">Allblue</a>
                 </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
+                <div class="collapse navbar-collapse" id="myNavbar" style="font-size: 1.3em;">
                     <ul class="nav navbar-nav">
                         <li><a href="http://127.0.0.1:8080/about/">About</a></li>
                         <li><a href="#">Menu</a></li>
@@ -55,7 +55,7 @@
         </bodyfont>
 
         <div style="margin-left: 320px; margin-top: -150px; margin-bottom: -130.4px;">
-            <img src="{% static "underline.png" %}" alt="underline" width="420" height="370">
+            <img src="{% static "about/images/underline.png" %}" alt="underline" width="420" height="370">
         </div>
 
         <subbodyfont>
@@ -70,35 +70,39 @@
 
 <body>
     <!-- Teams block -->
-    <div style="background-image: url({% static "bg2.jpg" %}); background-size:110em;
+    <div style="background-image: url({% static "about/images/bg2.jpg" %}); background-size:110em;
     background-repeat:no-repeat; background-position-x: -10px; background-position-y: 0px;">
         <bodyfont>
-            <p style="margin-left: 895px; margin-top: -45px;"><b><br>Teams</b></p>
+            <p style="margin-left: 895px; margin-top: -40px;"><b><br>Teams</b></p>
         </bodyfont>
 
         <div style="margin-left: 740px; margin-top: -150px; margin-bottom: -130.4px;">
-            <img src="{% static "underline.png" %}" width="420" alt="underline" height="370">
+            <img src="{% static "about/images/underline.png" %}" width="420" alt="underline" height="370">
         </div>
 
-        <p style="margin-left: 90px; ;font-family:cursive,sans-serif; font-size: 1.8em; margin-left: 730px; margin-top: 30px;">
-            6110613046&nbsp;&nbsp;นายภัควัฒน์&nbsp;&nbsp;&nbsp;อิสระวิศาลพล<br><br>
-            6110613061&nbsp;&nbsp;นายเจษฎากร&nbsp;&nbsp;แนวบรรทัด<br><br>
-            6110613228&nbsp;&nbsp;นายปุณณธัช&nbsp;&nbsp;บุณยรัตนสุนทร<br><br>
-            6110613129&nbsp;&nbsp;นายรัฐพล&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;พุทธรักษา<br><br>
-            6110613095&nbsp;&nbsp;นายยศธร&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ปานทองคำ<br><br>
-        </p>
+        <article>
+            <p
+                style="margin-left: 90px; ;font-family:cursive,sans-serif; font-size: 1.8em; margin-left: 730px; margin-top: 30px;">
+                6110613046&nbsp;&nbsp;นายภัควัฒน์&nbsp;&nbsp;&nbsp;อิสระวิศาลพล<br><br>
+                6110613061&nbsp;&nbsp;นายเจษฎากร&nbsp;&nbsp;แนวบรรทัด<br><br>
+                6110613228&nbsp;&nbsp;นายปุณณธัช&nbsp;&nbsp;บุณยรัตนสุนทร<br><br>
+                6110613129&nbsp;&nbsp;นายรัฐพล&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;พุทธรักษา<br><br>
+                6110613095&nbsp;&nbsp;นายยศธร&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ปานทองคำ<br><br>
+            </p>
+        </article>
 
-    <!-- Contact block -->
+        <!-- Contact block -->
         <bodyfont>
             <p style="margin-left: 895px; margin-top: 60px;"><b>Contact</b></p>
         </bodyfont>
 
         <div style="margin-left: 740px; margin-top: -150px;">
-            <img src="{% static "underline.png" %}" alt="underline" width="420" height="370">
+            <img src="{% static "about/images/underline.png" %}" alt="underline" width="420" height="370">
         </div>
 
         <div style="margin-top: -130px; margin-left: 750px; margin-bottom: 30px; mix-blend-mode: multiply;">
-            <img src="{% static "Github.png" %}" alt="Github-logo" width="80" height="80" style="float: left;">
+            <img src="{% static "about/images/Github.png" %}" alt="Github-logo" width="80" height="80"
+                style="float: left;">
         </div>
 
         <p style="margin-left: 840px; font-size: 1.4em; font-family:cursive; ">
@@ -106,7 +110,8 @@
         </p>
 
         <div style="margin-top: 30px; margin-left: 740px; margin-bottom: 65px; mix-blend-mode: multiply;">
-            <img src="{% static "youtube.jpg" %}" alt="youtube-logo" width="100" height="100" style="float: left;">
+            <img src="{% static "about/images/youtube.jpg" %}" alt="youtube-logo" width="100" height="100"
+                style="float: left;">
         </div>
 
         <p style="margin-left: 840px; font-size: 1.4em; font-family:cursive;">
@@ -114,14 +119,18 @@
         </p>
 
         <div style="margin-top: 50px; margin-left: 758px; margin-bottom: 70px; mix-blend-mode: multiply;">
-            <img src="{% static "tracker.png" %}" alt="pivotaltracker-logo" width="60" height="60" style="float: left;">
+            <img src="{% static "about/images/tracker.png" %}" alt="pivotaltracker-logo" width="60" height="60"
+                style="float: left;">
         </div>
 
         <p style="margin-left: 840px; font-size: 1.4em; font-family:cursive">
-            <a href="https://www.pivotaltracker.com/n/projects/2469972" style="color: red;" target="blank">Pivotal Tracker</a>
+            <a href="https://www.pivotaltracker.com/n/projects/2469972" style="color: red;" target="blank">Pivotal
+                Tracker</a>
         </p>
 
-        <br><br><br><br><br>
+        <br><br><br>
+        <a href="" style="margin-left: 1350px; font-size: 1.5em;">back to top</a>
+        <br><br>
     </div>
 </body>
 
@@ -155,7 +164,6 @@
         font-family: cursive, sans-serif;
         font-size: 2.4em;
     }
-
 </style>
 
 </html>
