@@ -1,6 +1,6 @@
 html {
     background-color:rgb(255, 193, 21);
-    min-width: 1920px;
+    min-width: 1903px;
 }
 
 body {
@@ -9,32 +9,33 @@ body {
 }
 
 .firstBlock {
-    width: 1520px; 
-    height: 1015px; 
+    width: auto; 
+    height: auto;
     background-size: 110em; 
     background-repeat:no-repeat; 
     background-size: cover; 
     background-image: url(../images/bg1.jpg);
+    padding-bottom: 300px;
 }
 
-headfont {
+.firstBlock h1 {
+    margin: 0;
+    padding-top: 90px;
+}
+
+.firstBlock headfont {
     font-family: "Josefin Sans", sans-serif;
-    font-size: 10em;
+    font-size: 5em;
     font-weight: 700;
-    margin-bottom: 14px;
     line-height: 1.2;
-    display: block;
-    margin-block-start: 90px;
-    margin-block-end: 0px;
-    margin-inline-start: 100px;
+    margin-left: 100px;
 }
 
-subheadfont {
+.firstBlock subheadfont {
     font-family: 'Franklin Gothic Medium', sans-serif;
     font-size: 1.5em;
     color: coral;
     margin-left: 100px;
-    margin-top: -20px;
 }
 
 .firstBlock header {
@@ -44,71 +45,25 @@ subheadfont {
     margin-top: 50px;
     width: 500px;
 }
+.firstBlock .underline {
+    margin-left: 330px;
+    margin-top: -170px;
+    margin-bottom: -130.4px;
+}
 
-subbodyfont {
+.firstBlock subbodyfont {
     font-family: cursive, sans-serif;
     font-size: 2.4em;
 }
 
-.container{
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: 
-        "header header"
-        "line line"
-        "footer footer";
-    background-color: white;
-    max-width: 1200px;
-    margin: auto;
+.firstBlock subbodyfont p {
+    margin-left: 170px;
 }
 
-.main-area {
-    grid-area: main;
-    grid-column: 1/2;
-    grid-row: 2/3;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.sidebar-area {
-    grid-area: sidebar;
-    grid-column: 2/3;
-    grid-row: 2/3;
-    padding-right: 40px;
-} 
-
-.site-footer {
-    grid-area: footer;
-    grid-column: 1/3;
-    grid-row: 3/4;
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
-article header h2 {
-    margin-bottom: 0px;
-}
-
-article header p {
-    margin-top: 0px;
-}
-
-article img {
-    float: left;
-    margin-right: 15px;
-}
-
-article h3 {
-    margin-left: 20px;
-}
-
-article .link {
-    text-align: right;
-}
-
-p.footer {
-    border-top: 1px solid gray;
-    padding-top: 10px;
-    padding-bottom: 20px;
+.secondBlock {
+    width: 1520px;
+    height: 1200px;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-image: url(about/images/bg2.jpg);
 }
