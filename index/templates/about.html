@@ -1,45 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "topnav.html" %}
+<!-- Title -->
+{% block title %}About{% endblock %}
 
-<head>
-    <!-- Title -->
-    <title>About</title>
+<!-- load static -->
+{% load static %}
 
-    <!-- load static -->
-    {% load static %}
+<!-- link css -->
+{% block link %} {% static "about/css/about-style.css" %} {% endblock %}
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{% static "index/css/index-style.css" %}">
+<!-- background -->
+{% block body %}
 
-</head>
-
-<body>
-    <!-- background -->
-    <div style="width: 1520px; height: 1015px; background-size: 110em; background-repeat:no-repeat; background-size: cover; 
-    background-image: url({% static "about/images/bg1.jpg" %});">
-
-        <!-- shortcut bar -->
-        <header>
-            <div class="top-nav" style="width: 1519px;">
-                <a href="{% url "index" %}">Allblue</a>
-                <a href="{% url "about" %}">About Us</a>
-                <a href="#">Menu</a>
-                <a class="login" href="">Login</a>
-            </div>
-        </header>
+    <div class="firstBlock">
 
         <!-- what is allblue block -->
-        <headfont>
+        <headfont id="head">
             <b>ALLBLUE</b>
         </headfont>
-
+        
         <br>
+
         <subheadfont><b>website to find a recipe</b></subheadfont>
 
-        <bodyfont>
-            <p style="margin-left: 400px; margin-top: 50px; width: 500px;"><b>What is Allblue?</b></p>
-        </bodyfont>
+        <header>
+            <b>What is Allblue?</b>
+        </header>
 
         <div style="margin-left: 330px; margin-top: -170px; margin-bottom: -130.4px;">
             <img src="{% static "about/images/underline.png" %}" alt="underline" width="420" height="370">
@@ -111,43 +96,11 @@
                 Tracker</a>
         </p>
 
-        <br><br><br>
-        <a href="" style="margin-left: 1200px; font-size: 1.5em; width: 20px;">back to top</a>
+        <br>
+        <br>
+        <br>
+        
+        <a href="#head" style="margin-left: 1200px; font-size: 1.5em; width: 20px;">back to top</a>
         <br><br>
     </div>
-</body>
-
-<style>
-    headfont {
-        font-family: "Josefin Sans", sans-serif;
-        font-size: 10em;
-        font-weight: 700;
-        margin-bottom: 14px;
-        line-height: 1.2;
-        display: block;
-        margin-block-start: 90px;
-        margin-block-end: 0px;
-        margin-inline-start: 100px;
-    }
-
-    subheadfont {
-        font-family: 'Franklin Gothic Medium', sans-serif;
-        font-size: 1.5em;
-        color: coral;
-        margin-left: 100px;
-        margin-top: -20px;
-    }
-
-    bodyfont {
-        font-family: cursive, sans-serif;
-        font-size: 2.2em;
-    }
-
-    subbodyfont {
-        font-family: cursive, sans-serif;
-        font-size: 2.4em;
-    }
-
-</style>
-
-</html>
+    {% endblock %}
