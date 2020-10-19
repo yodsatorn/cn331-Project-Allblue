@@ -38,7 +38,7 @@ body {
     margin-left: 100px;
 }
 
-.firstBlock header {
+.firstBlock header{
     font-family: cursive, sans-serif;
     font-size: 2.2em;
     margin-left: 400px;
@@ -65,5 +65,9 @@ body {
     height: 1200px;
     background-repeat:no-repeat;
     background-size: cover;
-    background-image: url(about/images/bg2.jpg);
+    background-image: url(../images/bg2.jpg);
+}
+
+.secondBlock header {
+    
 }

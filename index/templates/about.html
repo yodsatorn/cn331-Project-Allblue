@@ -1,4 +1,4 @@
-{% extends "topnav.html" %}
+{% extends "layout-topnav.html" %}
 <!-- Title -->
 {% block title %}About{% endblock %}
 
@@ -36,9 +36,9 @@
     <!-- Teams block -->
     <div class="secondBlock">
 
-        <bodyfont>
+        <header>
             <p style="margin-left: 788px; margin-top: -25px; width: 200px;"><b><br>Teams</b></p>
-        </bodyfont>
+        </header>
 
         <div style="margin-left: 640px; margin-top: -150px; margin-bottom: -130.4px;">
             <img src="{% static "about/images/underline.png" %}" width="420" alt="underline" height="370">
@@ -53,9 +53,9 @@
         </p>
 
         <!-- Contact block -->
-        <bodyfont>
+        <header>
             <p style="margin-left: 776px; margin-top: 80px;"><b>Contact</b></p>
-        </bodyfont>
+        </header>
 
         <div style="margin-left: 635px; margin-top: -150px;">
             <img src="{% static "about/images/underline.png" %}" alt="underline" width="420" height="370">
@@ -96,4 +96,4 @@
         <a href="#head" style="margin-left: 1200px; font-size: 1.5em; width: 20px;">back to top</a>
         <br><br>
     </div>
-    {% endblock %}
+{% endblock %}
