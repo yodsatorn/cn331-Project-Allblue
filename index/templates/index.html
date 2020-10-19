@@ -1,27 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static "index/css/index-style.css" %}">
-    <title>Homepage</title>
-</head>
-
-<body>
-
-    <header>
-        <div class="top-nav">
-            <a href="{% url "index" %}">Allblue</a>
-            <a href="{% url "about" %}">About Us</a>
-            <a href="#">Menu</a>
-            <a href="https://github.com/6110613228/cn331-Project-Allblue" target="blank">Github</a>
-            <a href="https://www.pivotaltracker.com/n/projects/2469972" target="blank">Pivotal Tracker</a>
-            <a class="login" href="">Login</a>
-        </div>
-    </header>
-
+{% extends "topnav.html" %}
+{% load static %}
+{% block title %} Homepage {% endblock%}
+{% block link %} {% static "index/css/index-style.css" %} {% endblock %}
+{% block body %}
     <div class="container">
         <main class="main-area">
             <img src="{% static "index/images/view2.jpg" %}" alt="view2" height="480px" width="480px"
@@ -56,6 +37,4 @@
             <p class="footer"><b>Allblue Allgood</b></p>
         </footer>
     </div>
-</body>
-
-</html>
+{% endblock %}
