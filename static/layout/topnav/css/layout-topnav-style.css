@@ -1,9 +1,9 @@
-.top-nav {
+#topnav .top-nav {
     overflow: hidden;
     background-color: rgb(49, 49, 49);
 }
 
-.top-nav a {
+#topnav .top-nav a {
     float: left;
     color: #f2f2f2;
     text-align: center;
@@ -12,10 +12,10 @@
     font-size: 1.2em;
 }
 
-.top-nav a.login {
+#topnav .top-nav a.login {
     float: right;
 }
 
-.top-nav a:hover {
+#topnav .top-nav a:hover {
     background-color:black;
 }
