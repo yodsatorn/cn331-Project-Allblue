@@ -3,8 +3,8 @@
 This is a tutorial for basic html and our work flow for cn331-Project-Allblue
 
 - [Must know html tag](#Must-know-html-tag)
-- [html Construction Example](###html-Construction-Example)
-- [Work flow](##Work-flow)
+- [html Construction Example](#html-Construction-Example)
+- [Work flow](#Work-flow)
 
 ## Must know html tag
 
