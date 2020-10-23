@@ -14,11 +14,11 @@ Block element always **starts on a new line and takes up the full width availabl
 
 For example.
 
->This is Block element
+```
+This is Block element
+```
 
 `This is In-line element`
-
->This is `In-line element` inside Block element.
 
 [READ](https://www.w3schools.com/html/html_blocks.asp)
 
