@@ -2,6 +2,10 @@
 
 This is a tutorial for basic html and our work flow for cn331-Project-Allblue
 
+- [Must know html tag](##Must-know-html-tag)
+- [html Construction Example](###html-Construction-Example)
+- [Work flow](##Work-flow)
+
 ## Must know html tag
 
 ### block element
@@ -163,12 +167,183 @@ The `<a>` tag defines a hyperlink, which is used to link from one page to anothe
 
 ```
 
+We normally seperate each main section with `<div>` and **given them a class to be able to control them with style sheet**.
+
+link with css:
+
+```html
+<link rel="stylesheet" href="style/grid-demo2.css">
+```
+
+The option `rel="stylesheet"` is important it's indicate that this is a link to stylesheet.
+
+Inside grid-demo.css
+
+```css
+html {
+    background-color: rgb(115, 168, 115);
+}
+
+boby {
+    font-family: Tahoma, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+        "header header"
+        "line line"
+        "main sidebar"
+        "footer footer";
+    background-color: white;
+    max-width: 945px;
+    margin: auto;
+}
+
+.site-header {
+    grid-area: header;
+    grid-column: 1/3;
+    grid-row: 1/2;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.main-area {
+    grid-area: main;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    padding-left: 40px;
+    padding-right: 20px;
+}
+
+.sidebar-area {
+    grid-area: sidebar;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    padding-right: 40px;
+} 
+
+.side-footer {
+    grid-area: footer;
+    grid-column: 1/3;
+    grid-row: 3/4;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+h1 {
+    margin-bottom: 0;
+}
+
+header h1 + p {
+    margin-top: 0;
+}
+
+article header h2 {
+    margin-bottom: 0;
+}
+
+article header p {
+    margin-top: 0;
+}
+
+p.footer {
+    border-top: 2px solid gray;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.site-nav ul {
+    margin-top: 30px;
+    margin-left: 0;
+    padding: 0;
+}
+
+.site-nav ul li {
+    list-style: none;
+    float: left;
+    margin-right: 5px;
+}
+
+.site-nav a {
+    display: block;
+    text-decoration: none;
+    color: green;
+    padding: 5px 20px;
+    border: 2px solid dimgray;
+    border-bottom: none;
+}
+
+.site-nav a:hover {
+    background-color: lightgreen;
+}
+
+.line {
+    grid-area: line;
+    border-top: 3px solid gray;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+```
+
+h1 + p is call specificity oparator.
+
+[READ ABOUT SPECIFICITY](https://www.w3schools.com/css/css_specificity.asp)
+
 ## Work flow
 
-### Using reserved django's block tag
+### Using layout-topnav.html
 
-### How to use django template tag
+[layout-topnav.html](../index/templates/layout-topnav.html)
 
-#### url
+You can import layout-topnav.html to your html file by using Django's template tag.
 
-#### static
+> {% extends "layout-topnav.html" %}
+
+extends **doesn't require {% endblock %}**
+
+Inside layout-topnav.html include
+
+1. Block title
+2. Block head
+3. Block link
+4. Block body
+
+Block title is for indicate your title's page.
+Block head is for include something in html head.
+Block link is for link css flie.
+Block body is for include your html body.
+
+For example.
+
+```html
+{% extends "layout-topnav.html" %}
+<!-- If you are using static in your own html don't forget to load static -->
+{% load static %}
+{% block title %} Homepage {% endblock%}
+{% block link %} {% static "index/css/YOURCSSFILE.css" %} {% endblock %}
+{% block head %}
+  <!-- Your html head -->
+  <!-- For example. -->
+  <link rel="stylesheet" type="text/css" href="MORESTYLE.css">
+{% endblock %}
+{% block body %}
+
+Your Body block.
+
+{% endblock %}
+```
+
+### Seperating CSS file
+
+### django template tags
+
+[READ](https://docs.djangoproject.com/en/3.1/ref/templates/builtins/)
+
+1. [Block](https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#block)
+2. [extends](https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#extends)
+3. [url](https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#url)
+4. [include](https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#include)
+5. [static](https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#static)
