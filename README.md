@@ -14,6 +14,9 @@ This repository is created for CN331's Project.
 
 Allblue is a web application for searching, finding and discussing your dream recipe.
 
+# For contributor
+- [Tutorial](tutorial)
+
 # Iteration0
 
 ## Task
