@@ -312,8 +312,11 @@ Inside layout-topnav.html include
 4. Block body
 
 Block title is for indicate your title's page.
+
 Block head is for include something in html head.
+
 Block link is for link css flie.
+
 Block body is for include your html body.
 
 For example.
