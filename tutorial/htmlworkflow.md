@@ -12,6 +12,14 @@ This is a tutorial for basic html and our work flow for cn331-Project-Allblue
 
 Block element always **starts on a new line and takes up the full width available** (stretches out to the left and right as far as it can).
 
+For example.
+
+>This is Block element
+
+`This is In-line element`
+
+>This is `In-line element` inside Block element.
+
 [READ](https://www.w3schools.com/html/html_blocks.asp)
 
 #### div
