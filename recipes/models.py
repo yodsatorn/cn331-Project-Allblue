@@ -4,12 +4,8 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Recipes(models.Model):
-<<<<<<< HEAD
 
-=======
-    
     user = models.ManyToManyField(User, related_name = 'userRecipe')
->>>>>>> 1555944364757fed41fb9c2134e74401c284bf71
     reName = models.CharField(max_length = 128)
     solution = models.CharField(max_length = 4096)
     ingredient = models.CharField(max_length = 4096)
