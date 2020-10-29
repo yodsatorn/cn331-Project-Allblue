@@ -1,0 +1,24 @@
+{% extends "layout-topnav.html" %}
+<!-- Title -->
+{% block title %}Menu{% endblock %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- link css -->
+{% block link %} {% static "menu/css/menu-style.css" %} {% endblock %}
+
+<!-- background -->
+{% block body %}
+    <div class="container">
+        <img src="{% static "menu/images/kapao.jpg" %}" class="image">
+        <div class="text">PadKapao</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <img src="{% static "menu/images/burger.webp" %}" class="image">
+        <div class="text">Burger</div>
+        </div>
+    </div>
+{% endblock %}
