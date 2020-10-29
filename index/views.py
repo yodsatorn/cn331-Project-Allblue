@@ -12,10 +12,9 @@ def index(request):
 def about(request):
 	return  render(request, "about.html")
 
-<<<<<<< HEAD
 def menu(request):
 	return  render(request, "menu.html")
-=======
+	
 #for user register
 def register(request):
 	if request.method == 'POST':
@@ -52,4 +51,3 @@ def login(request):
 			})
 
 	return render(request, 'login.html')
->>>>>>> 0d608291f289244f4f26b1c6455311bf44b8da32
