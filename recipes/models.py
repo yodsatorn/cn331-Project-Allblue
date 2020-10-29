@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Recipes(models.Model):
-    
+
     user = models.ManyToManyField(User, related_name = 'userRecipe')
     reName = models.CharField(max_length = 128)
     solution = models.CharField(max_length = 4096)
@@ -18,6 +18,6 @@ class Recipes(models.Model):
 class Tags(models.Model):
     tagName = models.CharField(max_length = 64)
     tagID = models.ManyToManyField(Recipes)
-    
+
     def __str__(self):
         return f"Tag = {self.tagName}"
