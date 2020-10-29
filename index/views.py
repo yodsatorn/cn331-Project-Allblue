@@ -28,11 +28,10 @@ def register(request):
 		newuser.email = email
 		newuser.set_password(password)
 		newuser.save()
-
-		# from django.shortcuts import redirect
-
+		
 		return redirect('index')
-	return render(request, 'index/register.html')
+
+	return render(request, 'register.html')
 
 def login(request):
 
@@ -44,8 +43,8 @@ def login(request):
 			login(request, user)
 			return redirect("index")
 		else :
-			return render(request, "index/login.html", {
+			return render(request, "login.html", {
 				"message": "Invalid Credentials"
 			})
-			
-	return render(request, 'index/login.html')
+
+	return render(request, 'login.html')
