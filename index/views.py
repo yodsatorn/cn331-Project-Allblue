@@ -29,15 +29,15 @@ def register(request):
 		newuser.set_password(password)
 		newuser.save()
 		
-		return redirect('index')
+		return HttpReponseRedirect('index')
 
 	return render(request, 'register.html')
 
 def login(request):
 
 	if request.method == "POST":
-		username = request.POST["username"]
-		password = request.POST["password"]
+		username = request.POST.get("username")
+		password = request.POST.get("password")
 		user = authenticate(request, username= username, password= password)
 		if user is not None:
 			login(request, user)
