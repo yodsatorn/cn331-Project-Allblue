@@ -28,20 +28,24 @@ def register(request):
 		newuser.email = email
 		newuser.set_password(password)
 		newuser.save()
+
 		# from django.shortcuts import redirect
+
 		return redirect('index')
 	return render(request, 'index/register.html')
 
 def login(request):
+
 	if request.method == "POST":
 		username = request.POST["username"]
-        password = request.POST["password"]
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect("index")
-        else:
-            return render(request, "index/login.html", {
-                "message": "Invalide credentials"
-            })
+		password = request.POST["password"]
+		user = authenticate(request, username= username, password= password)
+		if user is not None:
+			login(request, user)
+			return redirect("index")
+		else :
+			return render(request, "index/login.html", {
+				"message": "Invalid Credentials"
+			})
+			
 	return render(request, 'index/login.html')
