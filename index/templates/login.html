@@ -1,21 +1,16 @@
 {% extends "layout-topnav.html" %}
-{% load static %}
-{% block title %}Login page{% endblock%}
-{% block head %}
-<style>
-    label {
-        padding-right: 0px;
-    }
 
-    form {
-        margin-left: 10px;
-    }
-</style>
-{% endblock %}
+{% load static %}
+
+<!-- Title -->
+{% block title %}Login page{% endblock%}
+
+<!-- body -->
 {% block body %}
+
 <h1>Login</h1>
 {% if message %}
-    <h3>{{ message }}</h3>
+    <h2>{{ message }}</h3>
 {% endif %}
 <form action="{% url 'login' %}" method="post">
     {% csrf_token %}
@@ -31,4 +26,5 @@
 
     <input type="submit">
 </form>
+
 {% endblock %}
