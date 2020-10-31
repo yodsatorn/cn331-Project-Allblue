@@ -36,7 +36,7 @@ def register(request):
 
 	return render(request, 'register.html')
 
-def login(request):
+def view_login(request):
 
 	if request.method == "POST":
 		username = request.POST.get("username")
