@@ -22,13 +22,14 @@ def menu3(request):
 def register(request):
 	if request.method == 'POST':
 		data = request.POST.copy()
+		username = data.get('username')
 		first_name = data.get('first_name')
 		last_name = data.get('last_name')
 		email = data.get('email')
 		password = data.get('password')
 		
 		newuser = User()
-		newuser.username = email
+		newuser.username = username
 		newuser.first_name = first_name
 		newuser.last_name = last_name
 		newuser.email = email

@@ -1,34 +1,43 @@
 {% extends "layout-topnav.html" %}
+
 {% load static %}
+
+<!-- Title -->
 {% block title %}Login page{% endblock%}
-{% block head %}
-<style>
-    label {
-        padding-right: 0px;
-    }
 
-    form {
-        margin-left: 10px;
-    }
-</style>
-{% endblock %}
+<!-- link style sheat -->
+{% block link %} {% static "login/css/login-style.css" %} {% endblock %}
+<!-- body -->
 {% block body %}
-<h1>Login</h1>
-{% if message %}
-    <h3>{{ message }}</h3>
-{% endif %}
-<form action="{% url 'login' %}" method="post">
-    {% csrf_token %}
-    <div>
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
-    </div>
 
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-    </div>
+<div class="container">
+    <form action="{% url 'login' %}" method="post">
+        <h1>Login</h1>
+        {% if message %}
+            <h2>{{ message }}</h3>
+        {% endif %}
+        {% csrf_token %}
+        <div class="form">
+            <div class="label">
+                <label for="username">Username:</label> <br>
+            </div>
+            <input type="text" name="username" id="username">
+        </div>
 
-    <input type="submit">
-</form>
+        <div class="form">
+            <div class="label">
+                <label for="password">Password:</label> <br>
+            </div>
+            <input type="password" name="password" id="password">
+        </div>
+
+        <div class="form">
+            <input class="submit" type="submit" value="Sign in">
+        </div>
+    </form>
+</div>
+
+<div class="container">
+    <p>New to our site? <a href="{% url 'register' %}">Sign up</a></p>
+</div>
 {% endblock %}
