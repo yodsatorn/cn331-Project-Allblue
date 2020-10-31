@@ -6,10 +6,45 @@ html {
     max-width: 1920;
 }
 
-form {
-    margin-left: 10px;
+div.container {
+    margin: 100px auto 0px;
+    width: 750px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: lightgray;
+    text-align: center;
 }
 
-label {
-    padding-right: 0px;
+div.container+div.container {
+    margin-top: 20px;
+    padding: 2px 10px;
+}
+h1 {
+    margin: 0;
+    font-weight: 200;
+}
+
+h1+h2 {
+    margin-top: 0;
+    font-weight: lighter;
+    color: red;
+}
+
+div.form {
+    width: 200px;
+    margin: 10px auto;
+    padding: 0px;
+}
+
+div.form div.label {
+    text-align: left ;
+    margin: 0;
+    margin-left: 12.5px;
+    padding: 0;
+}
+
+div.form input.submit {
+    margin-top: 10px;
+    width: 177px;
 }
