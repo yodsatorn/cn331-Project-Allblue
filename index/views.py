@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from django.db import IntegrityError
+
 
 # Create your views here.
 
@@ -21,17 +23,27 @@ def menu3(request):
 #for user register
 def register(request):
 	if request.method == 'POST':
-		
+
 		username = request.POST.get('username')
 		password = request.POST.get('password')
 		email = request.POST.get('email')
 		first_name = request.POST.get('first_name')
 		last_name = request.POST.get('last_name')
-
-		newuser = User.objects.create_user(username= username, password= password, email= email, first_name= first_name, last_name= last_name)
-
-		newuser.save()
 		
+		try:
+			if User.objects.filter(email = email).exists() :
+				raise IntegrityError('Email was taken.')
+			elif User.objects.filter(username = username).exists() :
+				raise IntegrityError('Username was taken.')
+
+			newuser = User.objects.create_user(username= username, password= password, email= email, first_name= first_name, last_name= last_name)
+			newuser.save()
+
+		except IntegrityError as e:
+			return render(request, 'register.html',{
+				'error_message' : e
+			})
+
 		return redirect('index')
 
 	return render(request, 'register.html')
