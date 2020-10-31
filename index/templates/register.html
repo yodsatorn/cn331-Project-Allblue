@@ -1,8 +1,69 @@
 {% extends "layout-topnav.html" %}
-{% load static %}
-{% block title %}Register page{% endblock%}
-{% block link %}{% endblock %}
 
+{% load static %}
+
+<!-- Title -->
+{% block title %}Register page{% endblock%}
+
+<!-- Link css -->
+{% block link %} {% static "register/css/register-style.css" %} {% endblock %}
+
+<!-- Start body -->
 {% block body %}
-Register page
+
+<div class="container">
+    <form action="{% url 'login' %}" method="post">
+        <h1>Sign up</h1>
+        {% if message %}
+            <h2>{{ message }}</h3>
+        {% endif %}
+        {% csrf_token %}
+
+        <!-- Username: -->
+        <div class="form">
+            <div class="label">
+                <label for="username">Username:</label> <br>
+            </div>
+            <input type="text" name="username" id="username">
+        </div>
+
+        <!-- Email: -->
+        <div class="form">
+            <div class="label">
+                <label for="email">Email:</label> <br>
+            </div>
+            <input type="email" name="email" id="email">
+        </div>
+
+        <!-- Password: -->
+        <div class="form">
+            <div class="label">
+                <label for="password">Password:</label> <br>
+            </div>
+            <input type="password" name="password" id="password">
+        </div>
+
+        <!-- first_name: -->
+        <div class="form">
+            <div class="label">
+                <label for="firstname">Firstname:</label> <br>
+            </div>
+            <input type="text" name="first_name" id="firstname">
+        </div>
+
+        <!-- last_name: -->
+        <div class="form">
+            <div class="label">
+                <label for="lastname">Surname:</label> <br>
+            </div>
+            <input type="text" name="last_name" id="lastname">
+        </div>
+
+        <!-- Submit -->
+        <div class="form">
+            <input class="submit" type="submit" value="Sign up">
+        </div>
+    </form>
+</div>
+
 {% endblock %}
