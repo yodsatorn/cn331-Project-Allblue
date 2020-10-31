@@ -1,0 +1,82 @@
+{% extends "layout-topnav.html" %}
+<!-- Title -->
+{% block title %}Menu{% endblock %}
+
+<!-- load static -->
+{% load static %}
+
+<!-- link css -->
+{% block link %} {% static "menu/css/menu-style.css" %} {% endblock %}
+
+<!-- background -->
+{% block body %}
+
+
+<div class="form">
+    <form action="/action_page.php">
+        <label for="search">Search Recipe:</label>
+        <input type="search" id="search" name="search">
+        <input type="submit">
+    </form>
+</div>
+
+<div class="row">
+    <div class="column">
+        <div class="block">
+            <img src="{% static "menu/images/kapao.jpg" %}" class="image">
+            <div class="text">PadKapao</div>
+        </div>
+        <div class="block">
+            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
+            <div class="text">Somtum</div>
+        </div>
+        <div class="block">
+            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
+            <div class="text">Somtum</div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="block">
+            <img src="{% static "menu/images/pancake.jpg" %}" class="image">
+            <div class="text">Pancake</div>
+        </div>
+        <div class="block">
+            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
+            <div class="text">Somtum</div>
+        </div>
+        <div class="block">
+            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
+            <div class="text">Somtum</div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="block">
+            <img src="{% static "menu/images/steak.jpg" %}" class="image">
+            <div class="text">Steak</div>
+        </div>
+        <div class="block">
+            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
+            <div class="text">Somtum</div>
+        </div>
+        <div class="block">
+            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
+            <div class="text">Somtum</div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="block">
+            <img src="{% static "menu/images/burger.webp" %}" class="image">
+            <div class="text">Burger</div>
+        </div>
+        <div class="block">
+            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
+            <div class="text">Somtum</div>
+        </div>
+        <div class="block">
+            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
+            <div class="text">Somtum</div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
