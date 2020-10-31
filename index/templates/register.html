@@ -11,11 +11,15 @@
 <!-- Start body -->
 {% block body %}
 
+{% if message %}
+    <h2>{{ message }}</h3>
+{% endif %}
+
 <div class="container">
     <form action="{% url 'register' %}" method="post">
         <h1>Sign up</h1>
-        {% if message %}
-            <h2>{{ message }}</h3>
+        {% if error_message %}
+            <h2>{{ error_message }}</h2>
         {% endif %}
         {% csrf_token %}
 
@@ -24,7 +28,7 @@
             <div class="label">
                 <label for="username">Username:</label> <br>
             </div>
-            <input type="text" name="username" id="username">
+            <input type="text" name="username" id="username" required>
         </div>
 
         <!-- Email: -->
@@ -32,7 +36,7 @@
             <div class="label">
                 <label for="email">Email:</label> <br>
             </div>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" required>
         </div>
 
         <!-- Password: -->
@@ -40,7 +44,7 @@
             <div class="label">
                 <label for="password">Password:</label> <br>
             </div>
-            <input type="password" name="password" id="password">
+            <input type="password" name="password" id="password" required>
         </div>
 
         <!-- first_name: -->

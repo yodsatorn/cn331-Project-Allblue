@@ -14,7 +14,7 @@
     <form action="{% url 'login' %}" method="post">
         <h1>Login</h1>
         {% if message %}
-            <h2>{{ message }}</h3>
+            <h2>{{ message }}</h2>
         {% endif %}
         {% csrf_token %}
         <div class="form">
