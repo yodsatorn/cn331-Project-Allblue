@@ -12,8 +12,11 @@ def index(request):
 def about(request):
 	return  render(request, "about.html")
 
-def menu(request):
-	return  render(request, "menu.html")
+def menu2(request):
+	return  render(request, "menu2.html")
+
+def menu3(request):
+	return  render(request, "menu3.html")
 	
 #for user register
 def register(request):
