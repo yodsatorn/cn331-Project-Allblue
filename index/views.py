@@ -43,6 +43,7 @@ def register(request):
 			})
 
 		return redirect('index')
+	return render(request, 'index/register.html')
 
 	return render(request, 'register.html')
 
