@@ -1,7 +1,10 @@
+from django.http import response
 from django.test import Client, TestCase
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.contrib.auth import authenticate
+from django.db import IntegrityError
+
 
 # Create your tests here.
 class indexTestCase(TestCase):
@@ -49,4 +52,22 @@ class indexTestCase(TestCase):
         """
         c = Client()
         response = c.post('/login/', {"username":"wronguser","password":"withworngpassword"}, follow=True)
-        self.assertTrue(response.context['message'] == 'Invalid Credentials')
+        self.assertTrue(response.context['error_message'] == 'Invalid Credentials')
+
+    def test_register_unique_email(self):
+        c = Client()
+        response = c.post('/register/',{'username': 'user2',
+        'password': 'user2password',
+        'email': 'user1@tse.com' # Same email as user1
+        })
+
+        self.assertRaisesMessage(IntegrityError, 'Email was taken.')
+
+    def test_register_unique_username(self):
+        c = Client()
+        response = c.post('/register/',{'username': 'user1', # Same username as user1
+        'password': 'user2password',
+        'email': 'user2@tse.com'
+        })
+
+        self.assertRaisesMessage(IntegrityError, 'Username was taken.')
