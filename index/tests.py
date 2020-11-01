@@ -15,14 +15,15 @@ class indexTestCase(TestCase):
     # happy path login page
     def test_login_page(self):
         c = Client()
-        response_1 =  c.login(username="user1",password="admin1password")
-        response = c.get('/login')
+        #response_1 =  c.login(username="user1",password="admin1password")
+        response = c.post('/login',username="user1",password="user1password")
         self.assertEqual(response.status_code,200)
-        self.assertTrue(response_1)
+        self.assertTrue(response)
 
-    def test_not_login_page(self):
+    # sad path login page
+    def test_fail_login_page(self):
         c = Client()
-        response_1 = c.login(username = "user1",password="user1password")
-        response = c.get('/login')
+        #response_1 = c.login(username = "user1",password="user1password")
+        response = c.post('/login',username = "user1", password="admin1password")
         self.assertNotEqual(response.status_code,200)
-        self.assertFalse(response_1)
+        self.assertFalse(response)
