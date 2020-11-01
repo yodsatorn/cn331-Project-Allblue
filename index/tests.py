@@ -45,7 +45,7 @@ class indexTestCase(TestCase):
 
     def test_login_error_message(self):
         """
-        Test error_message for login page if authenticate() return False (User not in database) error_message be sent to inform Client.
+        Test error_message for login page if authenticate() return False (User not in database) error_message will be sent to inform Client.
         """
         c = Client()
         response = c.post('/login/', {"username":"wronguser","password":"withworngpassword"}, follow=True)
