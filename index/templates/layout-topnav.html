@@ -14,10 +14,15 @@
         <div class="top-nav">
             <a href="{% url "index" %}">Allblue</a>
             <a href="{% url "about" %}">About Us</a>
-            <a href="#">Menu</a>
+            <a href="{% url "menu" %}">Menu</a>
             <a href="https://github.com/6110613228/cn331-Project-Allblue" target="blank">Github</a>
             <a href="https://www.pivotaltracker.com/n/projects/2469972" target="blank">Pivotal Tracker</a>
-            <a class="login" href="">Login</a>
+
+            {% if not request.user.is_authenticated %}
+                <a class="login" href="{% url 'login' %}">Sign in</a>
+            {% else %}
+                <a class="login" href="{% url 'logout' %}">Sign out</a>
+            {% endif %}
         </div>
     </header>
 

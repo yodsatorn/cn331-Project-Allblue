@@ -1,0 +1,43 @@
+{% extends "layout-topnav.html" %}
+
+{% load static %}
+
+<!-- Title -->
+{% block title %}Login page{% endblock%}
+
+<!-- link style sheat -->
+{% block link %} {% static "login/css/login-style.css" %} {% endblock %}
+<!-- body -->
+{% block body %}
+
+<div class="container">
+    <form action="{% url 'login' %}" method="post">
+        <h1>Sign in</h1>
+        {% if message %}
+            <h2>{{ message }}</h2>
+        {% endif %}
+        {% csrf_token %}
+        <div class="form">
+            <div class="label">
+                <label for="username">Username:</label> <br>
+            </div>
+            <input type="text" name="username" id="username">
+        </div>
+
+        <div class="form">
+            <div class="label">
+                <label for="password">Password:</label> <br>
+            </div>
+            <input type="password" name="password" id="password">
+        </div>
+
+        <div class="form">
+            <input class="submit" type="submit" value="Sign in">
+        </div>
+    </form>
+</div>
+
+<div class="container">
+    <p>New to our site? <a href="{% url 'register' %}">Sign up</a></p>
+</div>
+{% endblock %}
