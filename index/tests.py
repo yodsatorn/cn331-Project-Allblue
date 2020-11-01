@@ -13,17 +13,17 @@ class indexTestCase(TestCase):
         u1 = User.objects.create_user(username="user1",first_name="user1",password="user1password",email="user1@tse.com")
     
     # happy path login page
-    def test_login_page(self):
+    def test_success_login(self):
         c = Client()
-        #response_1 =  c.login(username="user1",password="admin1password")
-        response = c.post('/login',username="user1",password="user1password")
+        # response_1 =  c.login(username="user1",password="admin1password")
+        response = c.post('/login/',{"username":"user1","password":"user1password"}, follow=True)
         self.assertEqual(response.status_code,200)
         self.assertTrue(response)
 
     # sad path login page
-    def test_fail_login_page(self):
+    def test_fail_login(self):
         c = Client()
-        #response_1 = c.login(username = "user1",password="user1password")
+        # response_1 = c.login(username = "user1",password="user1password")
         response = c.post('/login',username = "user1", password="admin1password")
         self.assertNotEqual(response.status_code,200)
         self.assertFalse(response)
