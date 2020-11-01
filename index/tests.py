@@ -61,6 +61,9 @@ class indexTestCase(TestCase):
         self.assertTrue(response.context['error_message'] == 'Invalid Credentials')
 
     def test_register_unique_email(self):
+        """
+        Test Unique email when email was taken IntegrityError will raise with message 'Email was taken.'
+        """
         c = Client()
         response = c.post('/register/',{'username': 'user2',
         'password': 'user2password',
@@ -70,6 +73,9 @@ class indexTestCase(TestCase):
         self.assertRaisesMessage(IntegrityError, 'Email was taken.')
 
     def test_register_unique_username(self):
+        """
+        Test Unique Username when Username was taken IntegrityError will raise with message 'Username was taken.'
+        """
         c = Client()
         response = c.post('/register/',{'username': 'user1', # Same username as user1
         'password': 'user2password',
