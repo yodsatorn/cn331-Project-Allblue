@@ -58,7 +58,7 @@ def view_login(request):
 			return redirect("index")
 		else :
 			return render(request, "login.html", {
-				"message": "Invalid Credentials"
+				"error_message": "Invalid Credentials"
 			})
 
 	return render(request, 'login.html')
