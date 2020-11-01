@@ -12,7 +12,7 @@ def index(request):
 def about(request):
 	return  render(request, "about.html")
 
-#for user register
+#User register
 def register(request):
 	if request.method == 'POST':
 		data = request.POST.copy()
@@ -28,23 +28,18 @@ def register(request):
 		newuser.email = email
 		newuser.set_password(password)
 		newuser.save()
-		
 		return redirect('index')
+	return render(request, 'index/register.html')
 
-	return render(request, 'register.html')
-
+#User Login 
 def login(request):
-
 	if request.method == "POST":
 		username = request.POST["username"]
 		password = request.POST["password"]
-		user = authenticate(request, username= username, password= password)
+		user = authenticate(request, username=username, password=password)
 		if user is not None:
 			login(request, user)
 			return redirect("index")
-		else :
-			return render(request, "login.html", {
-				"message": "Invalid Credentials"
-			})
-
-	return render(request, 'login.html')
+		else:
+			return render(request, "index/login.html", {"message": "Invalide credentials"})
+	return render(request, 'index/login.html')
