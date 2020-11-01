@@ -21,6 +21,9 @@ class indexTestCase(TestCase):
 
     # happy path login page
     def test_success_login(self):
+        """
+        Test login Success
+        """
         c = Client()
         response = c.post(
             "/login/", {"username": "user1", "password": "user1password"}, follow=True
@@ -33,6 +36,9 @@ class indexTestCase(TestCase):
 
     # sad path login page
     def test_fail_login(self):
+        """
+        Test Login fail
+        """
         c = Client()
         response = c.post(
             "/login", {"username": "user1", "password": "admin1password"}, follow=True
