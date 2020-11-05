@@ -3,39 +3,17 @@
 {% block title %} Homepage {% endblock%}
 {% block link %} {% static "index/css/index-style.css" %} {% endblock %}
 {% block body %}
-    <div class="container">
-        <main class="main-area">
-            <img src="{% static "index/images/view2.jpg" %}" alt="view2" height="480px" width="480px"
-                style="margin-left: 320px; margin-top: 220px; position: absolute;">
-            <img src="{% static "index/images/view.jpg" %}" alt="view" 
-                style="margin-left: 50px; margin-top: 50px; position: absolute;">
-            <img src="{% static "index/images/view3.jpg" %}" alt="view3" height="360px" width="360px"
-                style="margin-left: 50px; margin-top: 410px; position: absolute;">
-        </main>
-
-        <aside class="sidebar-area">
-            <br>
-            <img src="{% static "index/images/preview1.jpg" %}" alt="preview1" height="200px" width="300px" style="margin-left: 50px;">
-            <br><br>
-            <img src="{% static "index/images/preview2.jpg" %}" alt="preview2" height="200px" width="300px" style="margin-left: 50px;">
-            <br><br>
-            <img src="{% static "index/images/preview3.jpg" %}" alt="preview3" height="200px" width="300px" style="margin-left: 50px;">
-            <article>
-                <header>
-                    <h2 style="text-align: center;">
-                       "Finding<br>
-                        your<br>
-                        dream<br> 
-                        recipe<br> 
-                        with<br> 
-                        Allblue"<br>
-                    </h2>
-                </header>
-            </article>
-        </aside>
-
-        <footer class="site-footer">
-            <p class="footer"><b>Allblue Allgood</b></p>
-        </footer>
+<div class="row mt-4">
+    <div class="col">
+        <h3 class="mb-3">Header</h3>
+        <img src="{% static "index/images/preview1.jpg" %}" alt="preview1" class="rounded" style="height: 200px;">
+        <p class="rounded mt-3">
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum."
+        </p>
     </div>
+</div>
 {% endblock %}
