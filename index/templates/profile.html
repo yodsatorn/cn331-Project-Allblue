@@ -1,0 +1,37 @@
+{% extends "layout-topnav.html" %}
+
+{% load static %}
+
+<!-- Title -->
+{% block title %} Homepage {% endblock%}
+
+<!-- link style sheat -->
+{% block link %} {% static "profile/css/profile-style.css" %} {% endblock %}
+
+<!-- body -->
+{% block body %}
+
+<div class="container-xl">
+    <div class="card-group row-cols-md-2 mb-5">
+        <div class="form">
+            <img src="../../static/menu/images/pancake.jpg" class=image alt="...">
+        </div>
+        <div class="form mt-5">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header p-4">
+                    Profile
+                </div>
+                <ul class="list-group list-group-flush p-4">
+                    Name : {{ request.user.first_name }} {{request.user.last_name}}
+                    <br><br>
+                    Username : {{ request.user.username }}
+                    <br><br>
+                    Email : {{ request.user.email }}
+                </ul>
+            </div>
+
+            <button type="button" class="btn btn-dark mt-5"><a href="{% url "menu" %}">Add profile</a></button>
+        </div>
+    </div>
+</div>
+{% endblock %}

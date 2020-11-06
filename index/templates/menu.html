@@ -11,72 +11,65 @@
 <!-- background -->
 {% block body %}
 
+    <div class="container-xl">
+        <div class="form">
+            <form action="/action_page.php">
+                <label for="search">Search Recipe:</label>
+                <input type="search" id="search" name="search">
+                <input class="btn btn-dark" type="submit">
+            </form>
+        </div>
 
-<div class="form">
-    <form action="/action_page.php">
-        <label for="search">Search Recipe:</label>
-        <input type="search" id="search" name="search">
-        <input type="submit">
-    </form>
-</div>
-
-<div class="row">
-    <div class="column">
-        <div class="block">
-            <img src="{% static "menu/images/kapao.jpg" %}" class="image">
-            <div class="text">PadKapao</div>
-        </div>
-        <div class="block">
-            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
-            <div class="text">Somtum</div>
-        </div>
-        <div class="block">
-            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
-            <div class="text">Somtum</div>
-        </div>
-    </div>
-    <div class="column">
-        <div class="block">
-            <img src="{% static "menu/images/pancake.jpg" %}" class="image">
-            <div class="text">Pancake</div>
-        </div>
-        <div class="block">
-            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
-            <div class="text">Somtum</div>
-        </div>
-        <div class="block">
-            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
-            <div class="text">Somtum</div>
-        </div>
-    </div>
-    <div class="column">
-        <div class="block">
-            <img src="{% static "menu/images/steak.jpg" %}" class="image">
-            <div class="text">Steak</div>
-        </div>
-        <div class="block">
-            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
-            <div class="text">Somtum</div>
-        </div>
-        <div class="block">
-            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
-            <div class="text">Somtum</div>
-        </div>
-    </div>
-    <div class="column">
-        <div class="block">
-            <img src="{% static "menu/images/burger.webp" %}" class="image">
-            <div class="text">Burger</div>
-        </div>
-        <div class="block">
-            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
-            <div class="text">Somtum</div>
-        </div>
-        <div class="block">
-            <img src="{% static "menu/images/somtum.jpg" %}" class="image">
-            <div class="text">Somtum</div>
+        <div class="card-group row-cols-md-3">
+            <div class="col mb-2 px-1">
+                <div class="card block h-100">
+                    <img src="../../static/menu/images/burger.webp" class="card-img-top h-100" alt="...">
+                    <div class="text">
+                        <a href="{% url "menu" %}">ครัวคุณต้อย</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-2 px-1">
+                <div class="card block h-100">
+                    <img src="../../static/menu/images/kapao.jpg" class="card-img-top h-100" alt="...">
+                    <div class="text">
+                        <a href="{% url "menu" %}">ครัวใบโมก</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-2 px-1">
+                <div class="card block h-100">
+                    <img src="../../static/menu/images/somtum.jpg" class="card-img-top h-100" alt="...">
+                    <div class="text">
+                        <a href="{% url "menu" %}">ครัวหมึกแดง</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-2 px-1">
+                <div class="card block h-100">
+                    <img src="../../static/menu/images/steak.jpg" class="card-img-top h-100" alt="...">
+                    <div class="text">
+                        <a href="{% url "menu" %}">ครัวนายคริส</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-2 px-1">
+                <div class="card block h-100">
+                    <img src="../../static/menu/images/somtum.jpg" class="card-img-top h-100" alt="...">
+                    <div class="text">
+                        <a href="{% url "menu" %}">ครัวนายคริส</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-2 px-1">
+                <div class="card block h-100">
+                    <img src="../../static/menu/images/somtum.jpg" class="card-img-top h-100" alt="...">
+                    <div class="text">
+                        <a href="{% url "menu" %}">ครัวนายคริส</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
 {% endblock %}

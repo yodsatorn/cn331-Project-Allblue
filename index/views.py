@@ -66,3 +66,11 @@ def view_login(request):
 def view_logout(request):
 	logout(request)
 	return HttpResponseRedirect(reverse('index'))
+
+def profile(request):
+	if not request.user.is_authenticated:
+		return HttpResponseRedirect(reverse("login"))
+	return render(request,"profile.html", {
+		"user_id":request.user.id,
+		}
+	)
