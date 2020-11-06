@@ -57,29 +57,60 @@ class indexTestCase(TestCase):
         Test error_message for login page if authenticate() return False (User not in database) error_message will be sent to inform Client.
         """
         c = Client()
-        response = c.post('/login/', {"username":"wronguser","password":"withworngpassword"}, follow=True)
-        self.assertTrue(response.context['error_message'] == 'Invalid Credentials')
+        response = c.post(
+            "/login/",
+            {"username": "wronguser", "password": "withworngpassword"},
+            follow=True,
+        )
+        self.assertTrue(response.context["error_message"] == "Invalid Credentials")
 
     def test_register_unique_email(self):
         """
         Test Unique email when email was taken IntegrityError will raise with message 'Email was taken.'
         """
         c = Client()
-        response = c.post('/register/',{'username': 'user2',
-        'password': 'user2password',
-        'email': 'user1@tse.com' # Same email as user1
-        })
+        response = c.post(
+            "/register/",
+            {
+                "username": "user2",
+                "password": "user2password",
+                "email": "user1@tse.com",  # Same email as user1
+            },
+        )
 
-        self.assertRaisesMessage(IntegrityError, 'Email was taken.')
+        self.assertRaisesMessage(IntegrityError, "Email was taken.")
 
     def test_register_unique_username(self):
         """
         Test Unique Username when Username was taken IntegrityError will raise with message 'Username was taken.'
         """
         c = Client()
-        response = c.post('/register/',{'username': 'user1', # Same username as user1
-        'password': 'user2password',
-        'email': 'user2@tse.com'
-        })
+        response = c.post(
+            "/register/",
+            {
+                "username": "user1",  # Same username as user1
+                "password": "user2password",
+                "email": "user2@tse.com",
+            },
+        )
 
-        self.assertRaisesMessage(IntegrityError, 'Username was taken.')
+        self.assertRaisesMessage(IntegrityError, "Username was taken.")
+
+    # test log out
+    def test_Logout(self):
+        """
+        Test log out
+        """
+        # log in
+        c = Client()
+        response = c.post(
+            "/login/", {"username": "user1", "password": "user1password"}, follow=True
+        )
+        self.assertEqual(response.status_code, 200)
+
+        # Log out
+        self.client.logout()
+
+        # Check response code
+        response = self.client.get("")
+        self.assertEquals(response.status_code, 200)
