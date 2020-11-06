@@ -10,61 +10,59 @@
 
 <!-- Start body -->
 {% block body %}
+    <div class="container-xl">
+        <div id="box">
+            <form action="{% url 'register' %}" method="post">
+                <h1>Sign up</h1>
+                {% if error_message %}
+                    <h2>{{ error_message }}</h2>
+                {% endif %}
+                {% csrf_token %}
 
-{% if message %}
-    <h2>{{ message }}</h3>
-{% endif %}
+                <!-- Username: -->
+                <div class="form">
+                    <div class="label">
+                        <label class="m-0" for="username">Username:</label>
+                    </div>
+                    <input type="text" name="username" id="username" required>
+                </div>
 
-    <form action="{% url 'register' %}" method="post">
-        <h1>Sign up</h1>
-        {% if error_message %}
-            <h2>{{ error_message }}</h2>
-        {% endif %}
-        {% csrf_token %}
+                <!-- Email: -->
+                <div class="form">
+                    <div class="label">
+                        <label class="m-0" for="email">Email:</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
 
-        <!-- Username: -->
-        <div class="form">
-            <div class="label">
-                <label for="username">Username:</label> <br>
-            </div>
-            <input type="text" name="username" id="username" required>
+                <!-- Password: -->
+                <div class="form">
+                    <div class="label">
+                        <label class="m-0" for="password">Password:</label>
+                    </div>
+                    <input type="password" name="password" id="password" required>
+                </div>
+
+                <!-- first_name: -->
+                <div class="form">
+                    <div class="label">
+                        <label class="m-0" for="firstname">Firstname:</label>
+                    </div>
+                    <input type="text" name="first_name" id="firstname">
+                </div>
+
+                <!-- last_name: -->
+                <div class="form">
+                    <div class="label">
+                        <label class="m-0" for="lastname">Surname:</label>
+                    </div>
+                    <input type="text" name="last_name" id="lastname">
+                </div>
+
+                <!-- Submit -->
+                <div class="form">
+                    <input class="submit" type="submit" value="Sign up">
+                </div>
+            </form>
         </div>
-
-        <!-- Email: -->
-        <div class="form">
-            <div class="label">
-                <label for="email">Email:</label> <br>
-            </div>
-            <input type="email" name="email" id="email" required>
-        </div>
-
-        <!-- Password: -->
-        <div class="form">
-            <div class="label">
-                <label for="password">Password:</label> <br>
-            </div>
-            <input type="password" name="password" id="password" required>
-        </div>
-
-        <!-- first_name: -->
-        <div class="form">
-            <div class="label">
-                <label for="firstname">Firstname:</label> <br>
-            </div>
-            <input type="text" name="first_name" id="firstname">
-        </div>
-
-        <!-- last_name: -->
-        <div class="form">
-            <div class="label">
-                <label for="lastname">Surname:</label> <br>
-            </div>
-            <input type="text" name="last_name" id="lastname">
-        </div>
-
-        <!-- Submit -->
-        <div class="form">
-            <input class="submit" type="submit" value="Sign up">
-        </div>
-    </form>
+    </div>
 {% endblock %}

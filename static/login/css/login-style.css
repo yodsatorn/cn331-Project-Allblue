@@ -1,5 +1,5 @@
 div#box {
-    margin-top: 20px;
+    margin-top: 50px;
     border: 1px solid gray;
     background-color: lightgray;
     text-align: center;
@@ -26,11 +26,8 @@ div.form {
 }
 
 div.form div.label {
-    max-width: 200px;
     text-align: left ;
-    margin: 0;
     margin-left: 7.2px;
-    padding: 0;
 }
 
 div.form input.submit {
