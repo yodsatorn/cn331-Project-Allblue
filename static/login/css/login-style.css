@@ -1,19 +1,15 @@
-div.container {
-    margin: 100px auto 0px;
-    width: 750px;
-    padding: 10px;
+div#box {
+    margin-top: 20px;
     border: 1px solid gray;
-    border-radius: 5px;
     background-color: lightgray;
     text-align: center;
 }
 
-div.container+div.container {
+div#box+div#box {
     margin-top: 20px;
     padding: 2px 10px;
 }
 h1 {
-    margin: 0;
     font-weight: 200;
 }
 
@@ -30,9 +26,10 @@ div.form {
 }
 
 div.form div.label {
+    max-width: 200px;
     text-align: left ;
     margin: 0;
-    margin-left: 12.5px;
+    margin-left: 7.2px;
     padding: 0;
 }
 
