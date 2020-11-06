@@ -15,7 +15,6 @@
     <h2>{{ message }}</h3>
 {% endif %}
 
-<div class="container">
     <form action="{% url 'register' %}" method="post">
         <h1>Sign up</h1>
         {% if error_message %}
@@ -68,6 +67,4 @@
             <input class="submit" type="submit" value="Sign up">
         </div>
     </form>
-</div>
-
 {% endblock %}
