@@ -11,7 +11,7 @@
 <!-- body -->
 {% block body %}
 
-<div class="container">
+<div class="rounded container-xl" id="box">
     <form action="{% url 'login' %}" method="post">
         <h1>Sign in</h1>
         {% if error_message %}
@@ -20,14 +20,14 @@
         {% csrf_token %}
         <div class="form">
             <div class="label">
-                <label for="username">Username:</label> <br>
+                <label class="m-0" for="username">Username:</label> <br>
             </div>
             <input type="text" name="username" id="username">
         </div>
 
         <div class="form">
             <div class="label">
-                <label for="password">Password:</label> <br>
+                <label class="m-0" for="password">Password:</label> <br>
             </div>
             <input type="password" name="password" id="password">
         </div>
@@ -38,7 +38,7 @@
     </form>
 </div>
 
-<div class="container">
-    <p>New to our site? <a href="{% url 'register' %}">Sign up</a></p>
+<div class="rounded container-xl" id="box">
+    <p class="my-2">New to our site? <a href="{% url 'register' %}">Sign up</a></p>
 </div>
 {% endblock %}

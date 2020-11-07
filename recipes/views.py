@@ -22,3 +22,4 @@ def deleteRecipe(request ,recipe_id):
         r = Recipes.objects.get(pk = recipe_id)
         r.delete()
     return render(request,  )
+

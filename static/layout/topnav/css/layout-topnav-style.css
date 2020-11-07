@@ -2,30 +2,17 @@ body {
     background-color: rgb(255, 193, 21);
 }
 
-.topnav-width-max {
-    min-width: 768px;
+#searchbar {
+    width: 40rem;
 }
 
-#topnav .top-nav {
-    overflow: hidden;
-    background-color: rgb(49, 49, 49);
+#sign-up-btn {
+    font-size: 16px;
 }
 
-#topnav .top-nav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 1.2em;
-}
-
-#topnav .top-nav a.float-right {
-    float: right;
-}
-
-#topnav .top-nav a:hover {
-    background-color:black;
+#profile-pig {
+    margin-right: 5px;
+    margin-bottom: 6px;
 }
 
 p.footer {

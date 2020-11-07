@@ -42,8 +42,7 @@ def register(request):
 				'error_message' : e
 			})
 
-		return redirect('index')
-	return render(request, 'index/register.html')
+		return redirect('login')
 
 	return render(request, 'register.html')
 
@@ -66,3 +65,23 @@ def view_login(request):
 def view_logout(request):
 	logout(request)
 	return HttpResponseRedirect(reverse('index'))
+
+def profile(request):
+	if not request.user.is_authenticated:
+		return HttpResponseRedirect(reverse("login"))
+	return render(request,"profile.html", {
+		"user_id":request.user.id,
+		}
+	)
+
+def search(request):
+	data = request.GET.get('q')
+	option = request.GET.get('search_option')
+	
+	if (option == 'by_name') :
+		result = User.objects.filter(username__icontains = data)
+
+	return render(request, "searchHandler.html", {
+		'data': result,
+		'option' : option,
+	})
