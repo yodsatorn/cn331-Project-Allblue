@@ -2,6 +2,7 @@ from django.shortcuts import render
 from recipes.models import Recipes,Tags
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.models import User
 # Create your views here.
 
 #add recipe
@@ -14,10 +15,10 @@ def addRecipe(request):
         r.save()
         r.user.add(User.objects.get(id=request.user.id))
         
-    return render( )
+    return render(request, )
 
 def deleteRecipe(request ,recipe_id):
     if request.method == "POST":
         r = Recipes.objects.get(pk = recipe_id)
         r.delete()
-    return render( )
+    return render(request,  )
