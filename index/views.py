@@ -42,8 +42,7 @@ def register(request):
 				'error_message' : e
 			})
 
-		return redirect('index')
-	return render(request, 'index/register.html')
+		return redirect('login')
 
 	return render(request, 'register.html')
 

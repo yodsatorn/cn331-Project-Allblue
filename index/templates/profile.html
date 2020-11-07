@@ -12,25 +12,37 @@
 {% block body %}
 
 <div class="container-xl">
-    <div class="card-group row-cols-md-2 mb-5">
-        <div class="form">
-            <img src="../../static/menu/images/pancake.jpg" class=image alt="...">
+    <div class="card-group mb-5">
+        <div class="form mr-5">
+
+            <div class="list-group mt-5 fsize" style="width: 16rem;">
+                <a href="#" class="list-group-item list-group-item-action">Change Profile</a>
+                <a href="#" class="list-group-item list-group-item-action">My Favorite</a>
+                <a href="#" class="list-group-item list-group-item-action">My Recipe</a>
+                <a href="#" class="list-group-item list-group-item-action">Add Recipe</a>
+
+            </div>
+
         </div>
-        <div class="form mt-5">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header p-4">
-                    Profile
+        
+        <img src="../../static/menu/images/pancake.jpg" class="image ml-3"  alt="...">
+
+        <div class="form mt-5 ml-4">
+            <div class="card" style="width: 30rem;">
+                <div class="card-header p-4 pt-2 pl-5">
+                    <h1>Profile</h1>
                 </div>
-                <ul class="list-group list-group-flush p-4">
-                    Name : {{ request.user.first_name }} {{request.user.last_name}}
-                    <br><br>
-                    Username : {{ request.user.username }}
+                <ul class="list-group list-group-flush p-5 ">
+                    ชื่อ-นามสกุล : {{ request.user.first_name }} {{request.user.last_name}}
                     <br><br>
                     Email : {{ request.user.email }}
+                    <br><br>
+                    วันที่เข้าร่วม : {{ request.user.date_joined }}
+                    <br><br>
+                    last login : {{ request.user.last_login }}
                 </ul>
             </div>
 
-            <button type="button" class="btn btn-dark mt-5"><a href="{% url "menu" %}">Add profile</a></button>
         </div>
     </div>
 </div>
