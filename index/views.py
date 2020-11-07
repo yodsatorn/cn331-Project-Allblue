@@ -73,3 +73,15 @@ def profile(request):
 		"user_id":request.user.id,
 		}
 	)
+
+def search(request):
+	data = request.GET.get('q')
+	option = request.GET.get('search_option')
+	
+	if (option == 'by_name') :
+		result = User.objects.filter(username__icontains = data)
+
+	return render(request, "searchHandler.html", {
+		'data': result,
+		'option' : option,
+	})
