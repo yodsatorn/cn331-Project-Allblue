@@ -1,6 +1,17 @@
 from django import forms
+from .models import Recipes
 
-class AddRecipe(forms.Form):
-    recipeName = forms.CharField()
-    solutions = forms.CharField()
-    ingredient = forms.CharField()
+class RecipeForm(forms.ModelForm):
+    class Meta:
+        model = Recipes
+        fields = [
+            'user',
+            'reName', 
+            'solution',
+            'ingredient'
+        ]
+
+        widgets = {
+            'user': forms.MultipleHiddenInput(),
+            'reName': forms.TextInput()
+        }
