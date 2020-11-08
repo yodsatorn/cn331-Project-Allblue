@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static "layout/topnav/css/layout-topnav-style.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% block link %}{% endblock %}">
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url "index" %}">Allblue</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "about" %}">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "menu" %}">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/6110613228/cn331-Project-Allblue"
+                        target="blank">Github</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.pivotaltracker.com/n/projects/2469972" target="blank">Pivotal
+                        Tracker</a>
+                </li>
+            </ul>
+            <form class="form-inline mr-auto my-lg-0" action="{% url "search" %}">
+                <ul class="navbar-nav">
+                    <select class="rounded mr-1 py-1" name="search_option">
+                        <option value="by_name" selected>By name</option>
+                    </select>
+                </ul>
+                <input class="form-control mr-sm-2" id="searchbar" name="q" type="search" placeholder="Search"
+                    aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" id="searchbotton" type="submit">Search</button>
+            </form>
+            <ul class="rounded navbar-nav">
+                {% if not request.user.is_authenticated %}
+                <!-- Sign-in / Sign-out -->
+                <li>
+                    <a class="nav-link" href="{% url "login" %}">Sign in</a>
+                </li>
+                <li>
+                    <a class="nav-link btn btn-outline-secondary btn-lg active" id="sign-up-btn" role="button"
+                        aria-pressed="true" href="{% url "register" %}">Sign up</a>
+                </li>
+                {% else %}
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><svg width="1em" height="1em" viewBox="0 0 16 16"
+                            class="bi bi-file-person-fill" id="profile-pig" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-3 4c2.623 0 4.146.826 5 1.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1.245C3.854 11.825 5.377 11 8 11z" />
+                        </svg>{{ request.user.username }}</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <h5 class="dropdown-item"><b>Hello,</b> {{ request.user.first_name }}
+                            {{ request.user.last_name }}</h6>
+                            <a class="dropdown-item" href="{% url "profile" %}">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill mr-3"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg>Profile</a>
+                            <div class="dropdown-divider w-75 mx-3"></div>
+                            <a class="dropdown-item" href="#">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clipboard-plus mr-3"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                                    <path fill-rule="evenodd"
+                                        d="M9.5 1h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3zM8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
+                                </svg>Add Recipe</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item card text-center mx-auto" style="width:12em" href="{% url "logout" %}">Sign out</a>
+                    </div>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    {% block body %}
+    {% endblock %}
+
+    <div class="container-xl">
+        <div class="row mt-3">
+            <div class="col">
+                <p class="footer"><b>Allblue Allgood</b></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
