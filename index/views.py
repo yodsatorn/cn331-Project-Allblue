@@ -17,7 +17,7 @@ def about(request):
 
 def menu(request):
 	return  render(request, "menu.html")
-	
+
 #for user register
 def register(request):
 	if request.method == 'POST':
@@ -85,3 +85,33 @@ def search(request):
 		'data': result,
 		'option' : option,
 	})
+
+def editProfile(request):
+	if request.method == 'POST':
+
+		try:
+			if User.objects.filter(email = request.POST.get('password')).exists() :
+				raise IntegrityError('Email was taken.')
+
+			user = User.objects.get(username=request.user.username)
+			user.set_password(request.POST.get('password'))
+			user.first_name = request.POST.get('first_name')
+			user.last_name = request.POST.get('last_name')
+			user.email = request.POST.get('email')
+			user.save()
+
+			request.user.first_name = request.POST.get('first_name')
+			request.user.last_name = request.POST.get('last_name')
+			request.user.email = request.POST.get('email')
+
+		except IntegrityError as e:
+			return render(request, 'editProfile.html',{
+				'error_message' : e
+			})
+				
+		user = authenticate(request, username= request.user.username, password= request.POST.get('password'))
+		login(request, user)
+		return redirect("profile")
+
+	return render(request,"editProfile.html")
+	
