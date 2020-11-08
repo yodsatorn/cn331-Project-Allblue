@@ -27,9 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,7 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'index',
     'recipes',
-    'comments'
+    'comments',
+    'django_nose',
+]
+# Use nose to run all tests
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+# Tell nose to measure coverage on the 'index' , 'recipes' and 'comments' apps
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=recipes,index,comments',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +132,5 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     '/var/www/static/',
 ]
+
+
