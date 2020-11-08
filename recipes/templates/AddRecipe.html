@@ -1,0 +1,17 @@
+{% extends "layout-topnav.html" %}
+
+{% load static %}
+
+{% block title %} Add Recipe {% endblock %}
+
+{% block link %} {% static "login/css/login-style.css" %} {% endblock %}
+
+{% block body %}
+    {{ form.non_filed_errors }}
+    <div class="rounded container-xl" id="box">
+        <form method="POST"> {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-primary mb-3">
+        </form>
+    </div>
+{% endblock %}

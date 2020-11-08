@@ -7,8 +7,8 @@ class Recipes(models.Model):
 
     user = models.ManyToManyField(User, related_name = 'userRecipe')
     reName = models.CharField(max_length = 128)
-    solution = models.CharField(max_length = 4096)
-    ingredient = models.CharField(max_length = 4096)
+    solution = models.TextField()
+    ingredient = models.TextField()
     voteUp = models.ManyToManyField(User, related_name = 'recipeVoteUp')
     voteDown = models.ManyToManyField(User, related_name = 'recipeVoteDown')
 
