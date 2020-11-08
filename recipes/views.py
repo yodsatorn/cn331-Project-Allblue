@@ -1,22 +1,26 @@
+from django.http import request
 from django.shortcuts import render
 from recipes.models import Recipes,Tags
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.models import User
-# Create your views here.
+from .forms import RecipeForm
+
+# Add recipe fearture
+def addrecipe_view(request):
+    if request.method == "POST" :
+        form = RecipeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = RecipeForm()
+            return render(request, 'addrecipe.html', {'form' : form})
+    else:
+        form = RecipeForm(initial={'user': [request.user] })
+
+    return render(request, 'addrecipe.html', {'form' : form})
 
 sortRenameCount = 0
 sortTimeCount = 0
-#add recipe
-def addRecipe(request):
-    if request.method == "POST":
-        name= request.POST["recipes_Name"]
-        igd = request.POST["ingredient"]
-        sol = request.POST["solutions"]
-        r = Recipes(reName=name,ingredient=igd,solution=sol)
-        r.user.add(User.objects.get(id=request.user.id))
-        
-    return render(request, )
 
 def deleteRecipe(request ,recipe_id):
     if request.method == "POST":
