@@ -100,10 +100,6 @@ def editProfile(request):
 			user.email = request.POST.get('email')
 			user.save()
 
-			request.user.first_name = request.POST.get('first_name')
-			request.user.last_name = request.POST.get('last_name')
-			request.user.email = request.POST.get('email')
-
 		except IntegrityError as e:
 			return render(request, 'editProfile.html',{
 				'error_message' : e
