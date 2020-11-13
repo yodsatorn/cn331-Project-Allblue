@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import os.path
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     'recipes',
     'comments',
     'django_nose',
-    'gdstorage',
-    
 ]
 # Use nose to run all tests
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
@@ -134,5 +132,5 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
     '/var/www/static/',
 ]
-GOOGLE_DRIVE_STORAGE_SERVICE_EMAIL  =  "nice0001@hotmail.com"
-GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE  =  os.path.join('a.json')
+
+
