@@ -17,9 +17,10 @@
                     <h2 class="form-title">Sign in</h2>
                     <form action="{% url 'login' %}" method="POST" class="register-form" id="register-form">
                         {% if error_message %}
-                        <h2>{{ error_message }}</h2>
+                        <h3>{{ error_message }}</h3>
                         {% endif %}
                         {% csrf_token %}
+                        <br>
                         <div class="form-group">
                             <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
                             <input type="text" name="username" id="username" placeholder="Your Username" required />
