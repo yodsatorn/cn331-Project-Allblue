@@ -14,5 +14,4 @@ class RecipeForm(forms.ModelForm):
 
         widgets = {
             'user': forms.MultipleHiddenInput(),
-            'reName': forms.TextInput()
         }

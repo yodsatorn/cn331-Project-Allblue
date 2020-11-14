@@ -11,27 +11,52 @@
 <!-- background -->
 {% block body %}
 <div class="container-xl">
-    <div class="row">
-        <div class="card col-sm">
+    <div class="card-group mb-5">
+        <div class="form mr-5">
 
-            <p class="display-2 text-center hdtext mb-3 mt-3">
-                <br>
-                About us
-            </p>
-            
-            <p class="text-center text mt-4 mb-5">
-                "Allblue is a website to finding and discussion about recipe"
-            </p>
-            <div class="mb-2"></div>
-            <p class="text-center team mt-5">
-                รายชื่อสมาชิก<br><br>
-            </p>
-            <div class="text-left text mx-auto">
-            6110613046 นายภัควัฒน์ อิสระวิศาลพล
-            6110613061 นายเจษฎากร แนวบรรทัด
-            6110613228 นายปุณณธัช บุณยรัตนสุนทร
-            6110613129 นายรัฐพล พุทธรักษา
-            6110613095 นายยศธร ปานทองคำ
+            <div class="list-group mt-5 ml-3 fsize" style="width: 16rem;">
+                  <a href="{% url 'editProfile' %}" class="list-group-item list-group-item-action">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>Edit Profile</a>
+
+                <a href="#" class="list-group-item list-group-item-action">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                      </svg>My Favorite</a>
+
+                <a href="#" class="list-group-item list-group-item-action">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-book mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M1 2.828v9.923c.918-.35 2.107-.692 3.287-.81 1.094-.111 2.278-.039 3.213.492V2.687c-.654-.689-1.782-.886-3.112-.752-1.234.124-2.503.523-3.388.893zm7.5-.141v9.746c.935-.53 2.12-.603 3.213-.493 1.18.12 2.37.461 3.287.811V2.828c-.885-.37-2.154-.769-3.388-.893-1.33-.134-2.458.063-3.112.752zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                      </svg>My Recipe</a>
+
+                <a href="{% url "addrecipe" %}" class="list-group-item list-group-item-action">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clipboard-plus mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                        <path fill-rule="evenodd" d="M9.5 1h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3zM8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
+                      </svg>Add Recipe</a>
+
+            </div>
+
+        </div>
+        
+        <img src="{% static 'profile/images/default.png' %}" class="image ml-3"  alt="...">
+
+        <div class="form mt-5 ml-4">
+            <div class="card" style="width: 30rem;">
+                <div class="card-header p-4 pt-2 pl-5">
+                    <h1>Profile</h1>
+                </div>
+                <ul class="list-group list-group-flush p-5 ">
+                    ชื่อ-นามสกุล : {{ request.user.first_name }} {{request.user.last_name}}
+                    <br><br>
+                    Email : {{ request.user.email }}
+                    <br><br>
+                    วันที่เข้าร่วม : {{ request.user.date_joined }}
+                    <br><br>
+                    last login : {{ request.user.last_login }}
+                </ul>
             </div>
 
     </div>

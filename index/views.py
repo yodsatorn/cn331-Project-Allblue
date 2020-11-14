@@ -4,8 +4,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from recipes.models import Recipes
 from django.db import IntegrityError
-
 
 # Create your views here.
 
@@ -79,7 +79,7 @@ def search(request):
 	option = request.GET.get('search_option')
 	
 	if (option == 'by_name') :
-		result = User.objects.filter(username__icontains = data)
+		result = Recipes.objects.filter(reName__icontains = data)
 
 	return render(request, "searchHandler.html", {
 		'data': result,
@@ -108,6 +108,7 @@ def editProfile(request):
 		user = authenticate(request, username= request.user.username, password= request.POST.get('password'))
 		login(request, user)
 		return redirect("profile")
-
-	return render(request,"editProfile.html")
+	else:
+		
+		return render(request,"editProfile.html")
 	
