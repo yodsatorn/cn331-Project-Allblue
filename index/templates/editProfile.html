@@ -28,14 +28,14 @@
 
             <div class="form-group mx-5">
                 <label for="lastname">Surname</label>
-                <input type="text" class="form-control" id="lastname" placeholder="Surname" name="last_name">
+                <input type="text" class="form-control" id="lastname" placeholder="{{ request.user.last_name }}" name="last_name">
             </div>
 
 
             <!-- Email: -->
             <div class="form-group mx-5">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Email@example.com" name="email">
+                <input type="email" class="form-control" id="email" placeholder="{{ request.user.email }}"email">
             </div>
 
             <!-- Password: -->
