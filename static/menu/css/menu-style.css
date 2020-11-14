@@ -56,5 +56,13 @@ body {
     opacity: 1;
 }
 
+.footer {
+    height: 10em;
+    color: #ffffff;
+    background-color: #333333;
+    bottom: 0;
+    width: 100%;
+}
+
 
 

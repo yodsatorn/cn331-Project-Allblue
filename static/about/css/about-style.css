@@ -14,3 +14,11 @@
     font-size: 30px;
     font-family: 'Playfair Display',serif;
 }
+
+.footer {
+    height: 10em;
+    color: #ffffff;
+    background-color: #333333;
+    bottom: 0;
+    width: 100%;
+}
