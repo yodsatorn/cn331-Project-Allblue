@@ -1,4 +1,6 @@
 from django.urls import path
+from django.urls.base import reverse
+from django.urls import include
 from . import views
 
 urlpatterns = [
@@ -10,5 +12,6 @@ urlpatterns = [
 	path('logout/', views.view_logout, name='logout'),
 	path('profile/', views.profile, name='profile'),
 	path('menu/search/', views.search, name='search'),
-	path('profile/edit', views.editProfile, name='editProfile'),
+	path('profile/edit/', views.editProfile, name='editProfile'),
+	path('recipes/',include('recipes.urls'))
 ]
