@@ -88,12 +88,6 @@ def profile(request):
 		}
 	)
 
-def search(request):
-	return render(request, "searchHandler.html", {
-		'data': result,
-		'option' : option,
-	})
-
 def editProfile(request):
 	if request.method == 'POST':
 
