@@ -7,16 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
     <!-- Font Icon -->
-    <link rel="stylesheet" href="../../static/user/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="{% static 'user/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="../../static/user/css/style.css">
+    <link rel="stylesheet" href="{% static 'user/css/style.css' %}">
 </head>
 <body>
     {% block body %}
     {% endblock %}
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 <!-- JS -->
-<script src="../../static/user/vendor/jquery/jquery.min.js"></script>
-<script src="../../static/user/js/main.js"></script>
+<script src="{% static 'user/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'user/js/main.js' %}"></script>
 </html>
