@@ -29,3 +29,11 @@
     text-decoration: none;
     outline-width: 0;
 }
+
+.footer {
+    height: 10em;
+    color: #ffffff;
+    background-color: #333333;
+    bottom: 0;
+    width: 100%;
+}

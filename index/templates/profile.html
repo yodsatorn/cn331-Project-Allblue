@@ -1,16 +1,15 @@
 {% extends "layout-topnav.html" %}
+<!-- Title -->
+{% block title %} Profile {% endblock %}
 
+<!-- load static -->
 {% load static %}
 
-<!-- Title -->
-{% block title %} Menu {% endblock%}
-
-<!-- link style sheat -->
+<!-- link css -->
 {% block link %} {% static "profile/css/profile-style.css" %} {% endblock %}
 
-<!-- body -->
+<!-- background -->
 {% block body %}
-
 <div class="container-xl">
     <div class="card-group mb-5">
         <div class="form mr-5">
@@ -60,7 +59,6 @@
                 </ul>
             </div>
 
-        </div>
     </div>
 </div>
 {% endblock %}
