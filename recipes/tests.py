@@ -13,20 +13,15 @@ class RecipesTestCase(TestCase):
 
     def setUp(self):
         # create user
-        self.user = User.objects.create_user(username="user1",first_name="user1",password="user1password",email="user1@tse.com",)
+        u = User.objects.create_user(username="user1",first_name="user1",password="user1password",email="user1@tse.com",)
         #crete recipes
-        self.recipe = Recipes.objects.create(reName='rice omlet',ingredient='rice egg',solution='sol')
-        self.recipe.save()
+        r= Recipes.objects.create(reName='rice omlet',ingredient='rice egg',solution='sol')
         #create tag
         t = Tags.objects.create(tagName="home cook")
     
     
         
-    def test_create_recipes(self):
-        """Create recipes """
-        self.assertEqual(self.recipe.reName, 'rice omlet')
-        self.assertEqual(self.recipe.ingredient, 'rice egg')
-        self.assertEqual(self.recipe.solution,'sol')
+ 
 
    
     def test_valid_recipes(self):
@@ -64,11 +59,6 @@ class RecipesTestCase(TestCase):
         else:    
             self.assertTrue(c.is_valid_Tags())
         
-    def test_create_reName(self):
-        r = Recipes.objects.create(reName="Tomyam")
-        self.assertEqual(r.reName,"Tomyam")
-        
-
     def test_invalid_tag(self):
         """Check that Tags is invalid"""
         try:
