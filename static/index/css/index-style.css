@@ -1,0 +1,31 @@
+.hdtext {
+    font-size: 100px;
+    font-weight: 4em;
+    font-family: 'Playfair Display',serif;
+}
+
+.text {
+    font-size: 30px;
+    font-weight: 1em;
+    font-family: 'Playfair Display',serif;
+}
+
+.btn {
+    color: #737373;
+    background-color: transparent;
+}
+
+.btn-border {
+    border-color: #000000;
+    border-width: 2px;
+    border-style: solid;
+    margin: 68px auto 0;
+    padding: 10px 54px 11px 53px;
+    border-radius: 50px;
+    position: relative;
+}
+
+.btn:hover {
+    text-decoration: none;
+    outline-width: 0;
+}
