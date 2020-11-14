@@ -16,6 +16,9 @@ class Recipes(models.Model):
     def __str__(self):
 	    return f"ID: {self.pk} | Recipe: {self.reName} "
 
+    def is_valid_Recipes(self):
+        return (self.reName != None and self.solution != None and self.solution !=None)
+
 class Tags(models.Model):
     tagName = models.CharField(max_length = 64)
     tagID = models.ManyToManyField(Recipes)
