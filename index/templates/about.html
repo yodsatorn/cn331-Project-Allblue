@@ -11,87 +11,34 @@
 <!-- background -->
 {% block body %}
 
-    <div class="firstBlock">
+<div class="container-fluid">
+    <div class="row">
+        <div class="card col-sm">
 
-        <!-- what is allblue block -->
-        <container>
+            <p class="display-2 text-center hdtext mb-3 mt-3">
+                <br>
+                About us
+            </p>
             
-            <h1><headfont><b>ALLBLUE</b></headfont></h1>
+            <p class="text-center text mt-4 mb-5">
+                "Allblue is a website to finding and discussion about recipe"
+            </p>
+            <div class="mb-2"></div>
+            <p class="text-center team mt-5">
+                รายชื่อสมาชิก<br><br>
+            </p>
+            <span class="d-block p-2 text text-center">6110613046 นายภัควัฒน์ อิสระวิศาลพล</span>
+            <span class="d-block p-2 text text-center">6110613061 นายเจษฎากร แนวบรรทัด</span>
+            <span class="d-block p-2 text text-center">6110613228 นายปุณณธัช บุณยรัตนสุนทร</span>
+            <span class="d-block p-2 text text-center">6110613129 นายรัฐพล พุทธรักษา</span>
+            <span class="d-block p-2 text text-center">6110613095 นายยศธร ปานทองคำ</span>
 
-            <subheadfont><b>website to find a recipe</b></subheadfont>
 
-            <header><b>What is Allblue?</b></header>
+        </div>
 
-            <img class="underline" src="{% static "about/images/underline.png" %}" alt="underline" width="420" height="370">
-
-            <subbodyfont>
-                <p>
-                    "Allblue is a web application for searching,<br><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;finding and discussing your dream recipe."
-                </p>
-            </subbodyfont>
-        </container>
+        <div class="col-sm px-0">
+            <img src="{% static "index/images/index.jpeg" %}" alt="preview1" class="w-100">
+        </div>
     </div>
-
-    <!-- Teams block -->
-    <div class="secondBlock">
-
-        <header class="team">
-            <p><b>Teams</b></p>
-        </header>
-
-
-        <img class="underline" src="{% static "about/images/underline.png" %}" width="420" alt="underline" height="370">
-
-
-        <p class="contribtor">
-            6110613046&nbsp;&nbsp;นายภัควัฒน์&nbsp;&nbsp;&nbsp;อิสระวิศาลพล<br><br>
-            6110613061&nbsp;&nbsp;นายเจษฎากร&nbsp;&nbsp;แนวบรรทัด<br><br>
-            6110613228&nbsp;&nbsp;นายปุณณธัช&nbsp;&nbsp;บุณยรัตนสุนทร<br><br>
-            6110613129&nbsp;&nbsp;นายรัฐพล&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;พุทธรักษา<br><br>
-            6110613095&nbsp;&nbsp;นายยศธร&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ปานทองคำ<br><br>
-        </p>
-
-        <!-- Contact block -->
-        <header>
-            <p class="contact"><b>Contact</b></p>
-        </header>
-
-        <div style="margin-left: 635px; margin-top: -270px;">
-            <img src="{% static "about/images/underline.png" %}" alt="underline" width="420" height="370">
-        </div>
-
-        <div style="margin-top: -130px; margin-left: 650px; margin-bottom: 30px; mix-blend-mode: multiply;">
-            <img src="{% static "about/images/Github.png" %}" alt="Github-logo" width="80" height="80"
-                style="float: left;">
-        </div>
-
-        <p style="margin-left: 740px; font-size: 1.4em; font-family:cursive; width: 40px;">
-            <a href="https://github.com/6110613228/cn331-Project-Allblue" style="color: red;" target="blank">GitHub</a>
-        </p>
-
-        <div style="margin-top: 30px; margin-left: 639px; margin-bottom: 65px; mix-blend-mode: multiply;">
-            <img src="{% static "about/images/youtube.jpg" %}" alt="youtube-logo" width="100" height="100"
-                style="float: left;">
-        </div>
-
-        <p style="margin-left: 740px; font-size: 1.4em; font-family:cursive; width: 40px;">
-            <a href="https://www.youtube.com/" style="color: red;" target="blank">Youtube</a>
-        </p>
-
-        <div style="margin-top: 50px; margin-left: 659px; margin-bottom: 70px; mix-blend-mode: multiply;">
-            <img src="{% static "about/images/tracker.png" %}" alt="pivotaltracker-logo" width="60" height="60"
-                style="float: left;">
-        </div>
-
-        <p style="margin-left: 740px; font-size: 1.4em; font-family:cursive; width: 180px;">
-            <a href="https://www.pivotaltracker.com/n/projects/2469972" style="color: red;" target="blank">Pivotal
-                Tracker</a>
-        </p>
-
-        <br>
-        <br>
-        <br>
-
-    </div>
+</div>
 {% endblock %}

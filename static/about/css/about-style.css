@@ -1,91 +1,16 @@
-.firstBlock {
-    background-size: 110em;
-    background-repeat:no-repeat; 
-    background-size: cover; 
-    background-image: url(../images/bg1.jpg);
-    padding-bottom: 250px;
+.hdtext {
+    font-size: 100px;
+    font-weight: 800px;
+    font-family: 'Playfair Display',serif;
 }
 
-.firstBlock h1 {
-    margin: 0;
-    padding-top: 90px;
+.text {
+    font-size: 22px;
+    font-weight: 1em;
+    font-family: 'Playfair Display',serif;
 }
 
-.firstBlock headfont {
-    font-family: "Josefin Sans", sans-serif;
-    font-size: 5em;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-left: 100px;
-}
-
-.firstBlock subheadfont {
-    font-family: 'Franklin Gothic Medium', sans-serif;
-    font-size: 1.5em;
-    color: coral;
-    margin-left: 100px;
-}
-
-.firstBlock header{
-    font-family: cursive, sans-serif;
-    font-size: 2.2em;
-    margin-left: 400px;
-    margin-top: 50px;
-    width: 500px;
-}
-.firstBlock .underline {
-    margin-left: 330px;
-    margin-top: -170px;
-    margin-bottom: -130.4px;
-}
-
-.firstBlock subbodyfont {
-    font-family: cursive, sans-serif;
-    font-size: 2.4em;
-}
-
-.firstBlock subbodyfont p {
-    margin-left: 170px;
-}
-
-.secondBlock {
-    width: auto;
-    height: auto;
-    background-repeat:no-repeat;
-    background-size: cover;
-    background-image: url(../images/bg2.jpg);
-}
-
-.secondBlock header p.contact {
-    font-family: cursive, sans-serif;
-    font-size: 2.2em;
-    margin-left: 788px;
-    margin-top: 0px;
-    padding-bottom: 100px;
-}
-
-.secondBlock header.team {
-    font-family: cursive, sans-serif;
-    font-size: 2.2em;
-    margin-left: 788px;
-    margin-top: 0px;
-    padding-top: 10px;
-}
-
-.secondBlock img.underline {
-    margin-left: 640px;
-    margin-top: -150px;
-    margin-bottom: -130px;
-}
-
-.secondBlock p.contribtor {
-    font-family:cursive,sans-serif;
-    font-size: 1.4em;
-    margin-left: 650px;
-    margin-top: 30px;
-    width: 500px;
-}
-
-.secondBlock p.contact{
-    margin-top: 80px;
+.team {
+    font-size: 30px;
+    font-family: 'Playfair Display',serif;
 }
