@@ -9,6 +9,7 @@ class Recipes(models.Model):
     reName = models.CharField(max_length = 128)
     solution = models.TextField()
     ingredient = models.TextField()
+    image = models.ImageField(upload_to="static/" , null=True, blank=True)
     voteUp = models.ManyToManyField(User, related_name = 'recipeVoteUp')
     voteDown = models.ManyToManyField(User, related_name = 'recipeVoteDown')
 
@@ -21,3 +22,4 @@ class Tags(models.Model):
 
     def __str__(self):
         return f"Tag = {self.tagName}"
+

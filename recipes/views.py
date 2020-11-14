@@ -9,7 +9,7 @@ from .forms import RecipeForm
 # Add recipe fearture
 def addrecipe_view(request):
     if request.method == "POST" :
-        form = RecipeForm(request.POST)
+        form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             form = RecipeForm()
@@ -72,7 +72,7 @@ def sortByReName(request):
 
 def sortByTime(request):
     if request.method == "POST":
-        sortTimeCount +=1
+        sortTimeCount += 1
         sortTimeCount %= 2
         #sort Recipes by Time desc
         if(sortTimeCount == 1):
@@ -80,3 +80,9 @@ def sortByTime(request):
         #sort Recipes by Time incr
         else:
             return Recipes.objects.order_by('id').reverse() #you can add render more cause i don't know what to do.
+
+def recipes_list(request):
+    recipes = Recipes.objects.all()
+    return render(request, 'AddRecipe.html', {
+        'recipes': recipes
+    })

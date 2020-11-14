@@ -6,9 +6,10 @@ class RecipeForm(forms.ModelForm):
         model = Recipes
         fields = [
             'user',
-            'reName', 
+            'reName',
             'solution',
-            'ingredient'
+            'ingredient',
+            'image'
         ]
 
         widgets = {
