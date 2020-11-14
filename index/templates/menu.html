@@ -11,58 +11,22 @@
 <!-- background -->
 {% block body %}
 
-<div class="container-xl mb-5">
-
-    <div class="card-group row-cols-md-3 mt-5">
-        <div class="col mb-2 px-1">
-            <div class="card block h-100">
-                <img src="../../static/menu/images/burger.webp" class="card-img-top h-100" alt="...">
-                <div class="text">
-                    <a href="{% url "menu" %}">ครัวคุณต้อย</a>
+    <div class="container-xl mb-5">
+        <div class="card-group row-cols-md-3 mt-5">
+        {% for x in menu %}
+            <div class="col mb-2 px-1">
+                <div class="card block h-100">
+                    <img src="../../static/menu/images/burger.webp" class="card-img-top h-100" alt="burger">
+                    <div class="text">
+                        <a href="{% url "menu" %}">ครัวคุณต้อย</a>
+                        <p>{{ x.reName }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col mb-2 px-1">
-            <div class="card block h-100">
-                <img src="../../static/menu/images/kapao.jpg" class="card-img-top h-100" alt="...">
-                <div class="text">
-                    <a href="{% url "menu" %}">ครัวใบโมก</a>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-2 px-1">
-            <div class="card block h-100">
-                <img src="../../static/menu/images/somtum.jpg" class="card-img-top h-100" alt="...">
-                <div class="text">
-                    <a href="{% url "menu" %}">ครัวหมึกแดง</a>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-2 px-1">
-            <div class="card block h-100">
-                <img src="../../static/menu/images/steak.jpg" class="card-img-top h-100" alt="...">
-                <div class="text">
-                    <a href="{% url "menu" %}">ครัวนายคริส</a>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-2 px-1">
-            <div class="card block h-100">
-                <img src="../../static/menu/images/somtum.jpg" class="card-img-top h-100" alt="...">
-                <div class="text">
-                    <a href="{% url "menu" %}">ครัวนายคริส</a>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-2 px-1">
-            <div class="card block h-100">
-                <img src="../../static/menu/images/somtum.jpg" class="card-img-top h-100" alt="...">
-                <div class="text">
-                    <a href="{% url "menu" %}">ครัวนายคริส</a>
-                </div>
-            </div>
+        {% empty %}
+            <h1>There is no Menu..</h1>
+        {% endfor %}
         </div>
     </div>
-</div>
-<div class="footer"></div>
+    <div class="footer"></div>
 {% endblock %}
