@@ -26,3 +26,6 @@ class Tags(models.Model):
     def __str__(self):
         return f"Tag = {self.tagName}"
 
+    def is_valid_Tags(self):
+        return (self.tagName != None)
+
