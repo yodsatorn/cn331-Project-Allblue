@@ -44,8 +44,8 @@
                     <a class="nav-link" href="https://www.pivotaltracker.com/n/projects/2469972" target="blank">Pivotal
                         Tracker</a>
                 </li>
-            </ul>
-            <form class="form-inline mr-auto my-lg-0" action="{% url 'search' %}">
+            </ul> 
+            <form class="form-inline mr-auto my-lg-0" action="{% url 'menu' %}" method="POST"> {% csrf_token %}
                 <ul class="navbar-nav">
                     <select class="rounded mr-1 py-1" name="search_option">
                         <option value="by_name" selected>By name</option>
@@ -101,7 +101,7 @@
             </ul>
         </div>
     </nav>
-
+<!-- End top-nav section -->
     {% block body %}
     {% endblock %}
 
