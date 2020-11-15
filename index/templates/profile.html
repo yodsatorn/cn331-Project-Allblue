@@ -22,7 +22,7 @@
 {% block body %}
 <div class="main pt-5" style="background-image: url('../../static/profile/images/back.jpg');">
     <div class="container-fluid pt-5">
-        <div class="container mt-3 mx-auto" style="height: 550px;">
+        <div class="container mt-3 mx-auto" style="height: 550px; border-width:5px; box-shadow: 0px 0px 4px">
             <div class="row ">
 
                 <div class="col-6 col-md-5 mt-4 px-0 pt-5">
@@ -43,7 +43,7 @@
 
                 <div class="col-6 mt-5 ml-0 ">
                     <p class="hdtext text-center text-uppercase mx-auto mt-3">Profile</p>
-                    <div class="container w-100 mt-3 pb-3" style="border-width:5px; box-shadow: 1px 1px 3px">
+                    <div class="container w-100 mt-3 pb-3" style="border-width:5px; box-shadow: 0px 0px 2px">
                         <p class="subtext text-center text-uppercase pt-5">
                             {{request.user.first_name}} {{request.user.last_name}}
                         </p>
