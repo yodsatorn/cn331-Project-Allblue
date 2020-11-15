@@ -8,8 +8,9 @@
 
 {% block body %}
     {{ form.non_filed_errors }}
-    <div class="rounded container-xl" id="box">
-        <form method="POST"> {% csrf_token %}
+    <div class="container-xl">
+        <form method="POST" class="register-form" id="register-form"> 
+            {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" class="btn btn-primary mb-3">
         </form>
