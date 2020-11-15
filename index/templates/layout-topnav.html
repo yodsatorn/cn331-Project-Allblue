@@ -80,14 +80,14 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <h5 class="dropdown-item"><b>Hello,</b> {{ request.user.first_name }}
                             {{ request.user.last_name }}</h6>
-                            <a class="dropdown-item" href="{% url 'profile' %}">
+                            <a class="dropdown-item text-left mx-auto" href="{% url 'profile' %}">
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill mr-3"
                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                         d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                                 </svg>Profile</a>
-                            <div class="dropdown-divider w-75 mx-3"></div>
-                            <a class="dropdown-item" href="{% url "addrecipe" %}">
+                            <div class="dropdown-divider w-75 mx-auto"></div>
+                            <a class="dropdown-item text-left mx-auto" href="{% url "addrecipe" %}">
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clipboard-plus mr-3"
                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
@@ -95,7 +95,7 @@
                                     <path fill-rule="evenodd"
                                         d="M9.5 1h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3zM8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
                                 </svg>Add Recipe</a>
-                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-divider w-75 mx-auto"></div>
                             <a class="dropdown-item card text-center w-75 mx-auto" href="{% url 'logout' %}">Sign out</a>
                     </div>
                 </li>
