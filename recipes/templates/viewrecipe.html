@@ -7,9 +7,35 @@
 {% block link %} {% static "login/css/login-style.css" %} {% endblock %}
 
 {% block body %}
+    
+    <div class="mx-2">
 
-<h1>{{result.reName}}</h1>
+        <h1>reName: {{result.reName}}</h1>
 
-<h2>{{result.id}}</h2>
+        <h2>id: {{result.id}}</h2>
+    
+        <h2>Solution</h2>
+            {% for item in solution %}
+            <p>
+                {{ item }}
+            </p>
+            {% endfor %}
+    
+        <h2>Ingredient</h2>
+            {% for item in ingredient %}
+            <p>
+                {{ item }}
+            </p>
+            {% endfor %}
+            
+        <p class="mb-2">
+            Vote up: {{ result.voteUp.count }}
+            <button type="submit" class="btn border-dark" href="#">vote up btn</button>
+        </p>
+        <p>
+            Vote up: {{ result.voteDown.count }}
+            <button type="submit" class="btn border-dark" href="#">vote down btn</button>
+        </p>
+    </div>
 
 {% endblock %}

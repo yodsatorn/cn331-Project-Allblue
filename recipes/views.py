@@ -41,7 +41,11 @@ sortRenameCount = 0
 sortTimeCount = 0
 
 def recipe_view(request, id):
-    return render(request, 'viewrecipe.html', {'result': Recipes.objects.get(id=id)})
+    return render(request, 'viewrecipe.html', {
+        'result': Recipes.objects.get(id=id),
+        'solution': [x for x in Recipes.objects.get(id= id).solution.split("\n")],
+        'ingredient': [x for x in Recipes.objects.get(id= id).ingredient.split("\n")]
+        })
 
 #This fucntion will delete recipe in data base
 def deleteRecipe(request ,recipe_id):
