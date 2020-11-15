@@ -6,6 +6,24 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from .forms import RecipeForm
 
+# view_menu
+def menu_view(request):
+	if (request.method == 'GET') :
+		result = Recipes.objects.all()
+		return  render(request, "menu.html", {
+			'menu': result
+		})
+	else :
+		data = request.POST.get('q')
+		option = request.POST.get('search_option')
+
+		if (option == 'by_name') :
+			result = Recipes.objects.filter(reName__icontains = data)
+
+		return render(request, "menu.html", {
+			'menu': result
+		})
+
 # Add recipe fearture : this fucntion will add recipe that user create into data base.
 def addrecipe_view(request):
     if request.method == "POST" :
