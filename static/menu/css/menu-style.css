@@ -57,11 +57,28 @@ body {
 }
 
 .footer {
-    height: 10em;
+    height: 18em;
     color: #ffffff;
     background-color: #333333;
     bottom: 0;
     width: 100%;
+}
+
+.footext {
+    font-size: 30px;
+    
+}
+
+.logo {
+    height: 150px;
+    width: 150px;
+}
+
+.icon {
+    height: 60px;
+    width: 60px;
+    border: white;
+    border-radius: 20px;
 }
 
 

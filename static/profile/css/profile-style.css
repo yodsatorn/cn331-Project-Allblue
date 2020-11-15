@@ -1,16 +1,23 @@
 .hdtext {
-    font-size: 100px;
-    font-weight: 800px;
     font-family: 'Playfair Display',serif;
+    color:black;
+    font-size: 50px;
 }
 
 .text {
     font-size: 22px;
     font-weight: 1em;
     font-family: 'Playfair Display',serif;
+    color:black;
 }
 
-.team {
+.subtext {
     font-size: 30px;
     font-family: 'Playfair Display',serif;
+    color:black;
+}
+
+.textform {
+    font-size: 18px;
+    color:black;
 }

@@ -89,22 +89,11 @@ def search(request):
 def editProfile(request):
 	if request.method == 'POST':
 
-		try:
-			if User.objects.filter(email = request.POST.get('password')).exists() :
-				raise IntegrityError('Email was taken.')
-
-			user = User.objects.get(username=request.user.username)
-			user.set_password(request.POST.get('password'))
-			user.first_name = request.POST.get('first_name')
-			user.last_name = request.POST.get('last_name')
-			user.email = request.POST.get('email')
-			user.save()
-
-		except IntegrityError as e:
-			return render(request, 'editProfile.html',{
-				'error_message' : e
-			})
-				
+		user = User.objects.get(username=request.user.username)
+		user.set_password(request.POST.get('password'))
+		user.first_name = request.POST.get('first_name')
+		user.last_name = request.POST.get('last_name')
+		user.save()
 		user = authenticate(request, username= request.user.username, password= request.POST.get('password'))
 		login(request, user)
 		return redirect("profile")

@@ -2,23 +2,43 @@
     font-size: 100px;
     font-weight: 800px;
     font-family: 'Playfair Display',serif;
+    color: black;
 }
 
 .text {
     font-size: 22px;
     font-weight: 1em;
     font-family: 'Playfair Display',serif;
+    color: black;
 }
 
 .team {
     font-size: 30px;
     font-family: 'Playfair Display',serif;
+    color: black;
 }
 
 .footer {
-    height: 10em;
+    height: 18em;
     color: #ffffff;
     background-color: #333333;
     bottom: 0;
     width: 100%;
+}
+
+.footext {
+    font-size: 30px;
+    
+}
+
+.logo {
+    height: 150px;
+    width: 150px;
+}
+
+.icon {
+    height: 60px;
+    width: 60px;
+    border: white;
+    border-radius: 20px;
 }
