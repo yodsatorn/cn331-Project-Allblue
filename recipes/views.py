@@ -1,5 +1,5 @@
 from django.http import request
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from recipes.models import Recipes,Tags
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
@@ -21,6 +21,9 @@ def addrecipe_view(request):
 
 sortRenameCount = 0
 sortTimeCount = 0
+
+def recipe_view(request, id):
+    return render(request, 'viewrecipe.html', {'result': Recipes.objects.get(id=id)})
 
 def deleteRecipe(request ,recipe_id):
     if request.method == "POST":

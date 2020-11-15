@@ -16,7 +16,21 @@ def about(request):
 	return  render(request, "about.html")
 
 def menu(request):
-	return  render(request, "menu.html")
+	if (request.method == 'GET') :
+		result = Recipes.objects.all()
+		return  render(request, "menu.html", {
+			'menu': result
+		})
+	else :
+		data = request.POST.get('q')
+		option = request.POST.get('search_option')
+
+		if (option == 'by_name') :
+			result = Recipes.objects.filter(reName__icontains = data)
+
+		return render(request, "menu.html", {
+			'menu': result
+		})
 
 #for user register
 def register(request):
@@ -73,18 +87,6 @@ def profile(request):
 		"user_id":request.user.id,
 		}
 	)
-
-def search(request):
-	data = request.GET.get('q')
-	option = request.GET.get('search_option')
-	
-	if (option == 'by_name') :
-		result = Recipes.objects.filter(reName__icontains = data)
-
-	return render(request, "searchHandler.html", {
-		'data': result,
-		'option' : option,
-	})
 
 def editProfile(request):
 	if request.method == 'POST':
