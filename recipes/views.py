@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from .forms import RecipeForm
 
-# Add recipe fearture
+# Add recipe fearture : this fucntion will add recipe that user create into data base.
 def addrecipe_view(request):
     if request.method == "POST" :
         form = RecipeForm(request.POST, request.FILES)
@@ -25,6 +25,7 @@ sortTimeCount = 0
 def recipe_view(request, id):
     return render(request, 'viewrecipe.html', {'result': Recipes.objects.get(id=id)})
 
+#This fucntion will delete recipe in data base
 def deleteRecipe(request ,recipe_id):
     if request.method == "POST":
         r = Recipes.objects.get(pk = recipe_id)
@@ -32,6 +33,7 @@ def deleteRecipe(request ,recipe_id):
     return render(request  )
 
 #voteUp feature
+#If user press vote up button this fucntion will vote up recipes.
 def voteUp(request,recipe_id):
     if request.method == "POST":
         recipe = Recipes.objects.get(pk = recipe_id)
@@ -47,6 +49,7 @@ def voteUp(request,recipe_id):
     return render() #I don't know what to do, it's up to you boi
 
 #voteDown feature
+#If user press vote down button this fucntion will vote down recipes.
 def voteDown(request,recipe_id):
     if request.method == "POST":
         recipe = Recipes.objects.get(pk = recipe_id)
@@ -61,7 +64,7 @@ def voteDown(request,recipe_id):
             recipe.voteDown.remove(user)
     return render() #I don't know what to do, it's up to you boi
 
-#sort by reName
+#This fucntion will sorting recipes by Recipe's Name.
 def sortByReName(request):
     if request.method == "POST":
         sortRenameCount+=1
@@ -73,6 +76,7 @@ def sortByReName(request):
         else:
             return Recipes.objects.order_by('reName').reverse() #you can add render more cause i don't know what to do.
 
+#This fucntion will sorting recipes  by time that recipe was created.
 def sortByTime(request):
     if request.method == "POST":
         sortTimeCount += 1
@@ -84,6 +88,7 @@ def sortByTime(request):
         else:
             return Recipes.objects.order_by('id').reverse() #you can add render more cause i don't know what to do.
 
+#This fucntion will list recipes.
 def recipes_list(request):
     recipes = Recipes.objects.all()
     return render(request, 'AddRecipe.html', {
