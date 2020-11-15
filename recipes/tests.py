@@ -21,9 +21,7 @@ class RecipesTestCase(TestCase):
     
     
         
- 
-
-   
+   #Test that it's valid recipe
     def test_valid_recipes(self):
         """Check that Recipes is valid"""
         try:
@@ -36,7 +34,7 @@ class RecipesTestCase(TestCase):
         else:
             self.assertTrue(c.is_valid_Recipes())
         
-
+    #Test that it's invalid recipe
     def test_invalid_recipes(self):
         """Check that Recipes is invalid"""
         try:
@@ -48,6 +46,7 @@ class RecipesTestCase(TestCase):
         else:
             self.assertFalse(c.is_valid_Recipes())
 
+    #Test that it's valid tag
     def test_valid_tag(self):
         """Check that Tags is valid"""
         try:
@@ -58,7 +57,8 @@ class RecipesTestCase(TestCase):
             self.assertFalse(c==None)
         else:    
             self.assertTrue(c.is_valid_Tags())
-        
+
+    #Test that it's invalid tag   
     def test_invalid_tag(self):
         """Check that Tags is invalid"""
         try:
@@ -70,19 +70,24 @@ class RecipesTestCase(TestCase):
         else:
             self.assertFalse(c.is_valid_Tags())
 
+
     def test_valid_str_recipes(self):
+        """Test valid string of recipe's name"""
         r = Recipes.objects.create(reName='Tomyam',ingredient='lime',solution='Tom')
         self.assertEqual(r,Recipes.objects.get(reName="Tomyam"))
     
     def test_invalid_str_recipes(self):
+        """Test invalid string of recipe's name"""
         r = Recipes.objects.create(reName='Tomyam',ingredient='lime',solution='Tom')
         self.assertNotEqual(r,Recipes.objects.get(reName="rice omlet"))
     
     def test_valid_str_tags(self):
+        """Test valid string of tag's name"""
         t = Tags.objects.create(tagName="Thai")
         self.assertEqual(t,Tags.objects.get(tagName="Thai"))
 
     def test_invalid_str_tags(self):
+        """Test invalid string of tag's name"""
         t = Tags.objects.create(tagName="Thai")
         self.assertNotEqual(t,Tags.objects.get(tagName="home cook"))
 
