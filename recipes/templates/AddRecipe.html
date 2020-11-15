@@ -1,18 +1,34 @@
-{% extends "layout-topnav.html" %}
+{% extends "layout-topnavRe.html" %}
 
 {% load static %}
 
 {% block title %} Add Recipe {% endblock %}
 
-{% block link %} {% static "login/css/login-style.css" %} {% endblock %}
+{% block link %} {% static 'profile/css/profile-style.css' %} {% endblock %}
 
 {% block body %}
-    {{ form.non_filed_errors }}
-    <div class="container-xl">
-        <form method="POST" class="register-form" id="register-form"> 
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" class="btn btn-primary mb-3">
-        </form>
-    </div>
+
+{{ form.non_filed_errors }}
+<div class="">
+    <form method="POST" class="register-form mt-4" id="register-form">
+        {% for field in form %}
+        {% csrf_token %}
+        {% if field.is_hidden%}
+        <div style="display: none;">
+            {{field.label}} : {{request.user.username}} {{field}}
+        </div>
+
+        {% else %}
+        <div class="mx-auto w-50 mx-auto textform" > 
+            {{field.label}}
+        </div>
+        <div class="card w-50 mx-auto"> 
+            {{field}}
+        </div>
+        {% endif %}
+        {% endfor %}
+        <div class="mt-5"> 
+        <input type="submit" class="btn btn-primary mb-3">
+    </form>
+</div>
 {% endblock %}

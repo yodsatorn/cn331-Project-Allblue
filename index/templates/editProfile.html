@@ -14,7 +14,7 @@
 <div class="main pt-5" style="background-image: url('../../static/profile/images/back.jpg');">
     <!-- Sign up form -->
     <section class="signup">
-        <div class="container w-50 mx-auto mt-3" style="height: 44em;">
+        <div class="container w-50 mx-auto mt-3 h-100">
             <div class="signup-form mx-auto px-0">
                 <h2 class="form-title mt-5 text-center pt-3">Edit Profile</h2>
                 <form action="{% url 'editProfile' %}" method="POST" class="register-form" id="register-form">
@@ -35,7 +35,7 @@
                         <label for="username"><i class="zmdi zmdi-lock"></i></label>
                         <input type="password" name="password" id="password" placeholder="password"/>
                     </div>
-                    <div class="form-group form-button mt-5">
+                    <div class="form-group form-button mt-2 mb-5">
                         <a href="{% url 'profile' %}" class="form-submit ml-3 mr-3">Cancel</a> 
                         <input type="submit" name="submit" id="submit" class="form-submit ml-5" value="Confirm" />
                     </div>
