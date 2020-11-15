@@ -54,37 +54,35 @@ def deleteRecipe(request ,recipe_id):
         r.delete()
     return render(request  )
 
-#voteUp feature
-#If user press vote up button this fucntion will vote up recipes.
-def voteUp(request,recipe_id):
-    if request.method == "POST":
-        recipe = Recipes.objects.get(pk = recipe_id)
-        user = User.objects.get(user_id=request.user.id)
-        if recipe.voteUp.filter(user_id=request.user.id).count()==0:
-            if recipe.voteDown.filter(user_id=request.user.id).count()==0:
-                recipe.voteUp.add(user)
-            else :
-                recipe.voteDown.remove(user)
-                recipe.voteUp.add(user)
-        else:
-            recipe.voteUp.remove(user)
-    return render() #I don't know what to do, it's up to you boi
-
-#voteDown feature
-#If user press vote down button this fucntion will vote down recipes.
-def voteDown(request,recipe_id):
-    if request.method == "POST":
-        recipe = Recipes.objects.get(pk = recipe_id)
-        user = User.objects.get(user_id=request.user.id)
-        if recipe.voteDown.filter(user_id=request.user.id).count()==0:
-            if recipe.voteUp.filter(user_id=request.user.id).count()==0:
-                recipe.voteDown.add(user)
-            else :
-                recipe.voteUp.remove(user)
-                recipe.voteDown.add(user)
-        else:
+# voteUp feature
+# If user press vote up button this fucntion will vote up recipes.
+def voteUp(request, recipe_id):
+    recipe = Recipes.objects.get(pk = recipe_id)
+    user = User.objects.get(id=request.user.id)
+    if recipe.voteUp.filter(id=request.user.id).count() == 0:
+        if recipe.voteDown.filter(id=request.user.id).count() == 0:
+            recipe.voteUp.add(user)
+        else :
             recipe.voteDown.remove(user)
-    return render() #I don't know what to do, it's up to you boi
+            recipe.voteUp.add(user)
+    else:
+        recipe.voteUp.remove(user)
+    return redirect('recipe_view', recipe_id)
+
+# voteDown feature
+# If user press vote down button this fucntion will vote down recipes.
+def voteDown(request, recipe_id):
+    recipe = Recipes.objects.get(pk = recipe_id)
+    user = User.objects.get(id=request.user.id)
+    if recipe.voteDown.filter(id=request.user.id).count() == 0:
+        if recipe.voteUp.filter(id=request.user.id).count() == 0:
+            recipe.voteDown.add(user)
+        else :
+            recipe.voteUp.remove(user)
+            recipe.voteDown.add(user)
+    else:
+        recipe.voteDown.remove(user)
+    return redirect('recipe_view', recipe_id) #I don't know what to do, it's up to you boi
 
 #This fucntion will sorting recipes by Recipe's Name.
 def sortByReName(request):

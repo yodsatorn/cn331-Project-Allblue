@@ -27,14 +27,19 @@
                 {{ item }}
             </p>
             {% endfor %}
-            
+
         <p class="mb-2">
             Vote up: {{ result.voteUp.count }}
-            <button type="submit" class="btn border-dark" href="#">vote up btn</button>
+            <form action="{% url "voteup" result.id %}" method="get">
+                <button type="submit" class="btn border-dark">vote up btn</button>
+            </form>
         </p>
+
         <p>
-            Vote up: {{ result.voteDown.count }}
-            <button type="submit" class="btn border-dark" href="#">vote down btn</button>
+            Vote Down: {{ result.voteDown.count }}  
+            <form action="{% url "votedown" result.id %}" method="get">
+                <button type="submit" class="btn border-dark">vote down btn</button>
+            </form>
         </p>
     </div>
 
