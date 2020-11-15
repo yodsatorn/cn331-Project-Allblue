@@ -56,3 +56,8 @@
     border: white;
     border-radius: 20px;
 }
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
