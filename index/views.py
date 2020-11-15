@@ -15,23 +15,6 @@ def index(request):
 def about(request):
 	return  render(request, "about.html")
 
-def menu(request):
-	if (request.method == 'GET') :
-		result = Recipes.objects.all()
-		return  render(request, "menu.html", {
-			'menu': result
-		})
-	else :
-		data = request.POST.get('q')
-		option = request.POST.get('search_option')
-
-		if (option == 'by_name') :
-			result = Recipes.objects.filter(reName__icontains = data)
-
-		return render(request, "menu.html", {
-			'menu': result
-		})
-
 #for user register
 def register(request):
 	if request.method == 'POST':
