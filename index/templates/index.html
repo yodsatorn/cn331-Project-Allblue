@@ -10,14 +10,15 @@
 
 <!-- body -->
 {% block body %}
-<div class="container-fluid">
+<div class="container-fluid" id="page-container">
   <div class="row">
     <div class="card col-sm">
       <p class="display-2 text-center hdtext mb-5 mt-5">
         <br>
+        <img src="{% static 'logo/logo.png' %}" class="logo" alt="logo">
         Allblue
       </p>
-      <p class="text-center text mt-5">
+      <p class="text-center text mt-3">
         Allblue
         <br>
         is
@@ -33,6 +34,19 @@
 </div>
 
 <div class="footer">
-  
+  <div class="pt-5 pl-5 footext mb-3">
+      Contact Us
+  </div>
+  <div class="pt-2 pl-5 ">
+      <a href="https://github.com/6110613228/cn331-Project-Allblue" target="blank">
+          <img src="{% static 'logo/github.png' %}" class="icon mr-3">
+      </a>
+      <a href="https://www.youtube.com/" target="blank">
+          <img src="{% static 'logo/youtube.jpg' %}" class="icon mr-3">
+      </a>
+      <a href="https://www.pivotaltracker.com/n/projects/2469972" target="blank">
+          <img src="{% static 'logo/pivotaltracker.png' %}" class="icon mr-3">
+      </a>
+  </div>
 </div>
 {% endblock %}

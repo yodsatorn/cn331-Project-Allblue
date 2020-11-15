@@ -11,7 +11,7 @@
 <!-- background -->
 {% block body %}
 
-<div class="container-fluid">
+<div class="container-fluid" id="page-container">
     <div class="row">
         <div class="card col-sm">
 
@@ -19,7 +19,7 @@
                 <br>
                 About us
             </p>
-            
+
             <p class="text-center text mt-4 mb-5">
                 "Allblue is a website to find and discuss about recipe"
             </p>
@@ -38,9 +38,26 @@
         </div>
 
         <div class="col-sm px-0">
-            <img src="{% static 'index/images/index.jpeg' %}" alt="preview1" class="w-100">
+            <img src="{% static 'about/images/index.jpeg' %}" alt="preview1" class="w-100">
         </div>
     </div>
 </div>
-<div class="footer"></div>
+
+<div class="footer">
+    <div class="pt-5 pl-5 footext mb-3">
+        Contact Us
+    </div>
+    <div class="pt-2 pl-5 ">
+        <a href="https://github.com/6110613228/cn331-Project-Allblue" target="blank">
+            <img src="{% static 'logo/github.png' %}" class="icon mr-3">
+        </a>
+        <a href="https://www.youtube.com/" target="blank">
+            <img src="{% static 'logo/youtube.jpg' %}" class="icon mr-3">
+        </a>
+        <a href="https://www.pivotaltracker.com/n/projects/2469972" target="blank">
+            <img src="{% static 'logo/pivotaltracker.png' %}" class="icon mr-3">
+        </a>
+    </div>
+</div>
+
 {% endblock %}

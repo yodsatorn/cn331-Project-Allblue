@@ -11,22 +11,39 @@
 <!-- background -->
 {% block body %}
 
-    <div class="container-xl mb-5">
-        <div class="card-group row-cols-md-3 mt-5">
+<div class="container-xl mb-5" id="page-container">
+    <div class="card-group row-cols-md-3 mt-5">
         {% for x in menu %}
-            <div class="col mb-2 px-1">
-                <div class="card block h-100">
-                    <img src="../../static/menu/images/burger.webp" class="card-img-top h-100" alt="burger">
-                    <div class="text">
-                        <a href="{% url "recipe_view" x.id %}">ครัวคุณต้อย</a>
-                        <p>{{ x.reName }}</p>
-                    </div>
+        <div class="col mb-2 block px-1">
+            <div class="card block h-100">
+                <img src="../../static/menu/images/burger.webp" class="card-img-top h-100" alt="burger">
+                <div class="text">
+                    <a href="{% url "recipe_view" x.id %}">{{ x.reName }}</a>
                 </div>
             </div>
+        </div>
         {% empty %}
-            <h1>There is no Menu..</h1>
+        <h1>There is no Menu..</h1>
         {% endfor %}
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer">
+        <div class="pt-5 pl-5 footext mb-3">
+            Contact Us
+        </div>
+        <div class="pt-2 pl-5 ">
+            <a href="https://github.com/6110613228/cn331-Project-Allblue" target="blank">
+                <img src="{% static 'logo/github.png' %}" class="icon mr-3">
+            </a>
+            <a href="https://www.youtube.com/" target="blank">
+                <img src="{% static 'logo/youtube.jpg' %}" class="icon mr-3">
+            </a>
+            <a href="https://www.pivotaltracker.com/n/projects/2469972" target="blank">
+                <img src="{% static 'logo/pivotaltracker.png' %}" class="icon mr-3">
+            </a>
         </div>
     </div>
-    <div class="footer"></div>
+</div>
 {% endblock %}

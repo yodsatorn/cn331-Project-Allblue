@@ -10,45 +10,39 @@
 
 <!-- body -->
 {% block body %}
-<div class="container-xl">
-    <div id="box">
-        <form class="card mt-5 mx-auto pt-5 mb-5" style="width:40em; height:38em;" action="{% url 'editProfile' %}"
-            method="post">
-            <h1 class="text-center">Edit Profile</h1>
-            {% if error_message %}
-            <h2>{{ error_message }}</h2>
-            {% endif %}
-            {% csrf_token %}
 
-            <!-- first_name & last_name-->
-            <div class="form-group mt-5 mx-5">
-                <label for="firstname">Firstname</label>
-                <input type="text" class="form-control" id="firstname" placeholder="{{ request.user.first_name }}" name="first_name">
+<div class="main pt-5">
+    <!-- Sign up form -->
+    <section class="signup">
+        <div class="container w-50 mx-auto mt-3" style="height: 44em;">
+            <div class="signup-form mx-auto px-0">
+                <h2 class="form-title mt-5 text-center pt-3">Edit Profile</h2>
+                <form action="{% url 'editProfile' %}" method="POST" class="register-form" id="register-form">
+                    {% if error_message %}
+                    <h3>{{ error_message }}</h3>
+                    {% endif %}
+                    {% csrf_token %}
+                    <br>
+                    <div class="form-group textform">
+                        <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="first_name" id="firstname" value="{{ request.user.first_name }}" required/>
+                    </div>
+                    <div class="form-group textform">
+                        <label for="pass"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="last_name" id="lastname" value="{{ request.user.last_name }}" required/>
+                    </div>
+                    <div class="form-group textform">
+                        <label for="username"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="password" name="password" id="password" placeholder="password" required/>
+                    </div>
+                    <div class="form-group form-button mt-5">
+                        <a href="{% url 'profile' %}" class="form-submit ml-3 mr-3">Cancel</a> 
+                        <input type="submit" name="submit" id="submit" class="form-submit ml-5" value="Confirm" />
+                    </div>
+
+                </form>
             </div>
-
-            <div class="form-group mx-5">
-                <label for="lastname">Surname</label>
-                <input type="text" class="form-control" id="lastname" placeholder="{{ request.user.last_name }}" name="last_name">
-            </div>
-
-
-            <!-- Email: -->
-            <div class="form-group mx-5">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="{{ request.user.email }}"email">
-            </div>
-
-            <!-- Password: -->
-            <div class="form-group mx-5">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password" name="password">
-            </div>
-
-            <!-- Submit -->
-            <div class="form mt-5 text-center">
-                <input class="submit" type="submit" value="Confirm">
-            </div>
-        </form>
-    </div>
+        </div>
+    </section>
 </div>
 {% endblock %}
