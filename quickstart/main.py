@@ -35,10 +35,13 @@ def listFiles(size):
         for item in items:
             print('{0} ({1})'.format(item['name'], item['id']))
 
-def uploadFile(filename,filepath,mimetype):
-    file_metadata = {'name': filename}
-    media = MediaFileUpload(filepath,
-                            mimetype=mimetype)
+def uploadFile(filename,filepath):
+    mimetype = 'image/jpg'
+    file_metadata = {
+        'name': filename,
+        'parents': ['1VJRdUjkR39mXwvGWnsUgd__VrZwjK-B1']
+    }
+    media = MediaFileUpload(filepath,mimetype=mimetype)
     file = drive_service.files().create(body=file_metadata,
                                         media_body=media,
                                         fields='id').execute()
@@ -77,4 +80,4 @@ def searchFile(size,query):
             print(item)
             print('{0} ({1})'.format(item['name'], item['id']))
 
-
+uploadFile('unnamed.jpg','a.jpg')
