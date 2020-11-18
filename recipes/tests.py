@@ -18,57 +18,6 @@ class RecipesTestCase(TestCase):
         r= Recipes.objects.create(reName='rice omlet',ingredient='rice egg',solution='sol')
         #create tag
         t = Tags.objects.create(tagName="home cook")
-    
-    
-        
-   #Test that it's valid recipe
-    def test_valid_recipes(self):
-        """Check that Recipes is valid"""
-        try:
-            c = Recipes.objects.get(pk=1)
-        except Recipes.DoesNotExist:
-            c = None
-        if c == None:
-            self.assertFalse(c==None)
-
-        else:
-            self.assertTrue(c.is_valid_Recipes())
-        
-    #Test that it's invalid recipe
-    def test_invalid_recipes(self):
-        """Check that Recipes is invalid"""
-        try:
-            c = Recipes.objects.get(pk=4)
-        except Recipes.DoesNotExist:
-            c = None
-        if c == None:
-            self.assertTrue(c==None)
-        else:
-            self.assertFalse(c.is_valid_Recipes())
-
-    #Test that it's valid tag
-    def test_valid_tag(self):
-        """Check that Tags is valid"""
-        try:
-            c = Tags.objects.get(pk=1)
-        except Tags.DoesNotExist:
-            c = None
-        if c == None:
-            self.assertFalse(c==None)
-        else:    
-            self.assertTrue(c.is_valid_Tags())
-
-    #Test that it's invalid tag   
-    def test_invalid_tag(self):
-        """Check that Tags is invalid"""
-        try:
-            c = Tags.objects.get(pk=4)
-        except Tags.DoesNotExist:
-            c = None
-        if c == None:
-            self.assertTrue(c==None)
-        else:
-            self.assertFalse(c.is_valid_Tags())
 
 
     def test_valid_str_recipes(self):

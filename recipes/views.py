@@ -40,6 +40,7 @@ def addrecipe_view(request):
 sortRenameCount = 0
 sortTimeCount = 0
 
+# This fucntion will show detail of the recipe.
 def recipe_view(request, id):
     return render(request, 'viewrecipe.html', {
         'result': Recipes.objects.get(id=id),
@@ -47,7 +48,7 @@ def recipe_view(request, id):
         'ingredient': [x for x in Recipes.objects.get(id= id).ingredient.split("\n")]
         })
 
-#This fucntion will delete recipe in data base
+#This fucntion will delete recipe in data base.
 def deleteRecipe(request ,recipe_id):
     if request.method == "POST":
         r = Recipes.objects.get(pk = recipe_id)

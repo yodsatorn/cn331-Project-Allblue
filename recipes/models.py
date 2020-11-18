@@ -2,6 +2,15 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+class Tags(models.Model):
+    tagName = models.CharField(max_length = 64)
+    
+
+    def __str__(self):
+        return f"Tag = {self.tagName}"
+
+    def is_valid_Tags(self):
+        return (self.tagName != None)
 
 class Recipes(models.Model):
 
@@ -12,6 +21,7 @@ class Recipes(models.Model):
     image = models.ImageField(upload_to="static/" , null=True, blank=True)
     voteUp = models.ManyToManyField(User, related_name = 'recipeVoteUp')
     voteDown = models.ManyToManyField(User, related_name = 'recipeVoteDown')
+    tag = models.ManyToManyField(Tags)
 
     def __str__(self):
 	    return f"ID: {self.pk} | Recipe: {self.reName} "
@@ -19,13 +29,5 @@ class Recipes(models.Model):
     def is_valid_Recipes(self):
         return (self.reName != None and self.solution != None and self.solution !=None)
 
-class Tags(models.Model):
-    tagName = models.CharField(max_length = 64)
-    tagID = models.ManyToManyField(Recipes)
 
-    def __str__(self):
-        return f"Tag = {self.tagName}"
-
-    def is_valid_Tags(self):
-        return (self.tagName != None)
 
