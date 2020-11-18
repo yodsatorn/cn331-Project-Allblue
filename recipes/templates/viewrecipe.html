@@ -4,43 +4,58 @@
 
 {% block title %}Recipe: {{ result.reName }} {% endblock %}
 
-{% block link %} {% static "login/css/login-style.css" %} {% endblock %}
+{% block link %} {% static "profile/css/profile-style.css" %} {% endblock %}
 
 {% block body %}
-    
-    <div class="mx-2">
+<div class="card w-50 mx-auto pb-5 my-3">
 
-        <h1>reName: {{result.reName}}</h1>
+    <p class="textfield mt-5 pt-3 text-center text-uppercase mb-5"><b>{{result.reName}}</b></p>
 
-        <h2>id: {{result.id}}</h2>
-    
-        <h2>Solution</h2>
-            {% for item in solution %}
-            <p>
-                {{ item }}
-            </p>
-            {% endfor %}
-    
-        <h2>Ingredient</h2>
-            {% for item in ingredient %}
-            <p>
-                {{ item }}
-            </p>
-            {% endfor %}
-
-        <p class="mb-2">
-            Vote up: {{ result.voteUp.count }}
-            <form action="{% url "voteup" result.id %}" method="get">
-                <button type="submit" class="btn border-dark">vote up btn</button>
-            </form>
-        </p>
-
-        <p>
-            Vote Down: {{ result.voteDown.count }}  
-            <form action="{% url "votedown" result.id %}" method="get">
-                <button type="submit" class="btn border-dark">vote down btn</button>
-            </form>
-        </p>
+    <div class="card h-75 w-75 mx-auto my-2">
+        <img src="{% static '/menu/images/burger.webp' %}" class="w-100" alt="burger">
     </div>
+
+    <p class="menufont mt-5 text-left ml-3"><b>Creator </b><span class="menuform ml-2">{{user}}</span></p>
+
+    <div class="menufont text-left ml-3"><b>Solution</b>
+        {% for item in solution %}
+        <p class="menuform text-left ml-4">
+            {{ item }}
+        </p>
+        {% endfor %}
+    </div>
+
+    <div class="menufont text-left ml-3 mb-2"><b>Ingredient</b>
+        {% for item in ingredient %}
+        <p class="menuform text-left ml-4">
+            {{ item }}
+        </p>
+        {% endfor %}
+    </div>
+    <div class="row mb-4 mt-4">
+        <div class="col">
+            <div class="mb-2 textfield text-right">
+                <form action="{% url "voteup" result.id %}" method="get">
+                    <button type="submit" class="btn border-dark">vote up : {{ result.voteUp.count }}</button>
+                </form>
+            </div>
+        </div>
+        <div class="col">
+            <div class="textfield text-left">
+                <form action="{% url "votedown" result.id %}" method="get">
+                    <button type="submit" class="btn border-dark">vote down :{{ result.voteDown.count }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="textfield ml-3 mt-3"><b>Comment</b></div>
+
+        <p class="menuform card  text-center mx-4 mb-5 ">
+            Comment
+        </p>
+
+</div>
+</div>
 
 {% endblock %}
