@@ -31,3 +31,17 @@
     font-size: 35px;
     color:black;
 }
+
+.menufont {
+    font-size: 22px;
+    color:black;
+}
+
+.menuform {
+    font-size: 15px;
+    color:black;
+}
+
+.bgcol {
+    background-color: #c4c4c4ef;
+}
