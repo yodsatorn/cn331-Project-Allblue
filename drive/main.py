@@ -79,5 +79,3 @@ def searchFile(size,query):
         for item in items:
             print(item)
             print('{0} ({1})'.format(item['name'], item['id']))
-
-uploadFile('picture.jpg','53281.jpg')
