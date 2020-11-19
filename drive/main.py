@@ -45,7 +45,7 @@ def uploadFile(filename,filepath):
     file = drive_service.files().create(body=file_metadata,
                                         media_body=media,
                                         fields='id').execute()
-    print('File ID: %s' % file.get('id'))
+    return file.get('id')
 
 def downloadFile(file_id,filepath):
     request = drive_service.files().get_media(fileId=file_id)
