@@ -1,11 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
-
 # Create your models here.
 class Tags(models.Model):
     tagName = models.CharField(max_length = 64)
     
-
     def __str__(self):
         return f"Tag = {self.tagName}"
 
