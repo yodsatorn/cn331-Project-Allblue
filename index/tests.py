@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate
 from django.db import IntegrityError
 
 
+
 # Create your tests here.
 class indexTestCase(TestCase):
     def setUp(self):
@@ -113,3 +114,16 @@ class indexTestCase(TestCase):
         # Check response code
         response = self.client.get("")
         self.assertEquals(response.status_code, 200)
+
+    #Test profile page
+    def test_access_profile_page(self):
+        """Test access to profile's page"""
+        # log in
+        c = Client()
+        response = c.post(
+            "/login/", {"username": "user1", "password": "user1password"}, follow=True
+        )
+        response = c.get('/profile/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response,'profile.html')
+

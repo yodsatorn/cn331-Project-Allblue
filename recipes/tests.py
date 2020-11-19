@@ -74,18 +74,43 @@ class RecipesTestCase(TestCase):
         r = Recipes.objects.get(pk=1)
         self.assertTrue(r.is_valid_Recipes())
 
+    #Test valid tags.
     def test_valid_tag(self):
         """Test valid tag."""
         t = Tags.objects.get(pk=1)
         self.assertTrue(t.is_valid_Tags())
 
-    def test_access_menu_page_with_out_login(self):
-        """Test access to menu's page with out login"""
+    #Test access to menu's page without login
+    def test_access_menu_page_withOut_login(self):
+        """Test access to menu's page without login"""
         c = Client()
         response = c.get('/recipes/menu/')
         self.assertEqual(response.status_code,200)
         self.assertTemplateUsed(response,'menu.html')
-        self.assertTemplateUsed(response,'layout-topnav.html')
+        self.assertTemplateUsed(response,'layout-topnavRe.html')
+
+    #Test access to menu's page with login
+    def test_access_menu_with_login(self):
+        """Test access to menu's page with login"""
+        c = Client()
+        #user login
+        response = c.post(
+            "/login/", {"username": "user1", "password": "user1password"}, follow=True
+        )
+        response = c.get('/recipes/menu/')
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response,'menu.html')
+        self.assertTemplateUsed(response,'layout-topnavRe.html')
+    
+    #Test access to menu's page by search bar
+    #def test_access_menu_by_search(self):
+       # """Test access to menu's page by search bar"""
+       # c = Client()
+
+    #Test users access their recipes.
+    #def test_access_recipes_page(self):
+    #   """Test that users can access their recipes"""
+
 
         
         
