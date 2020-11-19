@@ -10,9 +10,9 @@
 
 {{ form.non_filed_errors }}
 <div class="">
-    <form method="POST" class="register-form mt-4" id="register-form">
-        {% for field in form %}
+    <form method="POST" class="register-form mt-4" id="register-form" enctype="multipart/form-data">
         {% csrf_token %}
+        {% for field in form %}
         {% if field.is_hidden%}
         <div style="display: none;">
             {{field.label}} : {{request.user.username}} {{field}}
