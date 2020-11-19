@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from .forms import RecipeForm
 from drive.main import uploadFile
+from comments.models import Comments
 
 # view_menu
 def menu_view(request):
@@ -31,12 +32,14 @@ def addrecipe_view(request):
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             f = form.save()
-            name = request.FILES['image'].name;
-            imageUrl = '.' + f.image.url
-            imageID = uploadFile(name,imageUrl)
-            f.image = imageID
-            f.save()
-            
+            try :
+                name = request.FILES['image'].name;
+                imageUrl = '.' + f.image.url
+                imageID = uploadFile(name,imageUrl)
+                f.image = imageID
+                f.save()
+            except KeyError :
+                f.save()
             form = RecipeForm()
             return render(request, 'addrecipe.html', {'form' : form})
     else:
