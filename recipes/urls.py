@@ -10,6 +10,3 @@ urlpatterns = [
 	path('view/recipe/voteup/<int:recipe_id>', views.voteUp ,name='voteup'),
 	path('view/recipe/votedown/<int:recipe_id>', views.voteDown ,name='votedown')
 ]
-
-if settings.DEBUG:
-        urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
