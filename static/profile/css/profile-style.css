@@ -42,11 +42,6 @@
     color:black;
 }
 
-.bgcol {
-    background-color: #c4c4c4ef;
-}
-
 body {
     background-color:rgba(238, 234, 234, 0.938);
-    margin: 0;
 }

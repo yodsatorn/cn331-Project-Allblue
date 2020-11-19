@@ -11,7 +11,7 @@
 <!-- body -->
 {% block body %}
 
-<div class="main pt-5" style="background-image: url('../../static/profile/images/back.jpg');">
+<div class="main pt-5 pb-5" style="background-image: url('../../static/profile/images/back.jpg'); ">
     <!-- Sign up form -->
     <section class="signup">
         <div class="container w-50 mx-auto mt-3 h-100">
@@ -36,8 +36,8 @@
                         <input type="password" name="password" id="password" placeholder="password"/>
                     </div>
                     <div class="form-group form-button mt-2 mb-5">
-                        <a href="{% url 'profile' %}" class="form-submit ml-3 mr-3">Cancel</a> 
-                        <input type="submit" name="submit" id="submit" class="form-submit ml-5" value="Confirm" />
+                        <a href="{% url 'profile' %}" class="form-submit mx-3">Cancel</a> 
+                        <input type="submit" name="submit" id="submit" class="form-submit mx-3" value="Confirm">
                     </div>
 
                 </form>
