@@ -47,7 +47,6 @@ class indexTestCase(TestCase):
             "/login", {"username": "user1", "password": "admin1password"}, follow=True
         )
         self.assertEqual(response.status_code, 200)
-        # TO DO List ^^^^^ check website login fail
         # check authenticate
         user = authenticate(username="user1", password="admin1password")
         self.assertFalse(user is not None and user.is_authenticated)
