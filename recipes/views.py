@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.models import User
 from .forms import RecipeForm
+from drive.main import uploadFile
 
 # view_menu
 def menu_view(request):
@@ -29,7 +30,13 @@ def addrecipe_view(request):
     if request.method == "POST" :
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            f = form.save()
+            name = request.FILES['image'].name;
+            imageUrl = '.' + f.image.url
+            imageID = uploadFile(name,imageUrl)
+            f.image = imageID
+            f.save()
+            
             form = RecipeForm()
             return render(request, 'addrecipe.html', {'form' : form})
     else:
