@@ -5,21 +5,21 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.models import User
 from recipes.models import Recipes
+from django.shortcuts import redirect
 # Create your views here.
 
-sortRenameCount = 0
-sortTimeCount = 0
-
-def addcomments_view(request, recipes_id):
+# This fucntion will add comment that writen by user. 
+def addcomments(request, recipes_id):
     if request.method == "POST" :
-        r = Recipes.objects.get(pk = recipes_id)
-        comments = Comments.objects.get(recipeID = r )
-        c = request.POST["comment"]
-        comment = Comments(body=c)
-        comment.save()
+        user = User.objects.get(id = request.user.id)
+        recipe = Recipes.objects.get(pk = recipes_id)
+        body = request.POST['body']
+        comment = Comments.objects.create(body = body) 
+        comment.userID.add(user)       
+        comment.recipeID.add(recipe)
+        return redirect('recipe_view',recipes_id)
 
-        return render(request, '.html', {'comment' : comment})
-
+#Vote up comment
 def voteUp(request, recipes_id ):
     if request.method == "POST":
         comments = Comments.objects.get(recipeID = recipes_id )
@@ -34,6 +34,7 @@ def voteUp(request, recipes_id ):
             comments.voteUp.remove(user)
     return render()
 
+# Vote down comment fucntion
 def voteDown(request, recipes_id):
     if request.method == "POST":
         comments = Comments.objects.get( recipeID = recipes_id )
@@ -48,8 +49,9 @@ def voteDown(request, recipes_id):
             comments.voteDown.remove(user)
     return render()
 
-def comment_list(request):
-    comment = Comment.objects.all()
+# This fucntion will show all of comments in the recipe.
+def comment_list(request,recipe_ID):
+    comment = Comments.objects.filter(recipeID = recipe_ID)
     return render(request, '.html', {
         'comment': comment
-    })
+    }) # Nice said it's up to you ,you can return what u want

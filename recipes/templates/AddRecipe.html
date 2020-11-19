@@ -19,16 +19,22 @@
         </div>
 
         {% else %}
-        <div class="mx-auto w-50 mx-auto textform" > 
-            {{field.label}}
-        </div>
-        <div class="card w-50 mx-auto"> 
+            {% if field.label == "ReName" %}
+            <div class="mx-auto w-50 mx-auto textform">
+                RecipeName
+            </div>
+            {% else %}
+            <div class="mx-auto w-50 mx-auto textform">
+                {{field.label}}
+            </div>
+            {% endif %}
+        <div class="card w-50 mx-auto">
             {{field}}
         </div>
         {% endif %}
         {% endfor %}
-        <div class="mt-5"> 
-        <input type="submit" class="btn btn-primary mb-3">
+        <div class="mt-5 w-50 mx-auto mb-5">
+            <input type="submit" class="btn btn-primary mb-3">
     </form>
 </div>
 {% endblock %}
