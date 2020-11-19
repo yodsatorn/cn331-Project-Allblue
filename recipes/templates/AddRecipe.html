@@ -11,8 +11,8 @@
 {{ form.non_filed_errors }}
 <div class="">
     <form method="POST" class="register-form mt-4" id="register-form" enctype="multipart/form-data">
-        {% for field in form %}
         {% csrf_token %}
+        {% for field in form %}
         {% if field.is_hidden%}
         <div style="display: none;">
             {{field.label}} : {{request.user.username}} {{field}}
