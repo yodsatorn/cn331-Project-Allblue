@@ -7,8 +7,8 @@ class RecipeForm(forms.ModelForm):
         fields = [
             'user',
             'reName',
-            'solution',
             'ingredient',
+            'solution',
             'image'
         ]
 

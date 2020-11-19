@@ -12,7 +12,7 @@
     <p class="textfield mt-5 pt-3 text-center text-uppercase mb-5"><b>{{result.reName}}</b></p>
 
     <div class="card h-75 w-75 mx-auto my-2">
-        <img src="{% static '/menu/images/burger.webp' %}" class="w-100" alt="burger">
+        <img src="https://drive.google.com/uc?export=view&id={{ result.image }}" class="w-100 h-100" alt="image">
     </div>
 
     <p class="menufont mt-5 text-left ml-3 mt-5"><b>Creator </b><span class="menuform ml-2">{{user}}</span></p>
@@ -68,7 +68,6 @@
         </p>
     </div>
 
-    <img src="https://drive.google.com/uc?export=view&id={{ result.image }}" alt="image">
 </div>
 
 {% endblock %}

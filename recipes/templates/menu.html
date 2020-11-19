@@ -16,7 +16,7 @@
         {% for x in menu %}
         <div class="col mb-2 block px-1">
             <div class="card block h-100">
-                <img src="../../static/menu/images/burger.webp" class="card-img-top h-100" alt="burger">
+                <img src="https://drive.google.com/uc?export=view&id={{ x.image }}" class="w-100 h-100" alt="image">
                 <div class="text">
                     <a href="{% url "recipe_view" x.id %}">{{ x.reName }}</a>
                 </div>
