@@ -17,16 +17,16 @@
 
     <p class="menufont mt-5 text-left ml-3"><b>Creator </b><span class="menuform ml-2">{{user}}</span></p>
 
-    <div class="menufont text-left ml-3"><b>Solution</b>
-        {% for item in solution %}
+    <div class="menufont text-left ml-3 mb-2"><b>Ingredient</b>
+        {% for item in ingredient %}
         <p class="menuform text-left ml-4">
             {{ item }}
         </p>
         {% endfor %}
     </div>
 
-    <div class="menufont text-left ml-3 mb-2"><b>Ingredient</b>
-        {% for item in ingredient %}
+    <div class="menufont text-left ml-3"><b>Solution</b>
+        {% for item in solution %}
         <p class="menuform text-left ml-4">
             {{ item }}
         </p>
