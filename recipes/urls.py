@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
@@ -8,3 +10,6 @@ urlpatterns = [
 	path('view/recipe/voteup/<int:recipe_id>', views.voteUp ,name='voteup'),
 	path('view/recipe/votedown/<int:recipe_id>', views.voteDown ,name='votedown')
 ]
+
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
