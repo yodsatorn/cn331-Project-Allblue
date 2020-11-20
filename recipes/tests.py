@@ -116,4 +116,4 @@ class RecipesTestCase(TestCase):
     #test apps recipes
     def test_apps(self):
         self.assertEqual(RecipesConfig.name, 'recipes')
-        self.assertEqual(apps.get_app_config('recipes').name, 'recipes')
+        self.assertEqual(apps.get_app_config('recipes').name, 'recipes') 
