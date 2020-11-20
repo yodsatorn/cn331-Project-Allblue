@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.contrib.auth import authenticate
 from django.db import IntegrityError
+from django.apps import apps
+from index.apps import IndexConfig
 
 
 
@@ -127,3 +129,7 @@ class indexTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response,'profile.html')
 
+    #test apps index
+    def test_apps(self):
+        self.assertEqual(IndexConfig.name, 'index')
+        self.assertEqual(apps.get_app_config('index').name, 'index')

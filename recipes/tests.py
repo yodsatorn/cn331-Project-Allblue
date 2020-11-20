@@ -1,4 +1,5 @@
 from django.http import response
+from django.apps import apps
 from django.test import Client, TestCase
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -8,6 +9,7 @@ from .models import Recipes, Tags
 from django.core.files import File
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.db.models import ImageField
+from recipes.apps import RecipesConfig
 
 # Create your tests here.
 class RecipesTestCase(TestCase):
@@ -111,9 +113,7 @@ class RecipesTestCase(TestCase):
     #def test_access_recipes_page(self):
     #   """Test that users can access their recipes"""
 
-
-        
-        
-
-
-    
+    #test apps recipes
+    def test_apps(self):
+        self.assertEqual(RecipesConfig.name, 'recipes')
+        self.assertEqual(apps.get_app_config('recipes').name, 'recipes')
