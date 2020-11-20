@@ -57,7 +57,8 @@ def recipe_view(request, id):
         'user': Recipes.objects.get(id=id).user.get(userRecipe = id),
         'tag': Recipes.objects.get(id=id).tag.all(),
         'solution': [x for x in Recipes.objects.get(id= id).solution.split("\n")],
-        'ingredient': [x for x in Recipes.objects.get(id= id).ingredient.split("\n")]
+        'ingredient': [x for x in Recipes.objects.get(id= id).ingredient.split("\n")],
+        'comments': Comments.objects.filter(recipeID = id)
         })
 
 #This fucntion will delete recipe in data base.
@@ -69,7 +70,7 @@ def deleteRecipe(request ,recipe_id):
 
 # voteUp feature
 # If user press vote up button this fucntion will vote up recipes.
-def voteUp(request, recipe_id):
+def voteUp_recipe(request, recipe_id):
     recipe = Recipes.objects.get(pk = recipe_id)
     user = User.objects.get(id=request.user.id)
     if recipe.voteUp.filter(id=request.user.id).count() == 0:
@@ -84,7 +85,7 @@ def voteUp(request, recipe_id):
 
 # voteDown feature
 # If user press vote down button this fucntion will vote down recipes.
-def voteDown(request, recipe_id):
+def voteDown_recipe(request, recipe_id):
     recipe = Recipes.objects.get(pk = recipe_id)
     user = User.objects.get(id=request.user.id)
     if recipe.voteDown.filter(id=request.user.id).count() == 0:
@@ -122,6 +123,16 @@ def sortByTime(request):
             return Recipes.objects.order_by('id').reverse() #you can add render more cause i don't know what to do.
 
 
+def add_comment(request, recipe_id):
+    if request.method == "GET":
+        body = request.GET.get('body')
+        recipe = Recipes.objects.get(id= recipe_id)
+        user = User.objects.get(id= request.user.id)
+        c = Comments.objects.create(body=body)
+        c.userID.add(user)
+        c.recipeID.add(recipe)
+    return redirect('recipe_view', recipe_id)
+    
 #This function will show recipe's user.
 def view_my_recipes(request,user_id):
     return render(request , 'my_recipes.html' ,{ 

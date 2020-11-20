@@ -13,4 +13,4 @@ class Comments(models.Model):
     voteDown = models.ManyToManyField(User, related_name = 'commentVoteDown')
     
     def __str__(self):
-	    return f"User: {self.userID} | Body: {self.body}"
+	    return f"User: {self.id} | Body: {self.body}"
