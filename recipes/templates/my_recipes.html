@@ -1,21 +1,64 @@
+{% extends "layout-topnav.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My recipes</title>
-</head>
-<body>
-    <h1>Hell world</h1>
-    <ul>
+{% load static %}
+
+{% block title %}Recipe: {{ result.reName }} {% endblock %}
+
+{% block link %} {% static "menu/css/menu-style.css" %} {% endblock %}
+
+{% block body %}
+
+
+<div class="card w-75 mx-auto pb-5 my-3 px-4 mt-4">
+    <p class="subtextfield mt-2 pt-3 text-center text-uppercase my-3"><b>My Recipe</b></p>
+    <div class="card-group row-cols-md-2">
         {% for item in my_recipes %}
+        <div class="col mb-n2">
+            <div class="card w-100 mx-auto pb-5 my-3 px-4">
+                <p class="textfield mt-2 pt-3 text-center text-uppercase mb-3"><b>{{item.reName}}</b></p>
 
-        <li>{{item}}</li>
+                <div class="card block m-auto p-auto">
+                    <img src="https://drive.google.com/uc?export=view&id={{ item.image }}" class="w-100 h-100"
+                        alt="image">
+                    <div class="text py-auto">
+                        <a href="{% url "recipe_view" item.id %}">Click to view</a>
+                    </div>
+                </div>
+
+                <div class="row mt-4 mb-n3">
+                    <div class="col">
+                        <div class="mb-2 textfield w-100 text-right">
+                            <button type="submit" class="btn border-dark">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                                </svg>
+                                {{ item.voteUp.count }}
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="textfield text-left w-100">
+                            <button type="submit" class="btn border-dark">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down"
+                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                                </svg>
+                                {{ item.voteDown.count }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
         {% empty %}
-        <h2> There are no recipes </h2>
-
+        <h1>There is no Menu..</h1>
         {% endfor %}
-    </ul>
-</body>
-</html>
+    </div>
+</div>
+
+{% endblock %}

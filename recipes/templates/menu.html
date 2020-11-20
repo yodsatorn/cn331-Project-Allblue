@@ -11,16 +11,46 @@
 <!-- background -->
 {% block body %}
 
-<div class="container-xl mb-5" id="page-container">
+<div class="card w-75 mx-auto mt-3" id="page-container">
+    <p class="subtextfield mt-2 pt-3 text-center text-uppercase my-3"><b>Menu</b></p>
     <div class="card-group row-cols-md-3 mt-5">
         {% for x in menu %}
-        <div class="col mb-2 block px-1">
-            <div class="card block h-100">
+        <div class="col mb-2">
+            <p class="textfield mt-2 pt-3 text-center text-uppercase mt-3 mb-n1"><b>{{x.reName}}</b></p>
+            <div class="card block m-auto p-auto">
                 <img src="https://drive.google.com/uc?export=view&id={{ x.image }}" class="w-100 h-100" alt="image">
                 <div class="text">
-                    <a href="{% url "recipe_view" x.id %}">{{ x.reName }}</a>
+                    <a href="{% url "recipe_view" x.id %}">Click to view</a>
                 </div>
             </div>
+            <div class="row mt-1">
+                <div class="col">
+                    <div class="mb-2 textfield w-100 text-right">
+                        <div type="submit" class="btn border-dark">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                            </svg>
+                            {{ x.voteUp.count }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="textfield text-left w-100">
+                        <div type="submit" class="btn border-dark">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+                            </svg>
+                            {{ x.voteDown.count }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         {% empty %}
         <h1>There is no Menu..</h1>
