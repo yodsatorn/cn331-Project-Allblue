@@ -7,12 +7,12 @@ class RecipeForm(forms.ModelForm):
         fields = [
             'user',
             'reName',
+            'tag',
             'ingredient',
             'solution',
             'image',
-            'tag'
         ]
 
         widgets = {
-            'user': forms.MultipleHiddenInput(),
+            'user': forms.MultipleHiddenInput()
         }
