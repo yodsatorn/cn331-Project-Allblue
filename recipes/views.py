@@ -41,11 +41,10 @@ def addrecipe_view(request):
             except KeyError :
                 f.save()
             form = RecipeForm()
-            return render(request, 'addrecipe.html', {'form' : form})
+            return redirect('myrecipe',request.user.id)
     else:
         form = RecipeForm(initial={'user': [request.user] })
-
-    return render(request, 'addrecipe.html', {'form' : form})
+        return render(request, 'addrecipe.html', {'form' : form})
 
 sortRenameCount = 0
 sortTimeCount = 0
@@ -61,10 +60,10 @@ def recipe_view(request, id):
 
 #This fucntion will delete recipe in data base.
 def deleteRecipe(request ,recipe_id):
-    if request.method == "POST":
-        r = Recipes.objects.get(pk = recipe_id)
+    if request.method == "GET":
+        r = Recipes.objects.get(pk = recipe_id)        
         r.delete()
-    return render(request  )
+    return redirect('myrecipe',request.user.id)
 
 # voteUp feature
 # If user press vote up button this fucntion will vote up recipes.

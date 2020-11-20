@@ -17,7 +17,8 @@
             <div class="card w-100 mx-auto pb-5 my-3 px-4">
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <form action="{}" method="GET">
+                        <form action="{% url 'delete' item.id %}" method="GET">
+                            {% csrf_token %}
                             <button type="submit" class="btn btn-sm mr-n4">
                                 <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-x-square navbar-text"
                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
