@@ -9,7 +9,8 @@ class RecipeForm(forms.ModelForm):
             'reName',
             'ingredient',
             'solution',
-            'image'
+            'image',
+            'tag'
         ]
 
         widgets = {
