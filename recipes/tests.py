@@ -10,6 +10,8 @@ from django.core.files import File
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.db.models import ImageField
 from recipes.apps import RecipesConfig
+from django.shortcuts import redirect
+
 
 # Create your tests here.
 
@@ -157,7 +159,7 @@ class RecipesTestCase(TestCase):
         self.assertEqual(response.status_code,200)
         self.assertTemplateUsed(response, 'index.html')
         
-        
+    #Test that user can access recipe's page
     def test_access_recipes_page(self):
         """
         Test that users can access recipes page
@@ -173,6 +175,50 @@ class RecipesTestCase(TestCase):
 
     # Test apps recipes
     def test_apps(self):
-        """Test app recipes"""
+        """
+        Test app recipes
+        """
         self.assertEqual(RecipesConfig.name, 'recipes')
         self.assertEqual(apps.get_app_config('recipes').name, 'recipes')
+
+    #Test recipe user
+    def test_recipe_user_view(self):
+        """
+        Test that users can access their recipe
+        """
+        #user1 login
+        self.client.login(username='user1', password='user1password')
+        #user1 want to checkout content in Recipe that has id = 3
+        recipe = Recipes.objects.get(pk = 3)
+        u = User.objects.get(pk=2)
+        c =Client()
+        response = self.client.get(f'/recipes/view/myrecipe/{u.id}')
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response, 'my_recipes.html')
+        self.assertTemplateUsed(response, 'layout-topnavRe.html')
+    
+    #Test delete recipe
+    def test_delete_recipe(self):
+        """
+        Test delete recipe
+        """
+        #user1 login
+        c = Client()
+        response = c.post(
+            "/login/", {"username": "user1", "password": "user1password"},follow=True
+        )
+        recipe = Recipes.objects.get(pk = 3)
+        u = User.objects.get(pk=2)
+        response = c.get(f'/recipes/view/myrecipe/{u.id}')
+        response = c.get(f'/recipes/delete/{recipe.id}',follow=True)
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response, 'my_recipes.html')
+        self.assertTemplateUsed(response, 'layout-topnavRe.html')
+        
+    
+
+    
+
+        
+        
+        

@@ -8,6 +8,7 @@ from .forms import RecipeForm
 from drive.main import uploadFile
 from comments.models import Comments
 
+
 # view_menu
 def menu_view(request):
 	if (request.method == 'GET') :
@@ -15,7 +16,7 @@ def menu_view(request):
 		return  render(request, "menu.html", {
 			'menu': result
 		})
-	else :
+	if (request.method == 'POST') :
 		data = request.POST.get('q')
 		option = request.POST.get('search_option')
 
@@ -99,7 +100,7 @@ def voteDown_recipe(request, recipe_id):
 
 #This fucntion will sorting recipes by Recipe's Name.
 def sortByReName(request):
-    if request.method == "POST":
+    if request.method == "GET":
         sortRenameCount+=1
         sortRenameCount %= 2
         #sort Recipes by reName desc
@@ -111,7 +112,7 @@ def sortByReName(request):
 
 #This fucntion will sorting recipes  by time that recipe was created.
 def sortByTime(request):
-    if request.method == "POST":
+    if request.method == "GET":
         sortTimeCount += 1
         sortTimeCount %= 2
         #sort Recipes by Time desc
@@ -121,12 +122,6 @@ def sortByTime(request):
         else:
             return Recipes.objects.order_by('id').reverse() #you can add render more cause i don't know what to do.
 
-#This fucntion will list recipes.
-def recipes_list(request):
-    recipes = Recipes.objects.all()
-    return render(request, 'AddRecipe.html', {
-        'recipes': recipes
-    })
 
 def add_comment(request, recipe_id):
     if request.method == "GET":
