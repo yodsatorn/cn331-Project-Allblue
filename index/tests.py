@@ -1,4 +1,4 @@
-from django.http import response
+from django.http import response, HttpResponse, HttpResponseRedirect
 from django.test import Client, TestCase
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -66,6 +66,25 @@ class indexTestCase(TestCase):
         )
         self.assertTrue(response.context["error_message"] == "Invalid Credentials")
 
+    def test_register_success(self):
+        """
+        Test user can register success
+        """
+        c = Client()
+        response = c.post(
+            "/register/",
+            {
+                "username": "user2",
+                "password": "user2password",
+                "email": "user2@tse.com", 
+            }, follow =True
+        )
+        response1 = c.get('/register/')
+        self.assertEqual(response1.status_code,200)
+        self.assertTemplateUsed(response1,'register.html')
+
+
+
     def test_register_unique_email(self):
         """
         Test Unique email when email was taken IntegrityError will raise with message 'Email was taken.'
@@ -109,17 +128,18 @@ class indexTestCase(TestCase):
             "/login/", {"username": "user1", "password": "user1password"}, follow=True
         )
         self.assertEqual(response.status_code, 200)
-
         # Log out
         self.client.logout()
-
+        self.client.get('/logout/')
         # Check response code
         response = self.client.get("")
         self.assertEquals(response.status_code, 200)
 
     #Test profile page
     def test_access_profile_page(self):
-        """Test access to profile's page"""
+        """
+        Test access to profile's page
+        """
         # log in
         c = Client()
         response = c.post(
@@ -129,7 +149,31 @@ class indexTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response,'profile.html')
 
+    def test_fail_profile_page(self):
+        """
+        Test failure access to profile's page.
+        """
+        c = Client()
+        response = c.get(reverse('profile'))
+        self.assertEqual(response.status_code,302)
+        
+
     #test apps index
     def test_apps(self):
+        """
+        Test app index
+        """
         self.assertEqual(IndexConfig.name, 'index')
         self.assertEqual(apps.get_app_config('index').name, 'index')
+
+    #Test about's page
+    def test_about_page(self):
+        """
+        Test about page
+        """
+        c = Client()
+        response = c.get('/about/')
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed('about.html')
+
+    

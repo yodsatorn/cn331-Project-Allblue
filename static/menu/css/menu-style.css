@@ -86,6 +86,19 @@ body {
     min-height: 100vh;
 }
   
+.textfield {
+    font-size: 25px;
+    color:black;
+}
 
+.menufont {
+    font-size: 22px;
+    color:black;
+}
+
+.subtextfield {
+    font-size: 35px;
+    color:black;
+}
 
 
