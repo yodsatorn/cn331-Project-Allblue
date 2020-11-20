@@ -23,10 +23,10 @@
                     <a href="{% url "recipe_view" x.id %}">Click to view</a>
                 </div>
             </div>
-            <div class="row mt-1">
+            <div class="row mt-4 mb-n3">
                 <div class="col">
                     <div class="mb-2 textfield w-100 text-right">
-                        <div type="submit" class="btn border-dark">
+                        <div class="btn border-dark">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up" fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -39,7 +39,7 @@
 
                 <div class="col">
                     <div class="textfield text-left w-100">
-                        <div type="submit" class="btn border-dark">
+                        <div class="btn border-dark">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down"
                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -53,7 +53,7 @@
 
         </div>
         {% empty %}
-        <h1>There is no Menu..</h1>
+        <h1 class="text-center mx-auto">There is no Menu..</h1>
         {% endfor %}
     </div>
 </div>

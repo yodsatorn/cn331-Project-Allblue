@@ -9,7 +9,7 @@
 {% block body %}
 
 {{ form.non_filed_errors }}
-<div class="">
+<div class="card w-75 mx-auto mt-3" id="page-container">
     <form method="POST" class="register-form mt-4" id="register-form" enctype="multipart/form-data">
         {% csrf_token %}
         {% for field in form %}
@@ -23,12 +23,18 @@
             <div class="mx-auto w-50 mx-auto textform">
                 RecipeName
             </div>
+            {% elif field.label == "Tag" %}
+            <div class="mx-auto w-50 mx-auto textform">
+                {{field.label}} 
+                <br>
+                (เลือกหลาย Tag ได้โดยการกด ctrl+คลิกซ้าย)
+            </div>
             {% else %}
             <div class="mx-auto w-50 mx-auto textform">
                 {{field.label}}
             </div>
             {% endif %}
-        <div class="card w-50 mx-auto">
+        <div class="card w-50 mx-auto mb-4">
             {{field}}
         </div>
         {% endif %}
