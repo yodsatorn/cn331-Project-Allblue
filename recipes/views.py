@@ -69,7 +69,7 @@ def deleteRecipe(request ,recipe_id):
 
 # voteUp feature
 # If user press vote up button this fucntion will vote up recipes.
-def voteUp(request, recipe_id):
+def voteUp_recipe(request, recipe_id):
     recipe = Recipes.objects.get(pk = recipe_id)
     user = User.objects.get(id=request.user.id)
     if recipe.voteUp.filter(id=request.user.id).count() == 0:
@@ -84,7 +84,7 @@ def voteUp(request, recipe_id):
 
 # voteDown feature
 # If user press vote down button this fucntion will vote down recipes.
-def voteDown(request, recipe_id):
+def voteDown_recipe(request, recipe_id):
     recipe = Recipes.objects.get(pk = recipe_id)
     user = User.objects.get(id=request.user.id)
     if recipe.voteDown.filter(id=request.user.id).count() == 0:
