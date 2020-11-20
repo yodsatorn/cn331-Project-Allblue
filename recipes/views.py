@@ -127,6 +127,7 @@ def recipes_list(request):
         'recipes': recipes
     })
 
+#This function will show recipe's user.
 def view_my_recipes(request,user_id):
     return render(request , 'my_recipes.html' ,{ 
         'my_recipes' : Recipes.objects.filter(user__id = user_id)
