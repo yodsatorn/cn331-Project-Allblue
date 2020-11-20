@@ -126,3 +126,8 @@ def recipes_list(request):
     return render(request, 'AddRecipe.html', {
         'recipes': recipes
     })
+
+def view_my_recipes(request,user_id):
+    return render(request , 'my_recipes.html' ,{ 
+        'my_recipes' : Recipes.objects.filter(user_id)
+    })
