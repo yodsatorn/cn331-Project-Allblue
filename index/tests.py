@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate
 from django.db import IntegrityError
 from django.apps import apps
 from index.apps import IndexConfig
+from recipes.urls import urlpatterns
 
 
 
@@ -176,4 +177,36 @@ class indexTestCase(TestCase):
         self.assertEqual(response.status_code,200)
         self.assertTemplateUsed('about.html')
 
-    
+    #Test edit profile
+    def test_edit_profile(self):
+        """
+        Test edit profile
+        """
+        c = Client()
+        response = c.post(
+            "/login/", {"username": "user1", "password": "user1password"},follow=True
+        )
+        response = c.post('/profile/edit/', 
+        {
+            'password':'user1password2',
+            'first_name':'Jack',
+            'last_name':'Sparelow',
+            'username':'user1',
+            'email':'user1@tse.com'}
+            ,
+            )
+        response = c.post(
+            "/login/", {"username": "user1", "password": "user1password2"},follow=True
+        ) 
+        self.assertEqual(response.status_code,200)
+
+        
+
+    def test_fail_edit_profile(self):
+        """
+        Test fail edit profile
+        """
+        c = Client()
+        self.client.login(username='user1', password='user1password')
+        response = c.get('/profile/edit/')
+        self.assertEqual(response.status_code,200)

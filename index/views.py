@@ -73,14 +73,14 @@ def profile(request):
 
 def editProfile(request):
 	if request.method == 'POST':
-
-		user = User.objects.get(username=request.user.username)
-		user.set_password(request.POST.get('password'))
-		user.first_name = request.POST.get('first_name')
-		user.last_name = request.POST.get('last_name')
-		user.save()
-		user = authenticate(request, username= request.user.username, password= request.POST.get('password'))
-		login(request, user)
+		if request.user.is_authenticated:
+			user = User.objects.get(username=request.user.username)
+			user.set_password(request.POST.get('password'))
+			user.first_name = request.POST.get('first_name')
+			user.last_name = request.POST.get('last_name')
+			user.save()
+			user = authenticate(request, username= request.user.username, password= request.POST.get('password'))
+			login(request, user)
 		return redirect("profile")
 	else:
 		
