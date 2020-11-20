@@ -8,7 +8,7 @@ from comments.apps import CommentsConfig
 
 # Create your tests here.
 class CommentsTestCase(TestCase):
-    #test apps recipes
+    #test apps comments
     def test_apps(self):
         self.assertEqual(CommentsConfig.name, 'comments')
         self.assertEqual(apps.get_app_config('comments').name, 'comments')

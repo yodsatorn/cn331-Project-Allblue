@@ -40,7 +40,7 @@
                 </li>
                 {% if request.user.is_authenticated %}
                 <li>
-                    <a class="nav-link" href="{% url 'recipe_view' %}">My recipes</a>
+                    <a class="nav-link" href="{% url 'myrecipe' request.user.id  %}">My recipes</a>
                 </li>
                 {% endif %}
             </ul> 

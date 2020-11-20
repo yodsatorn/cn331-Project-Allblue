@@ -33,7 +33,7 @@
                         <a href="{% url 'editProfile' %}" class="signup-image-link" style="font-size: 20px;">
                             Edit profile</a>
                         <div class="dropdown-divider  mx-3"></div>
-                        <a href="{% url 'profile' %}" class="signup-image-link" style="font-size: 20px;">My
+                        <a href="{% url 'myrecipe' request.user.id %}" class="signup-image-link" style="font-size: 20px;">My
                             recipe</a>
                         <div class="dropdown-divider mx-3"></div>
                         <a href="{% url 'addrecipe' %}" class="signup-image-link" style="font-size: 20px;">Add
