@@ -131,5 +131,6 @@ class indexTestCase(TestCase):
 
     #test apps index
     def test_apps(self):
+        """Test app index"""
         self.assertEqual(IndexConfig.name, 'index')
         self.assertEqual(apps.get_app_config('index').name, 'index')
