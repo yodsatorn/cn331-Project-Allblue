@@ -54,6 +54,7 @@ def recipe_view(request, id):
     return render(request, 'viewrecipe.html', {
         'result': Recipes.objects.get(id=id),
         'user': Recipes.objects.get(id=id).user.get(userRecipe = id),
+        'tag': Recipes.objects.get(id=id).tag.all(),
         'solution': [x for x in Recipes.objects.get(id= id).solution.split("\n")],
         'ingredient': [x for x in Recipes.objects.get(id= id).ingredient.split("\n")]
         })

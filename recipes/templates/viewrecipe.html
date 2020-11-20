@@ -15,7 +15,20 @@
         <img src="https://drive.google.com/uc?export=view&id={{ result.image }}" class="w-100 h-100" alt="image">
     </div>
 
-    <p class="menufont mt-5 text-left ml-3 mt-5"><b>Creator </b><span class="menuform ml-2">{{user}}</span></p>
+    <p class="menufont mt-5 text-left ml-3"><b>Creator</b>
+        <span class="menuform ml-2">{{user}}</span>
+        <br>
+    </p>
+    <p class="menufont mt-2 text-left ml-3 "><b>Tag</b>
+        {% for Tags in tag %}
+        <div class="mt-2 ml-4 menuform">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-dash mr-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+              </svg>
+            {{ Tags }}
+        </div>
+        {% endfor %}
+    </p>
 
     
     <div class="menufont text-left ml-3 mb-2 mt-3"><b>Ingredient</b>
