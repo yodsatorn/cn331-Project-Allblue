@@ -21,9 +21,14 @@ def menu_view(request):
     if (request.method == 'POST'):
         data = request.POST.get('q')
         option = request.POST.get('search_option')
-
-        if (option == 'by_name'):
-            result = Recipes.objects.filter(reName__icontains=data)
+        sort = request.POST.get('sort_option')
+        
+        if (sort == 'asc'):
+            if (option == 'by_name'):
+                result = Recipes.objects.filter(reName__icontains=data).order_by('id')
+        elif (sort == 'des'):
+            if (option == 'by_name'):
+                result = Recipes.objects.filter(reName__icontains=data).order_by('id').reverse()
 
         return render(request, "menu.html", {
             'menu': result,
