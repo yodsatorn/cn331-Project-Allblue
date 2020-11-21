@@ -61,7 +61,7 @@ sortRenameCount = 0
 sortTimeCount = 0
 
 
-# This fucntion will show detail of the recipe.
+# This fucntion will show detail of each recipe.
 def recipe_view(request, id):
     return render(request, 'viewrecipe.html', {
         'result': Recipes.objects.get(id=id),
@@ -84,44 +84,53 @@ def deleteRecipe(request, recipe_id):
 # voteUp feature
 # If user press vote up button this fucntion will vote up recipes.
 def voteUp_recipe(request, recipe_id):
-    recipe = Recipes.objects.get(pk=recipe_id)
-    user = User.objects.get(id=request.user.id)
-    if recipe.voteUp.filter(id=request.user.id).count() == 0:
-        if recipe.voteDown.filter(id=request.user.id).count() == 0:
-            recipe.voteUp.add(user)
+    if request.user.is_authenticated :
+        recipe = Recipes.objects.get(pk=recipe_id)
+        user = User.objects.get(id=request.user.id)
+        if recipe.voteUp.filter(id=request.user.id).count() == 0:
+            if recipe.voteDown.filter(id=request.user.id).count() == 0:
+                recipe.voteUp.add(user)
+            else:
+                recipe.voteDown.remove(user)
+                recipe.voteUp.add(user)
         else:
-            recipe.voteDown.remove(user)
-            recipe.voteUp.add(user)
-    else:
-        recipe.voteUp.remove(user)
-    return redirect('recipe_view', recipe_id)
+            recipe.voteUp.remove(user)
+        return redirect('recipe_view', recipe_id)
+    else :
+        return redirect('login')
 
 
 # voteDown feature
 # If user press vote down button this fucntion will vote down recipes.
 def voteDown_recipe(request, recipe_id):
-    recipe = Recipes.objects.get(pk=recipe_id)
-    user = User.objects.get(id=request.user.id)
-    if recipe.voteDown.filter(id=request.user.id).count() == 0:
-        if recipe.voteUp.filter(id=request.user.id).count() == 0:
-            recipe.voteDown.add(user)
+    if request.user.is_authenticated :
+        recipe = Recipes.objects.get(pk=recipe_id)
+        user = User.objects.get(id=request.user.id)
+        if recipe.voteDown.filter(id=request.user.id).count() == 0:
+            if recipe.voteUp.filter(id=request.user.id).count() == 0:
+                recipe.voteDown.add(user)
+            else:
+                recipe.voteUp.remove(user)
+                recipe.voteDown.add(user)
         else:
-            recipe.voteUp.remove(user)
-            recipe.voteDown.add(user)
+            recipe.voteDown.remove(user)
+        return redirect('recipe_view', recipe_id)
     else:
-        recipe.voteDown.remove(user)
-    return redirect('recipe_view', recipe_id)
+        return redirect('login')
 
 # This fucntion will add comment that writen by user.
 def add_comment(request, recipe_id):
-    if request.method == "GET":
-        body = request.GET.get('body')
-        recipe = Recipes.objects.get(id=recipe_id)
-        user = User.objects.get(id=request.user.id)
-        c = Comments.objects.create(body=body, username=request.user.username)
-        c.userID.add(user)
-        c.recipeID.add(recipe)
-    return redirect('recipe_view', recipe_id)
+    if request.user.is_authenticated :
+        if request.method == "GET":
+            body = request.GET.get('body')
+            recipe = Recipes.objects.get(id=recipe_id)
+            user = User.objects.get(id=request.user.id)
+            c = Comments.objects.create(body=body, username=request.user.username)
+            c.userID.add(user)
+            c.recipeID.add(recipe)
+        return redirect('recipe_view', recipe_id)
+    else :
+        return redirect('login')
 
 
 # This function will show recipe's user.

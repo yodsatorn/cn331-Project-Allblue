@@ -1,8 +1,9 @@
 from recipes.views import add_comment
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
+from index.views import view_login
 
 urlpatterns = [
 	path('menu/', views.menu_view, name = "menu"),
@@ -13,5 +14,6 @@ urlpatterns = [
 	path('addcomment/<int:recipe_id>', views.add_comment, name="addcomment"),
 	path('view/myrecipe/<int:user_id>', views.view_my_recipes, name='myrecipe'),
 	path('delete/<int:recipe_id>',views.deleteRecipe,name = 'delete'),
-	path('menu/tag/<int:tag_id>', views.tag_show_recipes, name="tag")
+	path('menu/tag/<int:tag_id>', views.tag_show_recipes, name='tag'),
+	path('login/', view_login, name='login')
 ]
