@@ -30,9 +30,8 @@ def menu_view(request):
             'tags': tag
         })
 
+
 # Add recipe fearture : this fucntion will add recipe that user create into data base.
-
-
 def addrecipe_view(request):
     if request.method == "POST":
         form = RecipeForm(request.POST, request.FILES)
@@ -56,9 +55,8 @@ def addrecipe_view(request):
 sortRenameCount = 0
 sortTimeCount = 0
 
+
 # This fucntion will show detail of the recipe.
-
-
 def recipe_view(request, id):
     return render(request, 'viewrecipe.html', {
         'result': Recipes.objects.get(id=id),
@@ -69,19 +67,17 @@ def recipe_view(request, id):
         'comments': Comments.objects.filter(recipeID=id),
     })
 
+
 # This fucntion will delete recipe in data base.
-
-
 def deleteRecipe(request, recipe_id):
     if request.method == "GET":
         r = Recipes.objects.get(pk=recipe_id)
         r.delete()
     return redirect('myrecipe', request.user.id)
 
+
 # voteUp feature
 # If user press vote up button this fucntion will vote up recipes.
-
-
 def voteUp_recipe(request, recipe_id):
     recipe = Recipes.objects.get(pk=recipe_id)
     user = User.objects.get(id=request.user.id)
@@ -95,10 +91,9 @@ def voteUp_recipe(request, recipe_id):
         recipe.voteUp.remove(user)
     return redirect('recipe_view', recipe_id)
 
+
 # voteDown feature
 # If user press vote down button this fucntion will vote down recipes.
-
-
 def voteDown_recipe(request, recipe_id):
     recipe = Recipes.objects.get(pk=recipe_id)
     user = User.objects.get(id=request.user.id)
@@ -113,9 +108,8 @@ def voteDown_recipe(request, recipe_id):
     # I don't know what to do, it's up to you boi
     return redirect('recipe_view', recipe_id)
 
+
 # This fucntion will sorting recipes by Recipe's Name.
-
-
 def sortByReName(request):
     if request.method == "GET":
         sortRenameCount += 1
@@ -129,9 +123,8 @@ def sortByReName(request):
             # you can add render more cause i don't know what to do.
             return Recipes.objects.order_by('reName').reverse()
 
+
 # This fucntion will sorting recipes  by time that recipe was created.
-
-
 def sortByTime(request):
     if request.method == "GET":
         sortTimeCount += 1
@@ -146,6 +139,7 @@ def sortByTime(request):
             return Recipes.objects.order_by('id').reverse()
 
 
+# This fucntion will add comment that writen by user.
 def add_comment(request, recipe_id):
     if request.method == "GET":
         body = request.GET.get('body')
@@ -156,10 +150,18 @@ def add_comment(request, recipe_id):
         c.recipeID.add(recipe)
     return redirect('recipe_view', recipe_id)
 
+
 # This function will show recipe's user.
-
-
 def view_my_recipes(request, user_id):
     return render(request, 'my_recipes.html', {
         'my_recipes': Recipes.objects.filter(user__id=user_id)
     })
+
+
+# This fucntion will show recipe by tag's name
+def tag_show_recipes(request,tag_id):
+    if request.method == 'GET':
+        recipe = Recipes.objects.filter(tag__id = tag_id)
+        return render(request, 'menu.html', {
+            'menu' : recipe 
+        })

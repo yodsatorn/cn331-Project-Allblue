@@ -213,3 +213,12 @@ class RecipesTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'my_recipes.html')
         self.assertTemplateUsed(response, 'layout-topnavRe.html')
+
+    #def test_add_recipe(self):
+    #   """Test add recipe"""
+    #    # user1 login
+    #    c = Client()
+    #    response = c.post(
+    #        "/login/", {"username": "user1", "password": "user1password"}, follow=True
+    #    )
+

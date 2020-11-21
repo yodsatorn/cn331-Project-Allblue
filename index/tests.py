@@ -32,24 +32,55 @@ class indexTestCase(TestCase):
         """
         c = Client()
         response = c.post(
-            "/login/", {"username": "user1", "password": "user1password"}, follow=True
+            "/login/",
+            {
+                "username": "user1",
+                "password": "user1password"
+            },
+            follow=True
         )
         self.assertEqual(response.status_code, 200)
-        self.assertTrue(response)
+        self.assertTemplateUsed(response,'index.html')
         # check authenticate
         user = authenticate(username="user1", password="user1password")
         self.assertTrue((user is not None) and user.is_authenticated)
 
-    # sad path login page
-    def test_fail_login(self):
+    # Login fail (wrong password)
+    def test_fail_login_1(self):
         """
-        Test Login fail
+        Test Login fail by wrong password
         """
         c = Client()
         response = c.post(
-            "/login", {"username": "user1", "password": "admin1password"}, follow=True
+            "/login",
+            {
+                "username": "user1",
+                "password": "admin1password" #wrong password
+            },
+            follow=True
         )
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'login.html')
+        # check authenticate
+        user = authenticate(username="user1", password="admin1password")
+        self.assertFalse(user is not None and user.is_authenticated)
+
+    # Login fail (wrong password)
+    def test_fail_login_2(self):
+        """
+        Test Login fail by wrong username
+        """
+        c = Client()
+        response = c.post(
+            "/login",
+            {
+                "username": "user1wrong",
+                "password": "user1password"
+            },
+            follow=True
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'login.html')
         # check authenticate
         user = authenticate(username="user1", password="admin1password")
         self.assertFalse(user is not None and user.is_authenticated)
@@ -61,12 +92,17 @@ class indexTestCase(TestCase):
         c = Client()
         response = c.post(
             "/login/",
-            {"username": "wronguser", "password": "withworngpassword"},
+            {
+                "username": "wronguser",
+                "password": "withworngpassword"
+            },
             follow=True,
         )
         self.assertTrue(
             response.context["error_message"] == "Invalid Credentials")
+        self.assertTemplateUsed(response, 'login.html')
 
+    # Successful register
     def test_register_success(self):
         """
         Test user can register success
@@ -75,11 +111,15 @@ class indexTestCase(TestCase):
         response = c.post(
             "/register/",
             {
-                "username": "user2",
-                "password": "user2password",
-                "email": "user2@tse.com",
+                "username": "user4",
+                "password": "user4password",
+                "email": "user4@tse.com",
+                "first_name": "user4_firstName",
+                "last_name": "user4_lastName",
             }, follow=True
-        )
+        ) # User4 register
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response, 'login.html')
         response1 = c.get('/register/')
         self.assertEqual(response1.status_code, 200)
         self.assertTemplateUsed(response1, 'register.html')
@@ -95,7 +135,7 @@ class indexTestCase(TestCase):
                 "username": "user2",
                 "password": "user2password",
                 "email": "user1@tse.com",  # Same email as user1
-            },
+            }, follow=True
         )
 
         self.assertRaisesMessage(IntegrityError, "Email was taken.")
@@ -111,7 +151,7 @@ class indexTestCase(TestCase):
                 "username": "user1",  # Same username as user1
                 "password": "user2password",
                 "email": "user2@tse.com",
-            },
+            }, follow=True
         )
 
         self.assertRaisesMessage(IntegrityError, "Username was taken.")
@@ -125,9 +165,10 @@ class indexTestCase(TestCase):
         c = Client()
         response = c.post(
             "/login/",
-            {"username": "user1",
-             "password": "user1password"
-             },
+            {
+                "username": "user1",
+                "password": "user1password"
+            },
             follow=True
         )
         self.assertEqual(response.status_code, 200)
@@ -146,7 +187,12 @@ class indexTestCase(TestCase):
         # log in
         c = Client()
         response = c.post(
-            "/login/", {"username": "user1", "password": "user1password"}, follow=True
+            "/login/",
+            {
+                "username": "user1",
+                "password": "user1password"
+            },
+            follow=True
         )
         response = c.get('/profile/')
         self.assertEqual(response.status_code, 200)
@@ -161,7 +207,6 @@ class indexTestCase(TestCase):
         self.assertEqual(response.status_code, 302)
 
     # test apps index
-
     def test_apps(self):
         """
         Test app index
@@ -186,7 +231,12 @@ class indexTestCase(TestCase):
         """
         c = Client()
         response = c.post(
-            "/login/", {"username": "user1", "password": "user1password"}, follow=True
+            "/login/",
+            {
+                "username": "user1",
+                "password": "user1password"
+            },
+            follow=True
         )
         response = c.post('/profile/edit/',
                           {
