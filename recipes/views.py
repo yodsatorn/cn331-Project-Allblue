@@ -110,7 +110,6 @@ def voteDown_recipe(request, recipe_id):
             recipe.voteDown.add(user)
     else:
         recipe.voteDown.remove(user)
-    # I don't know what to do, it's up to you boi
     return redirect('recipe_view', recipe_id)
 
 # This fucntion will add comment that writen by user.

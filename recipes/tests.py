@@ -21,21 +21,26 @@ from comments.models import Comments
 class RecipesTestCase(TestCase):
 
     def setUp(self):
+       
         # create user
         user1 = User.objects.create_user(
             username="user1", first_name="user1", password="user1password", email="user1@tse.com")
         user2 = User.objects.create_user(
             username="user2", first_name="user2", password="user2password", email="user2@tse.com")
+        
         # crete recipes
         recipe1 = Recipes.objects.create(reName='rice omlet', ingredient='rice egg', solution='sol')
         recipe2 = Recipes.objects.create(reName='steak', ingredient='pork', solution='grill')
         recipe3 = Recipes.objects.create(reName='Cheese cake', ingredient='cheese,milk', solution = 'baked')
+        
         # create tag
         tag1 = Tags.objects.create(tagName="home cook")
         tag2 = Tags.objects.create(tagName="Thai food")
         tag3 = Tags.objects.create(tagName="Chinese food")
+        
         # recipe3 was create by user2
         recipe3.user.add(user2)
+        
         # tag3 was tag by recipe3
         recipe3.tag.add(tag3)
 

@@ -24,9 +24,8 @@ def voteUp(request, recipe_id, id):
         comments.voteUp.remove(user)
     return redirect('recipe_view', recipe_id)
 
+
 # Vote down comment
-
-
 def voteDown(request, recipe_id, id):
     comments = Comments.objects.get(id=id)
     user = User.objects.get(id=request.user.id)
@@ -39,12 +38,3 @@ def voteDown(request, recipe_id, id):
     else:
         comments.voteDown.remove(user)
     return redirect('recipe_view', recipe_id)
-
-# This fucntion will show all of comments in the recipe.
-
-
-def comment_list(request, recipe_ID):
-    comment = Comments.objects.filter(recipeID=recipe_ID)
-    return render(request, '.html', {
-        'comment': comment
-    })  # Nice said it's up to you ,you can return what u want
