@@ -25,12 +25,9 @@ class RecipesTestCase(TestCase):
         user2 = User.objects.create_user(
             username="user2", first_name="user2", password="user2password", email="user2@tse.com")
         # crete recipes
-        recipe1 = Recipes.objects.create(
-            reName='rice omlet', ingredient='rice egg', solution='sol')
-        recipe2 = Recipes.objects.create(
-            reName='steak', ingredient='pork', solution='grill')
-        recipe3 = Recipes.objects.create(
-            reName='Cheese cake', ingredient='cheese,milk', solution='baked')
+        recipe1 = Recipes.objects.create(reName='rice omlet', ingredient='rice egg', solution='sol')
+        recipe2 = Recipes.objects.create(reName='steak', ingredient='pork', solution='grill')
+        recipe3 = Recipes.objects.create(reName='Cheese cake', ingredient='cheese,milk', solution = 'baked')
         # create tag
         tag1 = Tags.objects.create(tagName="home cook")
         tag2 = Tags.objects.create(tagName="Thai food")
