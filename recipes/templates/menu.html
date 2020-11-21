@@ -10,7 +10,11 @@
 
 <!-- background -->
 {% block body %}
-
+<div class="card w-75 mx-auto mt-3">
+    {% for tag in tags %}
+    <button class="btn">{{ tag.tagName }}</button>
+    {% endfor %}
+</div>
 <div class="card w-75 mx-auto mt-3" id="page-container">
     <p class="subtextfield mt-2 pt-3 text-center text-uppercase my-3"><b>Menu</b></p>
     <div class="card-group row-cols-md-3 mt-5">

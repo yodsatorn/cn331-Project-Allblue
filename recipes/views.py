@@ -11,10 +11,12 @@ from comments.models import Comments
 
 # view_menu
 def menu_view(request):
+    tag = Tags.objects.all()
     if (request.method == 'GET'):
         result = Recipes.objects.all()
         return render(request, "menu.html", {
-            'menu': result
+            'menu': result,
+            'tags': tag
         })
     if (request.method == 'POST'):
         data = request.POST.get('q')
@@ -24,7 +26,8 @@ def menu_view(request):
             result = Recipes.objects.filter(reName__icontains=data)
 
         return render(request, "menu.html", {
-            'menu': result
+            'menu': result,
+            'tags': tag
         })
 
 # Add recipe fearture : this fucntion will add recipe that user create into data base.
