@@ -43,9 +43,14 @@
                 </li>
                 {% endif %}
             </ul>
+            <!-- Search Bar -->
             <form class="form-inline mr-auto my-lg-0" action="{% url 'menu' %}" method="POST"> {% csrf_token %}
                 <ul class="navbar-nav">
-                    <select class="rounded mr-1 py-1" name="search_option">
+                    <select class="rounded mr-1 py-1 px-2" name="sort_option">
+                        <option value="asc" selected>ASC</option>
+                        <option value="des">DES</option>
+                    </select>
+                    <select class="rounded mr-1 py-1 px-2" name="search_option">
                         <option value="by_name" selected>By name</option>
                     </select>
                 </ul>

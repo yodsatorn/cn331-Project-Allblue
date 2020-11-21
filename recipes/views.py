@@ -21,9 +21,14 @@ def menu_view(request):
     if (request.method == 'POST'):
         data = request.POST.get('q')
         option = request.POST.get('search_option')
-
-        if (option == 'by_name'):
-            result = Recipes.objects.filter(reName__icontains=data)
+        sort = request.POST.get('sort_option')
+        
+        if (sort == 'asc'):
+            if (option == 'by_name'):
+                result = Recipes.objects.filter(reName__icontains=data).order_by('id')
+        elif (sort == 'des'):
+            if (option == 'by_name'):
+                result = Recipes.objects.filter(reName__icontains=data).order_by('id').reverse()
 
         return render(request, "menu.html", {
             'menu': result,
@@ -108,37 +113,6 @@ def voteDown_recipe(request, recipe_id):
     # I don't know what to do, it's up to you boi
     return redirect('recipe_view', recipe_id)
 
-
-# This fucntion will sorting recipes by Recipe's Name.
-def sortByReName(request):
-    if request.method == "GET":
-        sortRenameCount += 1
-        sortRenameCount %= 2
-        # sort Recipes by reName desc
-        if(sortRenameCount == 1):
-            # you can add render more cause i don't know what to do.
-            return Recipes.objects.order_by('reName')
-        # sort Recipes by reName incr
-        else:
-            # you can add render more cause i don't know what to do.
-            return Recipes.objects.order_by('reName').reverse()
-
-
-# This fucntion will sorting recipes  by time that recipe was created.
-def sortByTime(request):
-    if request.method == "GET":
-        sortTimeCount += 1
-        sortTimeCount %= 2
-        # sort Recipes by Time desc
-        if(sortTimeCount == 1):
-            # you can add render more cause i don't know what to do.
-            return Recipes.objects.order_by('id')
-        # sort Recipes by Time incr
-        else:
-            # you can add render more cause i don't know what to do.
-            return Recipes.objects.order_by('id').reverse()
-
-
 # This fucntion will add comment that writen by user.
 def add_comment(request, recipe_id):
     if request.method == "GET":
@@ -161,7 +135,9 @@ def view_my_recipes(request, user_id):
 # This fucntion will show recipe by tag's name
 def tag_show_recipes(request,tag_id):
     if request.method == 'GET':
+        tag = Tags.objects.all()
         recipe = Recipes.objects.filter(tag__id = tag_id)
         return render(request, 'menu.html', {
-            'menu' : recipe 
+            'menu' : recipe,
+            'tags' : tag
         })
