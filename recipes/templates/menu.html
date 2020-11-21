@@ -14,11 +14,22 @@
 <div class="card w-75 mx-auto mt-3" id="page-container">
     <p class="subtextfield mt-2 pt-3 text-center text-uppercase my-3"><b>Menu</b></p>
 
-    {% for tag in tags %}
-    <form method="GET" action="{% url 'tag' tag.id %}" class="w-100 text-center">
-        <button class="filter_btn btn btn-primary" type="submit">{{ tag.tagName }}</button>
-        {% endfor %}
-    </form>
+    <div class="dropdown w-50 mx-auto mt-3 mb-3">
+        <button class="btn btn-secondary w-100" type="button" id="dropdownMenu2" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Tags
+        </button>
+
+        <div class="dropdown-menu w-100" aria-labelledby="dropdownMenu2">
+            {% for tag in tags %}
+            <form method="GET" action="{% url 'tag' tag.id %}" class="text-center">
+                <button class="dropdown-item" type="submit">
+                    {{ tag.tagName }}
+                </button>
+            </form>
+            {% endfor %}
+        </div>
+    </div>
 
     <div class="card-group row-cols-md-3 mt-5">
         {% for x in menu %}

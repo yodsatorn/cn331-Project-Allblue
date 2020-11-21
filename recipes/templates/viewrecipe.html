@@ -105,7 +105,7 @@
 
         <div class="col ">
             <form action="{% url 'voteup_comment' result.id comment.id %}" method="get" class="mt-3 ml-4 pl-5">
-                <button class="btn">
+                <button class="btn" id="btnvote">
                     <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-caret-up-fill "
                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -117,7 +117,7 @@
 
 
             <form action="{% url 'votedown_comment' result.id comment.id %}" method="get" class="ml-4 pl-5">
-                <button class="btn">
+                <button class="btn" id="btnvote">
                     <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-caret-down-fill"
                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path

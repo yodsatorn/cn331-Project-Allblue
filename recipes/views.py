@@ -161,7 +161,9 @@ def view_my_recipes(request, user_id):
 # This fucntion will show recipe by tag's name
 def tag_show_recipes(request,tag_id):
     if request.method == 'GET':
+        tag = Tags.objects.all()
         recipe = Recipes.objects.filter(tag__id = tag_id)
         return render(request, 'menu.html', {
-            'menu' : recipe 
+            'menu' : recipe,
+            'tags' : tag
         })
