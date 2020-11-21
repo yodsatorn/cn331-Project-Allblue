@@ -12,7 +12,7 @@
 {% block body %}
 <div class="card w-75 mx-auto mt-3">
     {% for tag in tags %}
-    <button class="btn">{{ tag.tagName }}</button>
+    <button class="btn" value="{{tag.id}}">{{ tag.tagName }}</button>
     {% endfor %}
 </div>
 <div class="card w-75 mx-auto mt-3" id="page-container">
