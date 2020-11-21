@@ -113,37 +113,6 @@ def voteDown_recipe(request, recipe_id):
     # I don't know what to do, it's up to you boi
     return redirect('recipe_view', recipe_id)
 
-
-# This fucntion will sorting recipes by Recipe's Name.
-def sortByReName(request):
-    if request.method == "GET":
-        sortRenameCount += 1
-        sortRenameCount %= 2
-        # sort Recipes by reName desc
-        if(sortRenameCount == 1):
-            # you can add render more cause i don't know what to do.
-            return Recipes.objects.order_by('reName')
-        # sort Recipes by reName incr
-        else:
-            # you can add render more cause i don't know what to do.
-            return Recipes.objects.order_by('reName').reverse()
-
-
-# This fucntion will sorting recipes  by time that recipe was created.
-def sortByTime(request):
-    if request.method == "GET":
-        sortTimeCount += 1
-        sortTimeCount %= 2
-        # sort Recipes by Time desc
-        if(sortTimeCount == 1):
-            # you can add render more cause i don't know what to do.
-            return Recipes.objects.order_by('id')
-        # sort Recipes by Time incr
-        else:
-            # you can add render more cause i don't know what to do.
-            return Recipes.objects.order_by('id').reverse()
-
-
 # This fucntion will add comment that writen by user.
 def add_comment(request, recipe_id):
     if request.method == "GET":
