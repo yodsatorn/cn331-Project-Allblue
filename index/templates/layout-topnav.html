@@ -43,16 +43,24 @@
                     <a class="nav-link" href="{% url 'myrecipe' request.user.id  %}">My recipes</a>
                 </li>
                 {% endif %}
-            </ul> 
+            </ul>
+            <!-- Search Bar -->
             <form class="form-inline mr-auto my-lg-0" action="{% url 'menu' %}" method="POST"> {% csrf_token %}
                 <ul class="navbar-nav">
-                    <select class="rounded mr-1 py-1" name="search_option">
+                    <select class="rounded mr-1 py-1 px-2" name="sort_option">
+                        <option value="asc" selected>ASC</option>
+                        <option value="des">DEC</option>
+                    </select>
+                    <select class="rounded mr-1 py-1 px-2" name="search_option">
                         <option value="by_name" selected>By name</option>
                     </select>
                 </ul>
                 <input class="form-control mr-sm-2" id="searchbar" name="q" type="search" placeholder="Search"
                     aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" id="searchbotton" type="submit">Search</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" id="searchbotton" type="submit"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                    <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                  </svg></button>
             </form>
             <ul class="rounded navbar-nav">
                 {% if not request.user.is_authenticated %}
@@ -93,14 +101,15 @@
                                         d="M9.5 1h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3zM8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z" />
                                 </svg>Add Recipe</a>
                             <div class="dropdown-divider w-75 mx-auto"></div>
-                            <a class="dropdown-item card text-center w-75 mx-auto" href="{% url 'logout' %}">Sign out</a>
+                            <a class="dropdown-item card text-center w-75 mx-auto" href="{% url 'logout' %}">Sign
+                                out</a>
                     </div>
                 </li>
                 {% endif %}
             </ul>
         </div>
     </nav>
-<!-- End top-nav section -->
+    <!-- End top-nav section -->
     {% block body %}
     {% endblock %}
 
