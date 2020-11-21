@@ -10,6 +10,8 @@ from django.core.files import File
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.db.models import ImageField
 from recipes.apps import RecipesConfig
+from django.shortcuts import redirect
+
 
 # Create your tests here.
 
@@ -23,9 +25,18 @@ class RecipesTestCase(TestCase):
         user2 = User.objects.create_user(
             username="user2", first_name="user2", password="user2password", email="user2@tse.com")
         # crete recipes
+<<<<<<< HEAD
         recipe1 = Recipes.objects.create(reName='rice omlet', ingredient='rice egg', solution='sol')
         recipe2 = Recipes.objects.create(reName='steak', ingredient='pork', solution='grill')
         recipe3 = Recipes.objects.create(reName='Cheese cake', ingredient='cheese,milk', solution = 'baked')
+=======
+        recipe1 = Recipes.objects.create(
+            reName='rice omlet', ingredient='rice egg', solution='sol')
+        recipe2 = Recipes.objects.create(
+            reName='steak', ingredient='pork', solution='grill')
+        recipe3 = Recipes.objects.create(
+            reName='Cheese cake', ingredient='cheese,milk', solution='baked')
+>>>>>>> 438df87e1c0362a40117c7dbf072b4370c73648a
         # create tag
         tag1 = Tags.objects.create(tagName="home cook")
         tag2 = Tags.objects.create(tagName="Thai food")
@@ -114,7 +125,7 @@ class RecipesTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'menu.html')
         self.assertTemplateUsed(response, 'layout-topnavRe.html')
-        self.assertEqual(response.context['menu'].count(),3)
+        self.assertEqual(response.context['menu'].count(), 3)
 
     # Test access to menu's page with login
     def test_access_menu_with_login(self):
@@ -130,7 +141,7 @@ class RecipesTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'menu.html')
         self.assertTemplateUsed(response, 'layout-topnavRe.html')
-        self.assertEqual(response.context['menu'].count(),3)
+        self.assertEqual(response.context['menu'].count(), 3)
 
     # Test access to menu's page by search bar
     def test_access_menu_by_search(self):
@@ -143,34 +154,71 @@ class RecipesTestCase(TestCase):
         )
         response1 = c.get('/recipes/menu/')
         self.assertEqual(response1.status_code, 200)
-        self.assertTemplateUsed(response1,'menu.html')
+        self.assertTemplateUsed(response1, 'menu.html')
         self.assertTemplateUsed(response1, 'layout-topnavRe.html')
 
     def test_search(self):
         """
         Test search
         """
-        c=Client()
-        response = c.post(reverse('index'), data = {'q' : 'steak', 'search_option' : 'by_name'},follow = True)
-        self.assertEqual(response.status_code,200)
+        c = Client()
+        response = c.post(reverse('index'), data={
+                          'q': 'steak', 'search_option': 'by_name'}, follow=True)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
-        
-        
+
+    # Test that user can access recipe's page
     def test_access_recipes_page(self):
         """
         Test that users can access recipes page
         """
-        #user1 login
+        # user1 login
         self.client.login(username='user1', password='user1password')
-        #user1 want to checkout content in Recipe that has id = 3
-        recipe = Recipes.objects.get(pk = 3)
+        # user1 want to checkout content in Recipe that has id = 3
+        recipe = Recipes.objects.get(pk=3)
         response = self.client.get(f'/recipes/view/recipe/{recipe.id}/')
-        self.assertEqual(response.status_code,200)
+        self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'viewrecipe.html')
         self.assertTemplateUsed(response, 'layout-topnavRe.html')
 
     # Test apps recipes
     def test_apps(self):
-        """Test app recipes"""
+        """
+        Test app recipes
+        """
         self.assertEqual(RecipesConfig.name, 'recipes')
         self.assertEqual(apps.get_app_config('recipes').name, 'recipes')
+
+    # Test recipe user
+    def test_recipe_user_view(self):
+        """
+        Test that users can access their recipe
+        """
+        # user1 login
+        self.client.login(username='user1', password='user1password')
+        # user1 want to checkout content in Recipe that has id = 3
+        recipe = Recipes.objects.get(pk=3)
+        u = User.objects.get(pk=2)
+        c = Client()
+        response = self.client.get(f'/recipes/view/myrecipe/{u.id}')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'my_recipes.html')
+        self.assertTemplateUsed(response, 'layout-topnavRe.html')
+
+    # Test delete recipe
+    def test_delete_recipe(self):
+        """
+        Test delete recipe
+        """
+        # user1 login
+        c = Client()
+        response = c.post(
+            "/login/", {"username": "user1", "password": "user1password"}, follow=True
+        )
+        recipe = Recipes.objects.get(pk=3)
+        u = User.objects.get(pk=2)
+        response = c.get(f'/recipes/view/myrecipe/{u.id}')
+        response = c.get(f'/recipes/delete/{recipe.id}', follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'my_recipes.html')
+        self.assertTemplateUsed(response, 'layout-topnavRe.html')
