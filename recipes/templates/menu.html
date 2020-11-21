@@ -12,7 +12,9 @@
 {% block body %}
 <div class="card w-75 mx-auto mt-3">
     {% for tag in tags %}
-    <button class="btn" value="{{tag.id}}">{{ tag.tagName }}</button>
+    <form method="GET" action="{% url 'tag' tag.id %}">
+        <button class="btn" type="submit">{{ tag.tagName }}</button>
+    </form>
     {% endfor %}
 </div>
 <div class="card w-75 mx-auto mt-3" id="page-container">

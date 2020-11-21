@@ -12,5 +12,6 @@ urlpatterns = [
 	path('view/recipe/votedown/<int:recipe_id>', views.voteDown_recipe ,name='votedown_recipe'),
 	path('addcomment/<int:recipe_id>', views.add_comment, name="addcomment"),
 	path('view/myrecipe/<int:user_id>', views.view_my_recipes, name='myrecipe'),
-	path('delete/<int:recipe_id>',views.deleteRecipe,name = 'delete')
+	path('delete/<int:recipe_id>',views.deleteRecipe,name = 'delete'),
+	path('menu/tag/<int:tag_id>', views.tag_show_recipes, name="tag")
 ]
