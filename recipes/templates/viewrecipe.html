@@ -134,7 +134,7 @@
 
     <div class="menuform mt-5">Add comment:</div>
     <form action="{% url 'addcomment' result.id %}" method="GET">
-        <textarea class="w-100 mt-2" name="body"></textarea>
+        <textarea class="w-100 mt-2" name="body" required></textarea>
         <input type="submit" class="btn btn-primary">
     </form>
 

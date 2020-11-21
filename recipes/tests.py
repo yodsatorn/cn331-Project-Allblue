@@ -333,4 +333,7 @@ class RecipesTestCase(TestCase):
         self.assertEqual(response.status_code,200)
         self.assertTemplateUsed(response, 'viewrecipe.html')
 
-
+    def test_voteup_without_login(self):
+            """
+            If user voteup the comment without logged in it will redirect to login page
+            """

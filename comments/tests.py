@@ -44,5 +44,3 @@ class CommentsTestCase(TestCase):
         """Test comment str"""
         comment = Comments.objects.get(pk=1)
         self.assertTrue('User: 1 | Body: Great!!',comment.__str__())
-
-    
