@@ -23,7 +23,7 @@ Allblue is a web application for searching, finding and discussing your dream re
 
 1. ส่ง Requirement Report (ต้นฉบับ และ PDF)
 2. [Link to GitHub Repo <img src="static/logo/github.png" height="20px">](https://github.com/6110613228/cn331-Project-Allblue)
-3. [Link to Heroku <img src="static/logo/heroku.png" height="20px">](https://cn331-allblue.herokuapp.com/)
+3. [Link to Heroku <img src="static/logo/heroku.png" height="20px">](https://allblue-cn331.herokuapp.com)
 4. [Link to Pivotal Tracker <img src="static/logo/pivotaltracker.png" height="20px">](https://www.pivotaltracker.com/n/projects/2469972)
 
 # Iteration1
