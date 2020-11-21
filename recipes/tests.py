@@ -1,6 +1,6 @@
 from django.http import response
 from django.apps import apps
-from django.test import Client, TestCase
+from django.test import Client, TestCase ,RequestFactory
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.contrib.auth import authenticate
@@ -11,6 +11,8 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.db.models import ImageField
 from recipes.apps import RecipesConfig
 from django.shortcuts import redirect
+from comments.models import Comments
+
 
 
 # Create your tests here.
@@ -34,6 +36,8 @@ class RecipesTestCase(TestCase):
         tag3 = Tags.objects.create(tagName="Chinese food")
         # recipe3 was create by user2
         recipe3.user.add(user2)
+        # tag3 was tag by recipe3
+        recipe3.tag.add(tag3)
 
     # Test string
     def test_valid_str_recipes(self):
@@ -214,11 +218,114 @@ class RecipesTestCase(TestCase):
         self.assertTemplateUsed(response, 'my_recipes.html')
         self.assertTemplateUsed(response, 'layout-topnavRe.html')
 
-    #def test_add_recipe(self):
-    #   """Test add recipe"""
-    #    # user1 login
-    #    c = Client()
-    #    response = c.post(
-    #        "/login/", {"username": "user1", "password": "user1password"}, follow=True
-    #    )
+    #Test tag view recipes
+    def test_tag_view_reciep(self):
+        """
+        Test view menu by tag
+        """
+        c = Client()
+        t = Tags.objects.get(pk=3)
+        response = c.get(f'/recipes/menu/tag/{t.id}' , follow = True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'menu.html')
+
+
+    def test_voteUp_1(self):
+        """
+        Test vote up which user never vote any voteUp or voteDown
+        """
+        c = Client()
+        # user1 login
+        c.login(username='user1', password='user1password')
+        # check authenticate
+        user = authenticate(username="user1", password="user1password")
+        self.assertTrue((user is not None) and user.is_authenticated)
+        recipe = Recipes.objects.get(pk=3)
+        response = c.get(f'/recipes/view/recipe/voteup/{recipe.id}' , follow =True)
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response, 'viewrecipe.html')
+
+    def test_voteUp_2(self):
+        """
+        Test vote up which user has already voted down
+        """
+        c = Client()
+        # user1 login
+        c.login(username='user1', password='user1password')
+        # check authenticate
+        user = authenticate(username="user1", password="user1password")
+        self.assertTrue((user is not None) and user.is_authenticated)
+        recipe = Recipes.objects.get(pk=3)
+        u = User.objects.get(pk=1)
+        recipe.voteDown.add(u) # user1 has voted down before user1 voted up.
+        response = c.get(f'/recipes/view/recipe/voteup/{recipe.id}' , follow =True)
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response, 'viewrecipe.html')
+
+    def test_voteUp_3(self):
+        """
+        Test vote up which user has already voted up
+        """
+        c = Client()
+        # user1 login
+        c.login(username='user1', password='user1password')
+        # check authenticate
+        user = authenticate(username="user1", password="user1password")
+        self.assertTrue((user is not None) and user.is_authenticated)
+        recipe = Recipes.objects.get(pk=3)
+        u = User.objects.get(pk=1)
+        recipe.voteUp.add(u) # user1 has voted up before user1 voted up again.
+        response = c.get(f'/recipes/view/recipe/voteup/{recipe.id}' , follow =True)
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response, 'viewrecipe.html')
+
+    def test_voteDown_1(self):
+        """
+        Test vote down which user never vote any voteUp or voteDown
+        """
+        c = Client()
+        # user1 login
+        c.login(username='user1', password='user1password')
+        # check authenticate
+        user = authenticate(username="user1", password="user1password")
+        self.assertTrue((user is not None) and user.is_authenticated)
+        recipe = Recipes.objects.get(pk=3)
+        response = c.get(f'/recipes/view/recipe/votedown/{recipe.id}' , follow =True)
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response, 'viewrecipe.html')
+        
+    def test_voteDown_2(self):
+        """
+        Test vote up which user has already voted up
+        """
+        c = Client()
+        # user1 login
+        c.login(username='user1', password='user1password')
+        # check authenticate
+        user = authenticate(username="user1", password="user1password")
+        self.assertTrue((user is not None) and user.is_authenticated)
+        recipe = Recipes.objects.get(pk=3)
+        u = User.objects.get(pk=1)
+        recipe.voteUp.add(u) # user1 has voted up before user1 voted down.
+        response = c.get(f'/recipes/view/recipe/votedown/{recipe.id}' , follow =True)
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response, 'viewrecipe.html')
+    
+    def test_voteDown_3(self):
+        """
+        Test vote up which user has already voted down
+        """
+        c = Client()
+        # user1 login
+        c.login(username='user1', password='user1password')
+        # check authenticate
+        user = authenticate(username="user1", password="user1password")
+        self.assertTrue((user is not None) and user.is_authenticated)
+        recipe = Recipes.objects.get(pk=3)
+        u = User.objects.get(pk=1)
+        recipe.voteDown.add(u) # user1 has voted down before user1 voted down again.
+        response = c.get(f'/recipes/view/recipe/votedown/{recipe.id}' , follow =True)
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response, 'viewrecipe.html')
+
 
