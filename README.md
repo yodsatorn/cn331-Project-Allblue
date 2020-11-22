@@ -56,7 +56,7 @@ Allblue is a web application for searching, finding and discussing your dream re
 
 1. ส่ง Final Report (ต้นฉบับ และ PDF)
     - Link to final report]()
-2. Link to Demo Video Clip(https://help.talend.com/reader/Ovc10QFckCdvYbzxTECexA/EoAKa_oFqZFXH0aE0wNbHQ)
+2. [Link to Demo Video Clip](https://help.talend.com/reader/Ovc10QFckCdvYbzxTECexA/EoAKa_oFqZFXH0aE0wNbHQ)
 
 # Contributor
 - 6110613046 นายภัควัฒน์ อิสระวิศาลพล
