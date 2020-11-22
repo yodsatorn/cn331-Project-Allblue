@@ -121,7 +121,7 @@ class RecipesTestCase(TestCase):
         Test access to menu's page without login
         """
         c = Client()
-        response = c.get('/recipes/menu/')
+        response = c.get('/recipes/view/menus/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'menu.html')
         self.assertTemplateUsed(response, 'layout-topnavRe.html')
@@ -137,7 +137,7 @@ class RecipesTestCase(TestCase):
         response = c.post(
             '/login/', {'username': 'user1', 'password': 'user1password'}, follow=True
         )
-        response = c.get('/recipes/menu/')
+        response = c.get('/recipes/view/menus/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'menu.html')
         self.assertTemplateUsed(response, 'layout-topnavRe.html')
@@ -152,7 +152,7 @@ class RecipesTestCase(TestCase):
         reponse = c.post(
             '/menu/', {'q': 'steak', 'search_option': 'by_name'}, follow=True
         )
-        response1 = c.get('/recipes/menu/')
+        response1 = c.get('/recipes/view/menus/')
         self.assertEqual(response1.status_code, 200)
         self.assertTemplateUsed(response1, 'menu.html')
         self.assertTemplateUsed(response1, 'layout-topnavRe.html')
@@ -230,7 +230,7 @@ class RecipesTestCase(TestCase):
         """
         c = Client()
         t = Tags.objects.get(pk=3)
-        response = c.get(f'/recipes/menu/tag/{t.id}' , follow = True)
+        response = c.get(f'/recipes/view/menus/tag/{t.id}' , follow = True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'menu.html')
 
@@ -333,7 +333,24 @@ class RecipesTestCase(TestCase):
         self.assertEqual(response.status_code,200)
         self.assertTemplateUsed(response, 'viewrecipe.html')
 
+    #Test vote up without login
     def test_voteup_without_login(self):
-            """
-            If user voteup the comment without logged in it will redirect to login page
-            """
+        """
+        If user vote up the comment without logged in it will redirect to login page
+        """
+        c = Client()
+        recipe = Recipes.objects.get(pk=3)
+        response = c.get(f'/recipes/view/recipe/voteup/{recipe.id}' , follow =True)
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response, 'login.html')
+
+    #Test vote down with out login
+    def test_votedown_without_login(self):
+        """
+        If user vote down the comment without logged in it will redirect to login page
+        """
+        c = Client()
+        recipe = Recipes.objects.get(pk=3)
+        response = c.get(f'/recipes/view/recipe/votedown/{recipe.id}' , follow =True)
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response, 'login.html')
