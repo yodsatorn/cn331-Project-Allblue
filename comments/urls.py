@@ -3,8 +3,6 @@ from django.urls import path
 from . import views
 from index.views import view_login
 urlpatterns = [
-    path('recipes/',include('recipes.urls')),
     path('voteup/<int:recipe_id>/<int:id>', views.voteUp, name='voteup_comment'),
     path('votedown/<int:recipe_id>/<int:id>', views.voteDown, name='votedown_comment'),
-    path('login/', view_login, name='login')
     ]
