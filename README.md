@@ -55,7 +55,8 @@ Allblue is a web application for searching, finding and discussing your dream re
 ## Task
 
 1. ส่ง Final Report (ต้นฉบับ และ PDF)
-    - Link to final report]()
+    - [Link to final report (ต้นฉบับ)](https://drive.google.com/file/d/1Kh2vQgkVCuJzV2H64Tp-WHwbqMOqhB-k/view?usp=sharing)
+    - [Link to final report (PDF)](https://drive.google.com/file/d/1Kh2vQgkVCuJzV2H64Tp-WHwbqMOqhB-k/view?usp=sharing)
 2. [Link to Demo Video Clip](https://www.youtube.com/watch?v=FbSZzLmJVpc&feature=youtu.be)
 
 # Contributor
