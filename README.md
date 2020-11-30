@@ -22,6 +22,8 @@ Allblue is a web application for searching, finding and discussing your dream re
 ## Task
 
 1. ส่ง Requirement Report (ต้นฉบับ และ PDF)
+    - [Link to Progress report (ต้นฉบับ)](https://drive.google.com/file/d/1LDtTcWtCSNe6gfXW07oP4H6KKtHhqNeO/view?usp=sharing)
+    - [Link to Progress report (PDF)](https://drive.google.com/file/d/12PF-jwteLt-R31gZaUnBUtdz4pBHLYoR/view?usp=sharing)
 2. [Link to GitHub Repo <img src="static/logo/github.png" height="20px">](https://github.com/6110613228/cn331-Project-Allblue)
 3. [Link to Heroku <img src="static/logo/heroku.png" height="20px">](https://allblue-cn331.herokuapp.com)
 4. [Link to Pivotal Tracker <img src="static/logo/pivotaltracker.png" height="20px">](https://www.pivotaltracker.com/n/projects/2469972)
@@ -31,7 +33,8 @@ Allblue is a web application for searching, finding and discussing your dream re
 
 ## Task
 1. ส่ง Progress Report (ต้นฉบับ และ PDF)
-    - [Link to Progress report](https://drive.google.com/file/d/1SbDRpQRRB24FGDb-1hfh_Tg8hqm6iSpU/view?usp=sharing)
+    - [Link to Progress report (ต้นฉบับ)](https://drive.google.com/file/d/1TGeUkZPV3jSbWWZuxpu66oWxjzFcGwYF/view?usp=sharing)
+    - [Link to Progress report (PDF)](https://drive.google.com/file/d/1SbDRpQRRB24FGDb-1hfh_Tg8hqm6iSpU/view?usp=sharing)
     - [Link to Powerpoint iteration1](https://drive.google.com/file/d/1lxAUGT67Q4Erfz15mJ9dW-JxyH9C57u9/view?usp=sharing)
 
 # Iteration2
@@ -39,7 +42,8 @@ Allblue is a web application for searching, finding and discussing your dream re
 ## Task
 
 1. ส่ง Progress Report (ต้นฉบับ และ PDF)
-    - [Link to Progress report](https://drive.google.com/file/d/1aXq4SoJpTdPhGX6UZtc73h-zOqTdpXP9/view?usp=sharing)
+    - [Link to Progress report (ต้นฉบับ)](https://drive.google.com/file/d/1gaF6BaN91HuOEBTWt94ywbUKofV6C3vb/view?usp=sharing)
+    - [Link to Progress report (PDF)](https://drive.google.com/file/d/1aXq4SoJpTdPhGX6UZtc73h-zOqTdpXP9/view?usp=sharing)
     - [Link to Powerpoint iteration2](https://drive.google.com/file/d/1lfluWLFucrxkRFwXCn0MAgaKsbBAmJgT/view?usp=sharing)
 
 # Iteration3
@@ -47,7 +51,8 @@ Allblue is a web application for searching, finding and discussing your dream re
 ## Task
 
 1. ส่ง Progress Report (ต้นฉบับ และ PDF)
-    - [Link to Progress report]()
+    - [Link to Progress report (ต้นฉบับ)](https://drive.google.com/file/d/1OijbVWF3Ujkonj_ulhwoUJVkEIllPU0I/view?usp=sharing)
+    - [Link to Progress report (PDF)](https://drive.google.com/file/d/1V3Pa5vdOmY4fVVWNec1y27SpXDAlmD3w/view?usp=sharing)
     - [Link to Powerpoint iteration3]()
 
 # Project Final Report
